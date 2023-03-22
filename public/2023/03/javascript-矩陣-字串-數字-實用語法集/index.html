@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JavaScript 矩陣, 字串, 數字 實用語法集",
+  
+  "image": "https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg",
+  
+  "datePublished": "2023-03-22T00:00:00Z",
+  "dateModified": "2023-03-22T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Hsuan Hsiao",
+    
+    "image": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/03\/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hsuan's Coding Blog",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    }
+    
+  },
+  "description": "大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Yi-Hsuan Hsiao">
+<meta name="keywords" content="">
+<meta name="description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
+
+
+<meta property="og:description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 矩陣, 字串, 數字 實用語法集">
+<meta name="twitter:title" content="JavaScript 矩陣, 字串, 數字 實用語法集">
+<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+<meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
+<meta property="og:description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
+<meta name="twitter:description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-03-22T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2023-03-22T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="JavaScript">
+    
+  
+  
+    
+      <meta property="article:tag" content="JavaScript">
+    
+      <meta property="article:tag" content="Front-end">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+
+
+    <title>JavaScript 矩陣, 字串, 數字 實用語法集</title>
+
+    <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://splendorous-muffin-6f4963.netlify.app/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
+        
+          <h5 class="sidebar-profile-bio">Full stack engineer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Hsuan19971005" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/hsuan-595697233/" target="_blank" rel="noopener" title="LinkedIn">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      JavaScript 矩陣, 字串, 數字 實用語法集
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-03-22T00:00:00Z">
+        
+  March 22, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/javascript">JavaScript</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。</p>
+<!-- raw HTML omitted -->
+<h2 id="1-string-使用方法">1. String 使用方法</h2>
+<p><strong>字串轉矩陣 Convert string to array:</strong></p>
+<p>在確認是否轉換成功時要使用<code>isArray</code>， 不能使用<code>typeof</code>(<code>typeof </code>回傳結果是<code>&quot;number&quot;</code>)</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// ES6 ...
+[...str]
+ex: let arr = [...&#34;123&#34;] // [&#34;1&#34;,&#34;2&#34;,&#34;3&#34;]
+
+// split()
+str.split()
+ex: &#34;123&#34;.split(&#34;&#34;) // [&#34;1&#34;,&#34;2&#34;,&#34;3&#34;]
+ex: &#34;123&#34;.split() // [&#34;123&#34;]
+
+// Array.from()
+Array.from(str)
+ex: Array.from(&#34;123&#34;) // [&#34;1&#34;,&#34;2&#34;,&#34;3&#34;]</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p><strong>字串中取出字串 Extract string from string:</strong>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">//slice， startIndex ~ endIndex，endIndex 不包括在內，回傳新 string，原 string 不變
+//str.slice(startIndex, endIndex);
+ex: &#34;01234&#34;.slice(1, 3); // &#34;12&#34;
+ex: &#34;01234&#34;.slice(3, 1000); // &#34;34&#34;
+ex: &#34;01234&#34;.slice(3); // &#34;34&#34;
+ex: &#34;01234&#34;.slice(-100, 3); // &#34;12&#34;
+
+//類似矩陣 index 的取用法
+str[index];
+ex: &#34;012&#34;[1]; // &#34;1&#34;
+// 超出範圍不會壞，在迴圈中的控制中就不太需要擔心
+ex: &#34;012&#34;[-100]; // undefined
+ex: &#34;012&#34;[100]; // undefined</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<hr>
+<p><strong>合併字串 Merge strings:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// backtick ``，較推薦的使用法
+`${str1}${str2}`ex: let str1=&#34;Hi&#34;, str2=&#34;my love!&#34;
+   `${str1}, ${str2}` // &#34;Hi, my love!&#34;
+
+// &#43; operator
+str1 &#43; str2
+ex: &#34;Hi&#34; &#43; &#34;, &#34; &#43; &#34;my love!&#34; // &#34;Hi, my love!&#34;
+
+// Array.concat
+// 使用法寫在 Convert Array to String 區域</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>字串替換 String replacement:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// replace()，替換從頭遇到的第一個遇到的字串，回傳新字串，原字串不變
+str.replace(pattern, replacement)
+ex:
+let str = &#34;cat dog cat duck&#34;
+str.replace(&#34;cat&#34;,&#34;KITTY&#34;) // &#34;KITTY dog cat duck&#34;
+str.replace(/cat/,&#34;KITTY&#34;) // &#34;KITTY dog cat duck&#34;
+
+//replaceAll，替換全部符合的字串，回傳新字串，原字串不變
+str.replaceAll(pattern, replacement)
+str.replaceAll(&#34;cat&#34;,&#34;KITTY&#34;) // &#34;KITTY dog KITTY duck&#34;
+str.replaceAll(/cat/g,&#34;KITTY&#34;) // &#34;KITTY dog KITTY duck&#34;
+
+//trim，修剪字串前後的空白
+str.trim()
+ex:&#34; Hello world! &#34;.trim() // &#34;Hello world!&#34;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>刪除或改變特定字元 Delete/Change char in string:</strong></p>
+<p>javascirpt 中的字串是不能直接更動的(immutable)，因此若要做到刪除、改變特定字元，就只能另外產生一個新的字串。
+無效操作 ex: <code>&quot;hello&quot;[0] = &quot;H&quot;</code></p>
+<p>可以使用 replace、slice 等產生新字串，或是將字串轉換成矩陣，經過處理後再接合成字串，如果需要反覆做出該操作，可以考慮自己寫成一個新的函式。</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">const replaceAt = function (index, replacement) {
+return this.slice(0, index) &#43; replacement &#43; this.slice(index &#43; 1);
+};</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>字串迴圈 String loop:</strong></p>
+<p>可以對字串使用一般的 while、for 迴圈，但考量到字串無法直接修改，還是建議先轉換成矩陣後再使用矩陣內建的迴圈方法，操作上較為靈活。</p>
+<hr>
+<p><strong>其他字串操作 Other string manipulations:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// toUpperCase、toLowerCase 轉大小寫
+str.toUpperCase();
+str.toLowerCase();
+ex: &#34;Hello!&#34;.toUpperCase(); // &#34;HELLO!&#34;
+ex: &#34;Hello!&#34;.toLowerCase(); // &#34;hello!&#34;
+
+// padStart、padEnd 填充字串的長度
+str.padStart(targetLength, padString);
+str.padEnd(targetLength, padString);
+ex: &#34;123&#34;.padStart(8, &#34;-&gt;&#34;); // &#34;-&gt;-&gt;-123&#34;
+ex: &#34;Hi&#34;.padEnd(5, &#34;~&#34;); // &#34;Hi~~~&#34;
+
+// repeat 重複字串
+str.repeat(count);
+ex: &#34;Happy!&#34;.repeat(3); // &#34;Happy!Happy!Happy!&#34;
+
+// charCodeAt 印出 UTF-16 Code
+str.charCodeAt(index);
+ex: &#34;Apple&#34;.charCodeAt(0); // 65</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<h2 id="2-number-使用方法">2. Number 使用方法</h2>
+<p><strong>數字轉字串 Number to string:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">//toString or String() 閱讀上比較直覺的好寫法
+num.toString();
+String(num);
+ex: (3.14).toString(); // &#34;3.14&#34;
+ex: String(3.14); // &#34;3.14&#34;
+
+// 利用自動轉型，不太推薦此方法，但是在某些特定狀況可以順勢使用
+&#34;&#34; &#43; num;
+ex: &#34;&#34; &#43; 3.14; // &#34;3.14&#34;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>每ㄧ位數字轉矩陣 Number to array by digit:</strong></p>
+<p>要先將數字轉換成字串再轉換成矩陣</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">Array.form(num.toString(), Number); // 順便轉回數字
+Array.form(num.toString());
+ex: Array.from((3.14).toString(), Number); // [3, NaN, 1, 4]
+ex: Array.from((3.14).toString()); // [&#34;3&#34;, &#34;.&#34;, &#34;1&#34;, &#34;4&#34;]
+ex: Array.from(3.14); // [] 轉換失敗</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>數字運算 Number computing:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">//power 次方
+num1 ** num2;
+Math.pow(num1, num2);
+ex: 3 ** 4; // 3 的 4 次方 = 81
+ex: Math.pow(3, 4); // 81
+
+/ /進位相關操作
+// 四捨五入
+Math.round(num);
+num.toFixed(digits); // 會轉換成字串
+// 無條件捨去
+Math.floor(num);
+// 無條件進位
+Math.ceil(num);
+
+// Math 要針對特定位數的進位操作有局限性，常見操作如下：
+// 小數點後 2 位
+let num = 3.14159;
+console.log(Math.round(num _ 100) / 100); // 3.14
+console.log(Math.ceil(num _ 100) / 100); // 3.15
+console.log(Math.floor(num \* 100) / 100); // 3.14
+
+// \* % operator，基礎實用的運算子
+ex: (總秒數) =&gt; 小時, 分鐘, 秒;
+let hours = Math.floor(seconds / 60 / 60);
+let minutes = Math.floor((secondes / 60) % 60);
+let rest_seconds = Math.floor(seconds % 60);</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>轉換成數字是否成功 Conversion to number:</strong></p>
+<p>使用<code>Number</code>是最為簡單且直覺的，但是在確認是否轉換成功時要使用<code>isNaN</code>，不能使用<code>typeof</code>(<code>typeof NaN</code>回傳結果是<code>&quot;number&quot;</code>)</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">Number([1, 2, 3]); // NaN
+Number([1]); // 1
+Number(&#34;3.14&#34;); // 3.14
+Number(&#34;$100&#34;); // NaN
+
+isNaN(&#34;$100&#34;); // true</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<h2 id="3-array-使用方法">3. Array 使用方法</h2>
+<p><strong>矩陣迴圈 Array loop:</strong></p>
+<p>array 自帶的迴圈已經可以應付大多數的使用時機，可讀性與方便性也比一般的 for、while 迴圈要來得好，可以說是一定要熟悉的語法。
+記住：</p>
+<blockquote>
+<p>如果在迴圈外面定義了一個變數，然後在迴圈裡面不斷的用它，八成都有更好的寫法</p>
+</blockquote>
+<p>篇幅有限，矩陣自帶迴圈的用法與原理這裡不多贅述。</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">arr.forEach((element,index,array)=&gt;{})
+arr.map((element,index,array)=&gt;{}) // return new array
+arr.filter((element,index,array)=&gt;{}) // return new array
+arr.reduce((accumulator,currentValue,currentIndex,array)=&gt;{},initialValue) // return one value</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>找尋矩陣中的元素 Find within array:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// find()，從頭找尋第一個符合條件元素，回傳元素
+arr.find((element, index, array)=&gt;{})
+ex: [0,50,2,70,1].find((element)=&gt;element&gt;10) // 50
+
+// findIndex()，從頭找尋第一個符合條件元素，回傳元素的指標
+arr.find((element, index, array)=&gt;{})
+ex: [0,50,2,70,1].find((element)=&gt;element&gt;10) // 1
+
+// findLast()，從尾找尋第一個符合條件元素，回傳元素
+arr.find((element, index, array)=&gt;{})
+ex: [0,50,2,70,1].find((element)=&gt;element&gt;10) // 70
+
+//indexOf()，從頭找尋第一個符合條件的元素，回傳指標
+arr.indexOf(element, fromIndex)
+ex:
+let arr = [&#34;cat&#34;,&#34;dog&#34;,&#34;duck&#34;,&#34;dog&#34;]
+arr.indexOf(&#34;dog&#34;) // 1
+arr.indexOf(&#34;dog&#34;, 2) // 3
+arr.indexOf(&#34;lion&#34;) // -1 (沒找到)
+
+//includes ，找尋矩陣中是否有符合條件的元素，回傳真假值
+arr.includes(element, fromIndex)
+ex: [&#34;cat&#34;, &#34;dog&#34;].includes(&#34;dog&#34;) // true
+ex: [&#34;cat&#34;, &#34;dog&#34;].includes(&#34;lion&#34;) // false</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>矩陣轉字串 Convert array to string:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">//join，回傳新 string，原 array 不變
+//產生具有某些符號規律字串時的好工具
+arr.join();
+ex: [&#34;ab&#34;, &#34;cd&#34;].join(); //&#34;ab,cd&#34;
+ex: [&#34;ab&#34;, &#34;cd&#34;].join(&#34;&#34;); // &#34;abcd&#34;
+ex: [&#34;2023&#34;, &#34;01&#34;, &#34;01&#34;].join(&#34;-&#34;); // &#34;2023-01-01&#34;
+
+//toString() or String()，回傳新 string，原 array 不變
+arr.toString();
+ex: [&#34;Hi&#34;, &#34;baby!&#34;].toString(); //&#34;Hi,baby!&#34;
+ex: [&#34;Hi&#34;, [&#34;my&#34;, &#34;love!&#34;]].toString(); //&#34;Hi,my,love!&#34;
+ex: String([&#34;Hi&#34;, [&#34;my&#34;, &#34;love!&#34;]]); //&#34;Hi,my,love!&#34;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>合併矩陣 Merge arrays:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">//ES6 ... 漂亮且直覺的寫法
+[...arr1, ...arr2];
+ex: [...[0, 1, 2], ...[3, 4, 5]]; //[0,1,2,3,4,5]
+
+//concat(concatenate)，回傳新矩陣，原矩陣不變
+arr1.concat(arr2);
+ex: [1, 2].concat([3, 4]); // [1,2,3,4]
+
+//push&#43;...
+arr1.push(...arr2);
+ex: [1, 2].push(...[3, 4]); // [1,2,3,4]</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>矩陣元素的插入與刪除 Insertion and deletion of elements in array:</strong></p>
+<p>除了 ES6 的&hellip;，以及常見的 push、pop、Unshift、shift 以外，splice 的應用機會也是很多，使用時要注意 splice 是會改變原矩陣的！。</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">splice(start, deleteCount, item1, item2, itemN)
+
+ex:
+const months = [&#34;Jan&#34;, &#34;March&#34;, &#34;April&#34;, &#34;June&#34;];
+
+months.splice(1, 0, &#34;Feb&#34;); // Inserts at index 1
+console.log(months); // [&#34;Jan&#34;, &#34;Feb&#34;, &#34;March&#34;, &#34;April&#34;, &#34;June&#34;]
+
+months.splice(4, 1, &#34;May&#34;); // Replaces 1 element at index 4
+console.log(months); // [&#34;Jan&#34;, &#34;Feb&#34;, &#34;March&#34;, &#34;April&#34;, &#34;May&#34;]</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>矩陣元素排列 Sort array:</strong></p>
+<p>sort 原先是依據字串做排列，如果要做出依照數字大小排列的效果，就必須使用 function 作為引數。</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let arr = [20, 1, 50, 33, 0, 100];
+arr.sort();
+console.log(arr); // [ 0, 1, 100, 20, 33, 50 ]
+arr.sort((a, b) =&gt; a - b);
+console.log(arr); // [ 0, 1, 20, 33, 50, 100 ]
+arr.sort((a, b) =&gt; b - a);
+console.log(arr); // [ 100, 50, 33, 20, 1, 0 ]</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p><strong>矩陣複製 Array duplication:</strong></p>
+<p>矩陣的複製牽涉到 JavaScript 數值傳遞的原理，除了常見的 call by value、call by reference，還有特殊的 call by sharing，這會是一項需要另外探討的問題，這裡不做詳細討論，不過至少要知道<code>let newArr = oldArr</code>不是正確的複製方法。</p>
+<hr>
+<p><strong>其他矩陣操作 Other array manipulations:</strong></p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">// 分解巢狀矩陣
+[[], [[]]].flat(depth);
+ex: [0, 1, [2, [3, 4]]].flat(2); // [0,1,2,3,4]
+ex: [0, 1, [2, [3, 4]]].flat(Infinity); // [0,1,2,3,4]
+
+// isArray 辨別是不是矩陣，使用 typeof 不太準確
+Array.isArray(value);
+ex: Array.isArray([1, 2]); // true
+ex: Array.isArray(&#34;1,2&#34;); // false</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<h2 id="4-操作範例-demonstration">4. 操作範例 Demonstration</h2>
+<p>Q: 找出價格大於$200 的商品，並依據價格排列</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let food = [
+{name: &#34;cake&#34;, price: 100},
+{name: &#34;fruit&#34;, price: 300},
+{name: &#34;water&#34;, price: 5},
+];
+let products = [
+{name: &#34;car&#34;, price: 30000},
+{name: &#34;book&#34;, price: 500},
+{name: &#34;pencil&#34;, price: 10},
+];
+let highPrice = [...food, ...products].filter((e) =&gt; e.price &gt; 200);
+highPrice.sort((e1, e2) =&gt; e1.price - e2.price);
+
+console.log(highPrice);
+/\*[
+{ name: &#39;fruit&#39;, price: 300 },
+{ name: &#39;book&#39;, price: 500 },
+{ name: &#39;car&#39;, price: 30000 }
+]\*/</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p>Q: 每個單字的開頭大寫</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let str = &#34;cat dog duck lion rabbit snake&#34;;
+let splitStr = str.split(&#34; &#34;).map((e) =&gt; e[0].toUpperCase() &#43; e.slice(1));
+str = splitStr.join(&#34; &#34;);
+console.log(str); // Cat Dog Duck Lion Rabbit Snake\*</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<p>Q: 顯示產品項目的種類</p>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let products = [&#34;book&#34;, &#34;car&#34;, &#34;car&#34;, &#34;phone&#34;, &#34;book&#34;, &#34;computer&#34;];
+console.log(
+products.filter((element, index, array) =&gt; array.includes(element, index &#43; 1) === false)
+);
+// [ &#39;car&#39;, &#39;phone&#39;, &#39;book&#39;, &#39;computer&#39; ]</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/javascript/">JavaScript</a>
+
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/front-end/">Front-end</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://splendorous-muffin-6f4963.netlify.app%25!%28EXTRA%20string=https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/%29" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/03\/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86\/';
+        
+          this.page.identifier = '\/2023\/03\/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 Yi-Hsuan Hsiao. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://splendorous-muffin-6f4963.netlify.app%25!%28EXTRA%20string=https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/%29" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://splendorous-muffin-6f4963.netlify.app%25!%28EXTRA%20string=https%3A%2F%2Fsplendorous-muffin-6f4963.netlify.app%2F2023%2F03%2Fjavascript-%25E7%259F%25A9%25E9%2599%25A3-%25E5%25AD%2597%25E4%25B8%25B2-%25E6%2595%25B8%25E5%25AD%2597-%25E5%25AF%25A6%25E7%2594%25A8%25E8%25AA%259E%25E6%25B3%2595%25E9%259B%2586%2F%29" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Yi-Hsuan Hsiao</h4>
+    
+      <div id="about-card-bio">Full stack engineer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Full stack engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taoyaun Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://splendorous-muffin-6f4963.netlify.app/images/clem-onojeghuo.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://splendorous-muffin-6f4963.netlify.app/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

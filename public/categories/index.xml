@@ -1,45 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo tranquilpeak theme HSUAN</title>
+    <title>Categories on Hsuan&#39;s Coding Blog</title>
     <link>https://splendorous-muffin-6f4963.netlify.app/categories/</link>
-    <description>Recent content in Categories on Hugo tranquilpeak theme HSUAN</description>
+    <description>Recent content in Categories on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>releases</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/categories/releases/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>JavaScript</title>
+      <link>https://splendorous-muffin-6f4963.netlify.app/categories/javascript/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/categories/releases/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tranquilpeak</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/categories/tranquilpeak/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://splendorous-muffin-6f4963.netlify.app/categories/tranquilpeak/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>showcase</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/categories/showcase/</link>
-      <pubDate>Sun, 14 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://splendorous-muffin-6f4963.netlify.app/categories/showcase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>features</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/categories/features/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://splendorous-muffin-6f4963.netlify.app/categories/features/</guid>
+      <guid>https://splendorous-muffin-6f4963.netlify.app/categories/javascript/</guid>
       <description></description>
     </item>
     
