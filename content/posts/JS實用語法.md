@@ -20,11 +20,11 @@ thumbnailImage: images/js-garbriel.jpg
 
 **字串轉矩陣 Convert string to array:**
 
-在確認是否轉換成功時要使用`isArray`， 不能使用`typeof`(`typeof `回傳結果是`"number"`)
+在確認是否轉換成功時要使用`isArray`，不能使用`typeof`(`typeof `回傳結果是`number`)
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
-// ES6 ...
+// ES6 spread syntax ...
 [...str]
 ex: let arr = [..."123"] // ["1","2","3"]
 
@@ -49,10 +49,10 @@ ex: "01234".slice(3, 1000); // "34"
 ex: "01234".slice(3); // "34"
 ex: "01234".slice(-100, 3); // "12"
 
-//類似矩陣 index 的取用法
+// 類似矩陣 index 的取用法
 str[index];
 ex: "012"[1]; // "1"
-// 超出範圍不會壞，在迴圈中的控制中就不太需要擔心
+// 超出範圍不會壞，在迴圈中的控制中就不太需要擔心超出範圍的問題
 ex: "012"[-100]; // undefined
 ex: "012"[100]; // undefined
 {{< /codeblock >}}
@@ -73,6 +73,7 @@ ex: "Hi" + ", " + "my love!" // "Hi, my love!"
 
 // Array.concat
 // 使用法寫在 Convert Array to String 區域
+
 {{< /codeblock >}}
 
 ---
@@ -81,19 +82,19 @@ ex: "Hi" + ", " + "my love!" // "Hi, my love!"
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
-// replace()，替換從頭遇到的第一個遇到的字串，回傳新字串，原字串不變
+// replace，替換從頭遇到的第一個遇到的字串，回傳新字串，原字串不變
 str.replace(pattern, replacement)
 ex:
 let str = "cat dog cat duck"
 str.replace("cat","KITTY") // "KITTY dog cat duck"
 str.replace(/cat/,"KITTY") // "KITTY dog cat duck"
 
-//replaceAll，替換全部符合的字串，回傳新字串，原字串不變
+// replaceAll，替換全部符合的字串，回傳新字串，原字串不變
 str.replaceAll(pattern, replacement)
 str.replaceAll("cat","KITTY") // "KITTY dog KITTY duck"
 str.replaceAll(/cat/g,"KITTY") // "KITTY dog KITTY duck"
 
-//trim，修剪字串前後的空白
+// trim，修剪字串前後的空白
 str.trim()
 ex:" Hello world! ".trim() // "Hello world!"
 {{< /codeblock >}}
@@ -102,10 +103,10 @@ ex:" Hello world! ".trim() // "Hello world!"
 
 **刪除或改變特定字元 Delete/Change char in string:**
 
-javascirpt 中的字串是不能直接更動的(immutable)，因此若要做到刪除、改變特定字元，就只能另外產生一個新的字串。
-無效操作 ex: `"hello"[0] = "H"`
+javascirpt 中的字串是不能直接更動的（immutable），因此若要做到刪除、改變特定字元，就只能另外產生一個新的字串。
+無效操作示範： `"hello"[0] = "H"`
 
-可以使用 replace、slice 等產生新字串，或是將字串轉換成矩陣，經過處理後再接合成字串，如果需要反覆做出該操作，可以考慮自己寫成一個新的函式。
+可以使用 replace、slice 等函式產生新字串，或是將字串轉換成矩陣，經過處理後再接合成新字串，此外，如果需要反覆做出該操作，也可以考慮自己寫成一個新的函式。
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
@@ -191,7 +192,7 @@ Math.pow(num1, num2);
 ex: 3 ** 4; // 3 的 4 次方 = 81
 ex: Math.pow(3, 4); // 81
 
-/ /進位相關操作
+// 進位相關操作
 // 四捨五入
 Math.round(num);
 num.toFixed(digits); // 會轉換成字串
@@ -226,7 +227,7 @@ Number([1]); // 1
 Number("3.14"); // 3.14
 Number("$100"); // NaN
 
-isNaN("$100"); // true
+isNaN(Number("$100")); // true
 {{< /codeblock >}}
 
 ---
@@ -268,7 +269,7 @@ ex: [0,50,2,70,1].find((element)=>element>10) // 1
 arr.find((element, index, array)=>{})
 ex: [0,50,2,70,1].find((element)=>element>10) // 70
 
-//indexOf()，從頭找尋第一個符合條件的元素，回傳指標
+// indexOf()，從頭找尋第一個符合條件的元素，回傳指標
 arr.indexOf(element, fromIndex)
 ex:
 let arr = ["cat","dog","duck","dog"]
@@ -276,7 +277,7 @@ arr.indexOf("dog") // 1
 arr.indexOf("dog", 2) // 3
 arr.indexOf("lion") // -1 (沒找到)
 
-//includes ，找尋矩陣中是否有符合條件的元素，回傳真假值
+// includes ，找尋矩陣中是否有符合條件的元素，回傳真假值
 arr.includes(element, fromIndex)
 ex: ["cat", "dog"].includes("dog") // true
 ex: ["cat", "dog"].includes("lion") // false
@@ -288,8 +289,8 @@ ex: ["cat", "dog"].includes("lion") // false
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
-//join，回傳新 string，原 array 不變
-//產生具有某些符號規律字串時的好工具
+// join，回傳新 string，原 array 不變
+// 產生具有某些符號規律字串時的好工具
 arr.join();
 ex: ["ab", "cd"].join(); //"ab,cd"
 ex: ["ab", "cd"].join(""); // "abcd"
@@ -308,15 +309,15 @@ ex: String(["Hi", ["my", "love!"]]); //"Hi,my,love!"
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
-//ES6 ... 漂亮且直覺的寫法
+// ES6 spread syntax ... 漂亮且直覺的寫法
 [...arr1, ...arr2];
 ex: [...[0, 1, 2], ...[3, 4, 5]]; //[0,1,2,3,4,5]
 
-//concat(concatenate)，回傳新矩陣，原矩陣不變
+// concat(concatenate)，回傳新矩陣，原矩陣不變
 arr1.concat(arr2);
 ex: [1, 2].concat([3, 4]); // [1,2,3,4]
 
-//push+...
+// push + ...
 arr1.push(...arr2);
 ex: [1, 2].push(...[3, 4]); // [1,2,3,4]
 {{< /codeblock >}}
@@ -325,7 +326,7 @@ ex: [1, 2].push(...[3, 4]); // [1,2,3,4]
 
 **矩陣元素的插入與刪除 Insertion and deletion of elements in array:**
 
-除了 ES6 的...，以及常見的 push、pop、Unshift、shift 以外，splice 的應用機會也是很多，使用時要注意 splice 是會改變原矩陣的！。
+除了 ES6 的 spread syntax ...，以及常見的 push、pop、Unshift、shift 以外，splice 的應用機會也是很多，使用時要注意 splice 是會改變原矩陣的！。
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
@@ -403,11 +404,12 @@ let highPrice = [...food, ...products].filter((e) => e.price > 200);
 highPrice.sort((e1, e2) => e1.price - e2.price);
 
 console.log(highPrice);
-/\*[
+Output:
+[
 { name: 'fruit', price: 300 },
 { name: 'book', price: 500 },
 { name: 'car', price: 30000 }
-]\*/
+]
 {{< /codeblock >}}
 
 ---
@@ -419,7 +421,7 @@ Q: 每個單字的開頭大寫
 let str = "cat dog duck lion rabbit snake";
 let splitStr = str.split(" ").map((e) => e[0].toUpperCase() + e.slice(1));
 str = splitStr.join(" ");
-console.log(str); // Cat Dog Duck Lion Rabbit Snake\*
+console.log(str); // Cat Dog Duck Lion Rabbit Snake
 {{< /codeblock >}}
 
 ---
