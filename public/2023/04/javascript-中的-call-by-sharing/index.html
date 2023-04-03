@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JavaScript 中的 Call by sharing ",
+  
+  "image": "https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg",
+  
+  "datePublished": "2023-04-03T00:00:00Z",
+  "dateModified": "2023-04-03T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Hsuan Hsiao",
+    
+    "image": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hsuan's Coding Blog",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    }
+    
+  },
+  "description": "Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Yi-Hsuan Hsiao">
+<meta name="keywords" content="">
+<meta name="description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+
+
+<meta property="og:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 中的 Call by sharing ">
+<meta name="twitter:title" content="JavaScript 中的 Call by sharing ">
+<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
+<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
+<meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
+<meta property="og:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta name="twitter:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-04-03T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2023-04-03T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="JavaScript">
+    
+  
+  
+    
+      <meta property="article:tag" content="JavaScript">
+    
+      <meta property="article:tag" content="Front-end">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+
+
+    <title>JavaScript 中的 Call by sharing </title>
+
+    <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://splendorous-muffin-6f4963.netlify.app/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
+        
+          <h5 class="sidebar-profile-bio">Full stack developer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Hsuan19971005" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/hsuan-595697233/" target="_blank" rel="noopener" title="LinkedIn">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      JavaScript 中的 Call by sharing 
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-03T00:00:00Z">
+        
+  April 3, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/javascript">JavaScript</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。</p>
+<!-- raw HTML omitted -->
+<h2 id="1-data-type">1. Data Type</h2>
+<p>JavaScript 的資料類別可以分為：</p>
+<ul>
+<li>基本型別（Primitive）：string、number、boolean、null、undefined</li>
+<li>物件型別（Object）：object、symbol</li>
+</ul>
+<p>基本型別會以純值的形式存在，而物件型別則是由零或不同型別的值所組成。</p>
+<p>這邊之所以提及 Data Type 是因為資料類別會決定 call by value、call by reference、call by sharing 的運作時機。</p>
+<h2 id="2-變數的真實樣貌">2. 變數的真實樣貌</h2>
+<p>在提到 call by value 之前，我們先簡單講解平常看到的「變數」在程式中的真實樣貌。</p>
+<p>當我們宣告一個變數時，如：<code>let num = 1234</code>，程式會自動分配一份記憶體空間，空間內部可以存放我們想要的資料，並且給予該空間一個名字。
+以這段程式碼為例，<code>num</code>便是記憶體空間的名字（variable name），<code>123</code>是變數初始化後內部所存放的資料（variable value），另外還有我們平常看不到，用來標注空間所在位置的記憶體地址（memory address）。
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100" >
+  
+    <a class="fancybox" href="images/js-garbriel.jpg" data-fancybox="">
+  
+    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/variable_structure.jpeg" >
+  
+    </a>
+  
+  
+</div>
+</p>
+<h2 id="3-基本型別--物件型別">3. 基本型別 ＆ 物件型別</h2>
+<p>變數作為一個資料容器，當內部儲存的數值是基本型態時進行比較：
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let a = &#34;Dog&#34;;
+let b = &#34;Dog&#34;;
+let c = &#34;Cat&#34;;
+// 變數之間進行數值比較
+console.log(a === b); //true
+console.log(b === c); //false</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+基本型態下兩者的比較結果可想而知，比較式會取出兩變數內的「值」進行比較，但是當變數內部儲存的值是物件型態時，比較結果會有所不同：
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let a = {value: &#34;Dog&#34;};
+let b = {value: &#34;Dog&#34;};
+console.log(a === b); //false</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+明明變數 a, b 間的數值相同，但比較結果卻是false，
+其實這就是 call by value 和 call by reference 之間的差異了。</p>
+<h2 id="4-call-by-value">4. Call by Value</h2>
+<p>當變數內的數值是基本型別時，JavaScript 使用 call by value 的方式對變數內的值進行更新與傳遞。
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let a = 10
+let b = a
+console.log(`a=${a}, b=${b}`) // a=10, b=10
+
+b = 20
+console.log(`a=${a}, b=${b}`) // a=10, b=20</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+當 b 被初始化時，程式碼會分配一塊新的記憶體位置，並「複製」變數 a 內部的數值到新的記憶體空間中，因此儘管兩者的值是一樣的，兩個變數是實際上仍是指向完全不同的記憶體區塊，所以當變數 b 的數值更動時並不會影響到變數 a 內部的數值。
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100" >
+  
+    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/passedByValue.png" data-fancybox="">
+  
+    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/passedByValue.png" >
+  
+    </a>
+  
+  
+</div>
+</p>
+<h2 id="5-call-by-reference">5. Call by reference</h2>
+<p>當變數內的數值是物件型別時，JavaScript 使用 call by reference 的方式對變數內的值進行更新與傳遞。
+物件型別的資料與基本型別不同，可以彈性的進行擴充、修改與刪除，因此其記憶體空間的分配方式與單一變數不同，其實是多個不相鄰的記憶體空間串接而成，就像火車般由一節一節的車廂組成，我們可以隨意的新增、刪除車廂，或改變車廂的連接順序，變數所指向的不是車廂內的數值，而是火車的車頭，當我們要取用某節車廂的數值時，都要先透過車頭去找到對應的車廂，再取出其中的數值。
+在下面的程式碼中，變數 a 與變數 b，都指向了同一個記憶體區塊，也就是同一輛火車頭，因此當其中的數值被修改時，透過 a 或 b 都會得到被修改後的結果（因為取得的數值都是來自同一節車廂）。
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let a = {value: 10}
+let b = a
+console.log(a === b) // true，a與b所指向的記憶體位置相同
+console.log(`a.value=${a.value}, b.value=${b.value}`) // a.value=10, b.value=10
+
+b.value = 20 // 透過 b 對其中一個資料區塊的數值進行修改
+console.log(`a.value=${a.value}, b.value=${b.value}`) // a.value=20, b.value=20</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100" >
+  
+    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/reference_train.png" data-fancybox="">
+  
+    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/reference_train.png" >
+  
+    </a>
+  
+  
+</div>
+</p>
+<p>如此便可以解釋先前的程式碼了：
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let a = {value: &#34;Dog&#34;};
+let b = {value: &#34;Dog&#34;};
+console.log(a === b); //false，a 與 b 指向的是完全不同的記憶體地址（兩者是不同的火車頭）</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<h2 id="6-call-by-sharing">6. Call by sharing</h2>
+<p>Call by sharing可以說是call by reference中的特例，特點在於：當物件作為function的參數傳入時，如果對該物件在function內部中重新賦值，外部的物件的內容是不會被修改的。</p>
+<p>範例1：function內部對物件進行修改
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">obj1 = {value: 100}
+function changeValue(obj) {
+    obj.value = 300;
+}
+changeValue(obj1);
+console.log(`obj1.value = ${obj1.value}`); // obj1.value = 300 數值被修變了</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>範例2：function內部對物件進行重新賦值
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">obj1 = {value: 100}
+function giveNewValue(obj) {
+    obj = { value: 300 };
+}
+giveNewValue(obj1);
+console.log(`obj1.value = ${obj1.value}`); // obj1.value = 100 數值不變</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>常見的 array 也是屬於物件型別，因此也符合 call by sharing 的運作規則：
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight js language-js">
+  <figcaption>
+    
+      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-js js"><code class="js">let array1 = [0, 1, 2];
+let array2 = [0, 1, 2];
+
+function changeArrValue(arr) {
+    arr.push(4);
+}
+function giveNewArrValue(arr) {
+    arr = [0, 0, 0, 0, 0, 0];
+}
+
+changeArrValue(array1); // 修改矩陣
+console.log(`array1 = ${array1}`); // array1 = [0,1,2,4] 數值被修變
+
+giveNewArrValue(array2); // 矩陣重新賦值
+console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/javascript/">JavaScript</a>
+
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/front-end/">Front-end</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/" data-tooltip="JavaScript 矩陣, 字串, 數字 實用語法集" aria-label="PREVIOUS: JavaScript 矩陣, 字串, 數字 實用語法集">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 Yi-Hsuan Hsiao. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/" data-tooltip="JavaScript 矩陣, 字串, 數字 實用語法集" aria-label="PREVIOUS: JavaScript 矩陣, 字串, 數字 實用語法集">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Yi-Hsuan Hsiao</h4>
+    
+      <div id="about-card-bio">Full stack developer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Full stack developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taoyaun Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://splendorous-muffin-6f4963.netlify.app/images/clem-onojeghuo.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://splendorous-muffin-6f4963.netlify.app/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
