@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "JavaScript 中的 Call by sharing ",
+  "headline": "Rails ORM 常見的CRUD指令",
   
-  "image": "https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg",
+  "image": "https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png",
   
-  "datePublished": "2023-04-03T00:00:00Z",
-  "dateModified": "2023-04-03T00:00:00Z",
+  "datePublished": "2023-04-04T00:00:00Z",
+  "dateModified": "2023-04-04T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Yi-Hsuan Hsiao",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing\/" 
+    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。\n",
+  "description": "CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。\n",
   "keywords": []
 }
 
@@ -45,37 +45,39 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Yi-Hsuan Hsiao">
 <meta name="keywords" content="">
-<meta name="description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta name="description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
 
 
-<meta property="og:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta property="og:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 中的 Call by sharing ">
-<meta name="twitter:title" content="JavaScript 中的 Call by sharing ">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
+<meta property="og:title" content="Rails ORM 常見的CRUD指令">
+<meta name="twitter:title" content="Rails ORM 常見的CRUD指令">
+<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
+<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
-<meta property="og:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
-<meta name="twitter:description" content="Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。">
+<meta property="og:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
+<meta name="twitter:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2023-04-03T00:00:00">
+    <meta property="article:published_time" content="2023-04-04T00:00:00">
   
   
-    <meta property="article:modified_time" content="2023-04-03T00:00:00">
+    <meta property="article:modified_time" content="2023-04-04T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="JavaScript">
-    
   
   
     
-      <meta property="article:tag" content="JavaScript">
+      <meta property="article:section" content="Rails">
     
-      <meta property="article:tag" content="Front-end">
+  
+  
+    
+      <meta property="article:tag" content="Rails">
+    
+      <meta property="article:tag" content="Back-end">
+    
+      <meta property="article:tag" content="CRUD">
     
   
 
@@ -95,18 +97,18 @@
 
 
 
-  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
-  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
+  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
 
 
-    <title>JavaScript 中的 Call by sharing </title>
+    <title>Rails ORM 常見的CRUD指令</title>
 
     <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/">
+    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -256,15 +258,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      JavaScript 中的 Call by sharing 
+      Rails ORM 常見的CRUD指令
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2023-04-03T00:00:00Z">
+      <time datetime="2023-04-04T00:00:00Z">
         
-  April 3, 2023
+  April 4, 2023
 
       </time>
     
@@ -273,7 +275,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/javascript">JavaScript</a>
+      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/rails">Rails</a>
     
   
 
@@ -283,47 +285,66 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。</p>
+              <p>CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。</p>
 <!-- raw HTML omitted -->
-<h2 id="1-data-type">1. Data Type</h2>
-<p>JavaScript 的資料類別可以分為：</p>
+<h2 id="create">Create</h2>
 <ul>
-<li>基本型別（Primitive）：string、number、boolean、null、undefined</li>
-<li>物件型別（Object）：object、symbol</li>
+<li><code>new</code>：產生新資料，但不會存檔</li>
+<li><code>create</code>：產生新資料，會直接存檔</li>
+<li><code>create!</code>：與create相同，但過程中發生錯誤時會報錯
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">new_book = Book.new(name: &#34;老人與海&#34;, price: 300)
+new_book.save
+
+Book.create(name: &#34;Les Misérables&#34;, author: &#34;Victor Hugo&#34;)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</li>
 </ul>
-<p>基本型別會以純值的形式存在，而物件型別則是由零或不同型別的值所組成。</p>
-<p>這邊之所以提及 Data Type 是因為資料類別會決定 call by value、call by reference、call by sharing 的運作時機。</p>
-<h2 id="2-變數的真實樣貌">2. 變數的真實樣貌</h2>
-<p>在提到 call by value 之前，我們先簡單講解平常看到的「變數」在程式中的真實樣貌。</p>
-<p>當我們宣告一個變數時，如：<code>let num = 1234</code>，程式會自動分配一份記憶體空間，空間內部可以存放我們想要的資料，並且給予該空間一個名字。
-以這段程式碼為例，<code>num</code>便是記憶體空間的名字（variable name），<code>123</code>是變數初始化後內部所存放的資料（variable value），另外還有我們平常看不到，用來標注空間所在位置的記憶體地址（memory address）。
-
-
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
-
-<div class="figure fig-100" >
-  
-    <a class="fancybox" href="images/js-garbriel.jpg" data-fancybox="">
-  
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/variable_structure.jpeg" >
-  
-    </a>
-  
-  
-</div>
-</p>
-<h2 id="3-基本型別--物件型別">3. 基本型別 ＆ 物件型別</h2>
-<p>變數作為一個資料容器，當內部儲存的數值是基本型態時進行比較：
+<h2 id="read">Read</h2>
+<ul>
+<li><code>all</code>：一次抓取所有資料</li>
+<li><code>limit()</code>：抓去特定數量資料</li>
+<li><code>first &amp; last</code>：找到該資料類型中的第一筆 &amp; 最後一筆資料</li>
+<li><code>find_by(id: 1)</code>：找到第一筆符合條件的資料，找不到會回傳<code>nil</code></li>
+<li><code>find_by!(id: 1)</code>：與find_by相同，但是找不到資料會報錯</li>
+<li><code>find(1)</code>：依據id找尋資料，找不到資料會報錯</li>
+<li><code>select('name')</code>：只抓出資料表中的特定欄位（資料表欄位太多時可以節省記憶體空間）</li>
+<li><code>where()</code>：以陣列的形式回傳找到的多筆符合條件的資料，找不到回傳空矩陣</li>
+<li><code>find_by_sql()</code>：使用sql語法查詢（較少使用）</li>
+<li><code>order('price AESC')</code>：依照遞增或遞減順序抓取所有資料</li>
+<li><code>order(price: :aesc)</code>：order的不同寫法</li>
+<li><code>find_each</code>：batch find寫法，預設先抓出1000筆資料，當資料量太多時使用
 
   
     
@@ -339,10 +360,171 @@
   
 
 
-<figure class="highlight js language-js">
+<figure class="highlight ruby language-ruby">
   <figcaption>
     
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.all
+Book.limit(5) // 抓取前五筆資料
+Book.first
+Book.last
+Book.find(id: 10)
+Book.find_by(id: 10, author: &#34;Victor Hugo&#34;) // 依據多個條件尋找 and
+Book.find_by!(id: 9999) //報錯： in `find_by!&#39;: Couldn&#39;t find Book (ActiveRecord::RecordNotFound)
+
+Book.find(10)
+Book.select(&#39;id&#39;, &#39;name&#39;)
+Book.select(&#39;id&#39;, &#39;name&#39;).find(10) //select搭配其他方法使用
+Book.find_by_sql(&#34;select * from books where id = 10&#34;)
+Book.order(&#39;price AESC&#39;) // AESC遞減，ASC遞增
+Book.order(price: :aesc)
+Book.order(&#39;price AESC&#39;).first //抓到價格最低的物件
+
+Book.find_each do |book|
+  ...
+end
+
+Book.where(&#39;price &lt; 500 and price &gt; 250&#39;)
+Book.where([&#34;name = :name and price &lt; :price&#34;,{name: &#34;老人與海&#34;, price: &#34;1000&#34;}])</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+以下指令可以解決Ruby迴圈執行效率太低的問題：</li>
+<li><code>count</code>：回傳資料總數</li>
+<li><code>average()</code>：回傳該欄位資料的平均</li>
+<li><code>sum()</code>：回傳該欄位資料的總和</li>
+<li><code>maximum()</code>：回傳全部資料中該欄位的最大值</li>
+<li><code>minimum()</code>：回傳全部資料中該欄位的最小值
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.count
+Book.sum(:price)
+Book.average(:price)
+Book.maximum(:price)
+Book.minimum(:price)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</li>
+</ul>
+<h2 id="update">Update</h2>
+<ul>
+<li><code>save</code>：儲存資料到資料庫中</li>
+<li><code>update()</code>：更新資料到資料庫中</li>
+<li><code>update_attribute()</code>：效果同update</li>
+<li><code>update_all()</code>：更新全部資料（謹慎使用!）</li>
+<li><code>increment &amp; decrement</code>：新增或減少1</li>
+<li><code>toggle</code>：切換boolean值
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">b2 = Book.find(2)
+b2.name = &#34;Finance&#34;
+b2.save
+
+b2.update(name: &#34;Commerial&#34;)
+Book.update_all(price: 1)
+
+b2.increment(:price).save // 單價&#43;1
+b2.decrement(:price).save // 單價-1
+
+b2.toggle(:is_online).save </code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</li>
+</ul>
+<h2 id="delete">Delete</h2>
+<ul>
+<li><code>delete</code>：刪除資料</li>
+<li><code>destroy</code>：刪除資料，會經歷Callback</li>
+<li><code>destroy_all()</code>：刪除符合條件的資料
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
     
   </figcaption>
   <table>
@@ -352,368 +534,19 @@
           <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let a = &#34;Dog&#34;;
-let b = &#34;Dog&#34;;
-let c = &#34;Cat&#34;;
-// 變數之間進行數值比較
-console.log(a === b); //true
-console.log(b === c); //false</code></pre>
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">b1 = Book.first
+b1.destroy
+b1.delete
+
+Book.delete(1)
+Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
-
-基本型態下兩者的比較結果可想而知，比較式會取出兩變數內的「值」進行比較，但是當變數內部儲存的值是物件型態時，比較結果會有所不同：
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let a = {value: &#34;Dog&#34;};
-let b = {value: &#34;Dog&#34;};
-console.log(a === b); //false</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-明明變數 a, b 間的數值相同，但比較結果卻是false，
-其實這就是 call by value 和 call by reference 之間的差異了。</p>
-<h2 id="4-call-by-value">4. Call by Value</h2>
-<p>當變數內的數值是基本型別時，JavaScript 使用 call by value 的方式對變數內的值進行更新與傳遞。
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let a = 10
-let b = a
-console.log(`a=${a}, b=${b}`) // a=10, b=10
-
-b = 20
-console.log(`a=${a}, b=${b}`) // a=10, b=20</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-當 b 被初始化時，程式碼會分配一塊新的記憶體位置，並「複製」變數 a 內部的數值到新的記憶體空間中，因此儘管兩者的值是一樣的，兩個變數是實際上仍是指向完全不同的記憶體區塊，所以當變數 b 的數值更動時並不會影響到變數 a 內部的數值。
-
-
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
-
-<div class="figure fig-100" >
-  
-    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/passedByValue.png" data-fancybox="">
-  
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/passedByValue.png" >
-  
-    </a>
-  
-  
-</div>
-</p>
-<h2 id="5-call-by-reference">5. Call by reference</h2>
-<p>當變數內的數值是物件型別時，JavaScript 使用 call by reference 的方式對變數內的值進行更新與傳遞。
-物件型別的資料與基本型別不同，可以彈性的進行擴充、修改與刪除，因此其記憶體空間的分配方式與單一變數不同，其實是多個不相鄰的記憶體空間串接而成，就像火車般由一節一節的車廂組成，我們可以隨意的新增、刪除車廂，或改變車廂的連接順序，變數所指向的不是車廂內的數值，而是火車的車頭，當我們要取用某節車廂的數值時，都要先透過車頭去找到對應的車廂，再取出其中的數值。
-在下面的程式碼中，變數 a 與變數 b，都指向了同一個記憶體區塊，也就是同一輛火車頭，因此當其中的數值被修改時，透過 a 或 b 都會得到被修改後的結果（因為取得的數值都是來自同一節車廂）。
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let a = {value: 10}
-let b = a
-console.log(a === b) // true，a與b所指向的記憶體位置相同
-console.log(`a.value=${a.value}, b.value=${b.value}`) // a.value=10, b.value=10
-
-b.value = 20 // 透過 b 對其中一個資料區塊的數值進行修改
-console.log(`a.value=${a.value}, b.value=${b.value}`) // a.value=20, b.value=20</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-
-
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
-
-<div class="figure fig-100" >
-  
-    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/reference_train.png" data-fancybox="">
-  
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/reference_train.png" >
-  
-    </a>
-  
-  
-</div>
-</p>
-<p>如此便可以解釋先前的程式碼了：
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let a = {value: &#34;Dog&#34;};
-let b = {value: &#34;Dog&#34;};
-console.log(a === b); //false，a 與 b 指向的是完全不同的記憶體地址（兩者是不同的火車頭）</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<h2 id="6-call-by-sharing">6. Call by sharing</h2>
-<p>Call by sharing可以說是call by reference中的特例，特點在於：當物件作為function的參數傳入時，如果對該物件在function內部中重新賦值，外部的物件的內容是不會被修改的。</p>
-<p>範例1：function內部對物件進行修改
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">obj1 = {value: 100}
-function changeValue(obj) {
-    obj.value = 300;
-}
-changeValue(obj1);
-console.log(`obj1.value = ${obj1.value}`); // obj1.value = 300 數值被修變了</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<p>範例2：function內部對物件進行重新賦值
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">obj1 = {value: 100}
-function giveNewValue(obj) {
-    obj = { value: 300 };
-}
-giveNewValue(obj1);
-console.log(`obj1.value = ${obj1.value}`); // obj1.value = 100 數值不變</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<p>常見的 array 也是屬於物件型別，因此也符合 call by sharing 的運作規則：
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight js language-js">
-  <figcaption>
-    
-      <span>javasript</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">js</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">let array1 = [0, 1, 2];
-let array2 = [0, 1, 2];
-
-function changeArrValue(arr) {
-    arr.push(4);
-}
-function giveNewArrValue(arr) {
-    arr = [0, 0, 0, 0, 0, 0];
-}
-
-changeArrValue(array1); // 修改矩陣
-console.log(`array1 = ${array1}`); // array1 = [0,1,2,4] 數值被修變
-
-giveNewArrValue(array2); // 矩陣重新賦值
-console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
+</li>
+</ul>
               
 
 
@@ -727,9 +560,11 @@ console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/javascript/">JavaScript</a>
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/rails/">Rails</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/front-end/">Front-end</a>
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/">Back-end</a>
+
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">CRUD</a>
 
                   </div>
                 
@@ -742,7 +577,7 @@ console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="NEXT: Rails ORM 常見的CRUD指令">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -750,7 +585,7 @@ console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/" data-tooltip="JavaScript 矩陣, 字串, 數字 實用語法集" aria-label="PREVIOUS: JavaScript 矩陣, 字串, 數字 實用語法集">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="PREVIOUS: JavaScript 中的 Call by sharing ">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -801,7 +636,7 @@ console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="NEXT: Rails ORM 常見的CRUD指令">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -809,7 +644,7 @@ console.log(`array2 = ${array2}`); // array2 = [0,1,2] 數值依然不變</code>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/" data-tooltip="JavaScript 矩陣, 字串, 數字 實用語法集" aria-label="PREVIOUS: JavaScript 矩陣, 字串, 數字 實用語法集">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="PREVIOUS: JavaScript 中的 Call by sharing ">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>

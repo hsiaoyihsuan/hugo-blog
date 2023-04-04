@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails ORM 常見的CRUD指令</title>
+      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</guid>
+      <description>&lt;p&gt;CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>JavaScript 中的 Call by sharing </title>
       <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
