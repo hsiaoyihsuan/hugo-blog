@@ -370,7 +370,7 @@ Book.create(name: &#34;Les Misérables&#34;, author: &#34;Victor Hugo&#34;)</cod
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.all
@@ -394,7 +394,8 @@ Book.find_each do |book|
 end
 
 Book.where(&#39;price &lt; 500 and price &gt; 250&#39;)
-Book.where([&#34;name = :name and price &lt; :price&#34;,{name: &#34;老人與海&#34;, price: &#34;1000&#34;}])</code></pre>
+Book.where([&#34;name = :name and price &lt; :price&#34;,{name: &#34;老人與海&#34;, price: &#34;1000&#34;}])
+Book.where(&#34;name LIKE ?&#34;,&#34;%#{params[:bookname]}%&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
