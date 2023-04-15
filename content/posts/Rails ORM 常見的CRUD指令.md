@@ -62,7 +62,7 @@ end
 
 Book.where('price < 500 and price > 250')
 Book.where(["name = :name and price < :price",{name: "老人與海", price: "1000"}])
-Book.where("name LIKE ?","%#{params[:bookname]}%")
+Book.where("name LIKE ?","%#{params[:bookname]}%") //部分匹配，抓取書籍名稱中與網頁參數部分相同者 
 {{< /codeblock >}}
 以下指令可以解決Ruby迴圈執行效率太低的問題：
 - `count`：回傳資料總數

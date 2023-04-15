@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Rails ORM 常見的CRUD指令",
+  "headline": "Rails 使用 PostgreSQL",
   
   "image": "https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png",
   
-  "datePublished": "2023-04-04T00:00:00Z",
-  "dateModified": "2023-04-04T00:00:00Z",
+  "datePublished": "2023-04-15T00:00:00Z",
+  "dateModified": "2023-04-15T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Yi-Hsuan Hsiao",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4\/" 
+    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/rails-%E4%BD%BF%E7%94%A8-postgresql\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。\n",
+  "description": "Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。\n",
   "keywords": []
 }
 
@@ -45,25 +45,25 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Yi-Hsuan Hsiao">
 <meta name="keywords" content="">
-<meta name="description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
+<meta name="description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
 
 
-<meta property="og:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
+<meta property="og:description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rails ORM 常見的CRUD指令">
-<meta name="twitter:title" content="Rails ORM 常見的CRUD指令">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
+<meta property="og:title" content="Rails 使用 PostgreSQL">
+<meta name="twitter:title" content="Rails 使用 PostgreSQL">
+<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
+<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
-<meta property="og:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
-<meta name="twitter:description" content="CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。">
+<meta property="og:description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
+<meta name="twitter:description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2023-04-04T00:00:00">
+    <meta property="article:published_time" content="2023-04-15T00:00:00">
   
   
-    <meta property="article:modified_time" content="2023-04-04T00:00:00">
+    <meta property="article:modified_time" content="2023-04-15T00:00:00">
   
   
   
@@ -77,7 +77,9 @@
     
       <meta property="article:tag" content="Back-end">
     
-      <meta property="article:tag" content="CRUD">
+      <meta property="article:tag" content="PostgreSQL">
+    
+      <meta property="article:tag" content="SQL">
     
   
 
@@ -101,14 +103,14 @@
   <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
 
 
-    <title>Rails ORM 常見的CRUD指令</title>
+    <title>Rails 使用 PostgreSQL</title>
 
     <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/">
+    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -258,15 +260,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Rails ORM 常見的CRUD指令
+      Rails 使用 PostgreSQL
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2023-04-04T00:00:00Z">
+      <time datetime="2023-04-15T00:00:00Z">
         
-  April 4, 2023
+  April 15, 2023
 
       </time>
     
@@ -285,268 +287,98 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。</p>
+              <p>Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 <strong>PostgreSQL</strong>，可參照此說明筆記進行操作。</p>
 <!-- raw HTML omitted -->
-<h2 id="create">Create</h2>
+<h2 id="安裝postgresql-on-mac">安裝PostgreSQL on Mac</h2>
+<ol>
+<li>使用 Homebrew套件管理工具安裝： <code>$ brew install postgresql</code>（預設安裝postgreSQL v14）</li>
+<li>安裝後重新啟動<code>$ brew services restart postgresql</code></li>
+<li>重新啟動Terminal</li>
+<li>查看版本<code>$ postgres --version</code>或<code>$ psql --version</code></li>
+</ol>
+<hr>
+<h2 id="在-rails-專案建立-postgresql-資料庫">在 Rails 專案建立 PostgreSQL 資料庫</h2>
+<h3 id="pre-requisites">Pre-requisites：</h3>
 <ul>
-<li><code>new</code>：產生新資料，但不會存檔</li>
-<li><code>create</code>：產生新資料，會直接存檔</li>
-<li><code>create!</code>：與create相同，但過程中發生錯誤時會報錯
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">new_book = Book.new(name: &#34;老人與海&#34;, price: 300)
-new_book.save
-
-Book.create(name: &#34;Les Misérables&#34;, author: &#34;Victor Hugo&#34;)</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</li>
+<li>確認已經在本機中安裝PostgreSQL</li>
+<li>本機中必須保持運行PostgreSQL，可透過<code>$ brew service list</code>查看運行狀況。
+:::info
+postgresql@14 started hsuan ~/Library/LaunchAgents/homebrew.mxcl.postgresql@14.plist
+:::
+相關啟動PostgreSQL操作指令：</li>
 </ul>
-<h2 id="read">Read</h2>
+<ol>
+<li>第一種方法是手動啟動和停止PostgreSQL，每次需要輸入相應的指令。</li>
+</ol>
+<pre tabindex="0"><code class="language-bash!" data-lang="bash!">psql -D /usr/local/var/postgres start
+psql -D /usr/local/var/postgres stop
+</code></pre><ol start="2">
+<li>使用 Homebrew 服務管理工具啟動和停止PostgreSQL。此方法將 PostgreSQL 服務作為系統常駐運行的服務，可在在系統啟動後自動啟動。</li>
+</ol>
+<pre tabindex="0"><code class="language-bash!" data-lang="bash!">$ brew services start postgresql
+$ brew services stop postgresql
+$ brew services restart postgresql
+</code></pre><h3 id="step1安裝pg-gem">Step1：安裝pg gem</h3>
 <ul>
-<li><code>all</code>：一次抓取所有資料</li>
-<li><code>limit()</code>：抓去特定數量資料</li>
-<li><code>first &amp; last</code>：找到該資料類型中的第一筆 &amp; 最後一筆資料</li>
-<li><code>find_by(id: 1)</code>：找到第一筆符合條件的資料，找不到會回傳<code>nil</code></li>
-<li><code>find_by!(id: 1)</code>：與find_by相同，但是找不到資料會報錯</li>
-<li><code>find(1)</code>：依據id找尋資料，找不到資料會報錯</li>
-<li><code>select('name')</code>：只抓出資料表中的特定欄位（資料表欄位太多時可以節省記憶體空間）</li>
-<li><code>where()</code>：以陣列的形式回傳找到的多筆符合條件的資料，找不到回傳空矩陣</li>
-<li><code>find_by_sql()</code>：使用sql語法查詢（較少使用）</li>
-<li><code>order('price AESC')</code>：依照遞增或遞減順序抓取所有資料</li>
-<li><code>order(price: :aesc)</code>：order的不同寫法</li>
-<li><code>find_each</code>：batch find寫法，預設先抓出1000筆資料，當資料量太多時使用
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.all
-Book.limit(5) // 抓取前五筆資料
-Book.first
-Book.last
-Book.find(id: 10)
-Book.find_by(id: 10, author: &#34;Victor Hugo&#34;) // 依據多個條件尋找 and
-Book.find_by!(id: 9999) //報錯： in `find_by!&#39;: Couldn&#39;t find Book (ActiveRecord::RecordNotFound)
-
-Book.find(10)
-Book.select(&#39;id&#39;, &#39;name&#39;)
-Book.select(&#39;id&#39;, &#39;name&#39;).find(10) //select搭配其他方法使用
-Book.find_by_sql(&#34;select * from books where id = 10&#34;)
-Book.order(&#39;price AESC&#39;) // AESC遞減，ASC遞增
-Book.order(price: :aesc)
-Book.order(&#39;price AESC&#39;).first //抓到價格最低的物件
-
-Book.find_each do |book|
-  ...
-end
-
-Book.where(&#39;price &lt; 500 and price &gt; 250&#39;)
-Book.where([&#34;name = :name and price &lt; :price&#34;,{name: &#34;老人與海&#34;, price: &#34;1000&#34;}])
-Book.where(&#34;name LIKE ?&#34;,&#34;%#{params[:bookname]}%&#34;) //部分匹配，抓取書籍名稱中與網頁參數部分相同者 </code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-以下指令可以解決Ruby迴圈執行效率太低的問題：</li>
-<li><code>count</code>：回傳資料總數</li>
-<li><code>average()</code>：回傳該欄位資料的平均</li>
-<li><code>sum()</code>：回傳該欄位資料的總和</li>
-<li><code>maximum()</code>：回傳全部資料中該欄位的最大值</li>
-<li><code>minimum()</code>：回傳全部資料中該欄位的最小值
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.count
-Book.sum(:price)
-Book.average(:price)
-Book.maximum(:price)
-Book.minimum(:price)</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</li>
+<li>方法1：建立新專案時就選擇使用 PostgreSQL：<code>$ rails new myapp --database=postgresql</code></li>
+<li>方法2：單純new新專案，接著安裝pg gem： <code>$ bundle add pg</code>+<code>$ bundle install</code>
+方法1較為推薦，可以讓rails自動幫妳生成相關設定，如果是使用方法2，則要將原先在Gemfile中的<code>gem sqlite3</code>手動移除，只保留<code>gem pg</code>（通常一個專案僅需要一個資料庫）</li>
 </ul>
-<h2 id="update">Update</h2>
+<h3 id="step2設定資料庫-adapter">Step2：設定資料庫 adapter</h3>
+<p>接著設定 Rails 專案的 config/database.yml（如果是使用&ndash;database=postgresql，Rails會自動設定好這部分的檔案）。
+如果原本是sqlite，可以使用指令切換資料庫來產生database.yml<code>$ rails db:system:change --to postgresql</code>，或是自行手動改寫檔案內容。
+database.yml</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">default</span>: <span style="color:#75715e">&amp;default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">adapter</span>: <span style="color:#ae81ff">postgresql</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">encoding</span>: <span style="color:#ae81ff">unicode</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>: <span style="color:#ae81ff">&lt;%= ENV.fetch(&#39;RAILS_MAX_THREADS&#39;) { 5 } %&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">development</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;&lt;</span>: <span style="color:#75715e">*default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">database</span>: <span style="color:#ae81ff">YOUR_PROJECT_NAME_WITH_PG_development</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;&lt;</span>: <span style="color:#75715e">*default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">database</span>: <span style="color:#ae81ff">YOUR_PROJECT_NAME_WITH_PG_test</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">production</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;&lt;</span>: <span style="color:#75715e">*default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">database</span>: <span style="color:#ae81ff">YOUR_PROJECT_NAME_WITH_PG_production</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">username</span>: <span style="color:#ae81ff">YOUR_PROJECT_NAME_WITH_PG</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>: <span style="color:#ae81ff">&lt;%= ENV[&#39;YOUR_PROJECT_NAME_WITH_PG_DATABASE_PASSWORD&#39;] %&gt;</span>
+</span></span></code></pre></div><h3 id="step3建立專案資料庫">Step3：建立專案資料庫</h3>
+<p>有三種狀況：</p>
 <ul>
-<li><code>save</code>：儲存資料到資料庫中</li>
-<li><code>update()</code>：更新資料到資料庫中</li>
-<li><code>update_attribute()</code>：效果同update</li>
-<li><code>update_all()</code>：更新全部資料（謹慎使用!）</li>
-<li><code>increment &amp; decrement</code>：新增或減少1</li>
-<li><code>toggle</code>：切換boolean值
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">b2 = Book.find(2)
-b2.name = &#34;Finance&#34;
-b2.save
-
-b2.update(name: &#34;Commerial&#34;)
-Book.update_all(price: 1)
-
-b2.increment(:price).save // 單價&#43;1
-b2.decrement(:price).save // 單價-1
-
-b2.toggle(:is_online).save </code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</li>
+<li>狀況一：還沒建立資料庫，可以從rails專案建立對應的資料庫 (database.yml必須先設定好)：進入到rails console後使用指令<code>$ rails db:create</code>來自動建立資料庫，資料庫名稱會命名為<code>&lt;專案名稱&gt;_development</code></li>
+<li>狀況二：還沒建立資料庫，透過<code>$ psql</code>自行建立資料庫（相關指令於文章下方），資料庫名稱需與database.yml的設定相符</li>
+<li>狀況三：已經有原先的資料庫，並且有 <code>schema</code> 和 <code>seed</code>需要進行資料轉移，可以執行：<code>$ rails db:setup</code> 其效果等於 <code>db:create</code>+<code>db:schema:load</code>+<code>db:seed</code></li>
 </ul>
-<h2 id="delete">Delete</h2>
+<h3 id="step4執行-migration-啟動伺服器">Step4：執行 migration 啟動伺服器</h3>
+<ol>
+<li>執行<code>$ rails db:migrate</code></li>
+<li>執行<code>$ rails server</code></li>
+</ol>
+<hr>
+<h2 id="資料庫終端機其餘操作">資料庫終端機其餘操作</h2>
+<p><strong>解除安裝：</strong><code>$ brew uninstall postgres</code></p>
+<p><strong>查看所有資料庫資訊：</strong><code>$ pqsl -list</code> ，postgresSQL安裝後的默認資料庫是<code>postgres</code></p>
+<p><strong>建立或刪除資料庫</strong>：</p>
+<pre tabindex="0"><code class="language-bash!" data-lang="bash!">$ createdb &lt;new_database&gt; # 新增資料庫
+$ dropdb &lt;database&gt; # 刪除資料庫
+</code></pre><p><strong>進入資料庫：</strong><code>$ psql &lt;資料庫名稱&gt;</code></p>
+<pre tabindex="0"><code>psql (14.7 (Homebrew))
+Type &#34;help&#34; for help.
+&lt;資料庫名稱&gt;=#
+</code></pre><pre tabindex="0"><code class="language-bash!" data-lang="bash!">\q = exit
+\l = list
+</code></pre><h2 id="其他">其他：</h2>
+<p>圖形界面軟體推薦：<strong>Postico2</strong></p>
+<p>references:</p>
 <ul>
-<li><code>delete</code>：刪除資料</li>
-<li><code>destroy</code>：刪除資料，會經歷Callback</li>
-<li><code>destroy_all()</code>：刪除符合條件的資料
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">b1 = Book.first
-b1.destroy
-b1.delete
-
-Book.delete(1)
-Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</li>
+<li><a href="https://medium.com/geekculture/ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25">https://medium.com/geekculture/ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25</a></li>
+<li><a href="https://www.stevenchang.tw/blog/2019/06/27/Install-PostgreSQL-in-Rails-Project">https://www.stevenchang.tw/blog/2019/06/27/Install-PostgreSQL-in-Rails-Project</a></li>
+<li><a href="https://hackmd.io/T8Es4fcnSzWBikExD4n46g?view">https://hackmd.io/T8Es4fcnSzWBikExD4n46g?view</a></li>
+<li><a href="https://docs.postgresql.tw/">https://docs.postgresql.tw/</a></li>
 </ul>
               
 
@@ -565,7 +397,9 @@ Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
 
   <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/">Back-end</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">CRUD</a>
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/">PostgreSQL</a>
+
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/sql/">SQL</a>
 
                   </div>
                 
@@ -578,7 +412,7 @@ Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/" data-tooltip="Rails 使用 PostgreSQL" aria-label="NEXT: Rails 使用 PostgreSQL">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -586,7 +420,7 @@ Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="PREVIOUS: JavaScript 中的 Call by sharing ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -637,7 +471,7 @@ Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/" data-tooltip="Rails 使用 PostgreSQL" aria-label="NEXT: Rails 使用 PostgreSQL">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -645,7 +479,7 @@ Book.destroy_all(&#34;price &lt; 400&#34;)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="PREVIOUS: JavaScript 中的 Call by sharing ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
