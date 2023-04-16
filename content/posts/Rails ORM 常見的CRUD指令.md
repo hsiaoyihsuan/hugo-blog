@@ -42,6 +42,7 @@ Book.create(name: "Les Misérables", author: "Victor Hugo")
 {{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
 Book.all
 Book.limit(5) // 抓取前五筆資料
+Book.offset(5).limit(5) // 抓取下五筆資料
 Book.first
 Book.last
 Book.find(id: 10)
@@ -51,6 +52,7 @@ Book.find_by!(id: 9999) //報錯： in `find_by!': Couldn't find Book (ActiveRec
 Book.find(10)
 Book.select('id', 'name')
 Book.select('id', 'name').find(10) //select搭配其他方法使用
+Book.select('type').distinct //distinct會剔除重複的資料
 Book.find_by_sql("select * from books where id = 10")
 Book.order('price AESC') // AESC遞減，ASC遞增
 Book.order(price: :aesc)
@@ -61,6 +63,8 @@ Book.find_each do |book|
 end
 
 Book.where('price < 500 and price > 250')
+Book.where(price: 500, name: '老人與海')
+Book.where.not(price: 1000).or where(name: ['老人與海', 'Two walls'])
 Book.where(["name = :name and price < :price",{name: "老人與海", price: "1000"}])
 Book.where("name LIKE ?","%#{params[:bookname]}%") //部分匹配，抓取書籍名稱中與網頁參數部分相同者 
 {{< /codeblock >}}

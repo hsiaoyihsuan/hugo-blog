@@ -370,11 +370,12 @@ Book.create(name: &#34;Les Misérables&#34;, author: &#34;Victor Hugo&#34;)</cod
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.all
 Book.limit(5) // 抓取前五筆資料
+Book.offset(5).limit(5) // 抓取下五筆資料
 Book.first
 Book.last
 Book.find(id: 10)
@@ -384,6 +385,7 @@ Book.find_by!(id: 9999) //報錯： in `find_by!&#39;: Couldn&#39;t find Book (A
 Book.find(10)
 Book.select(&#39;id&#39;, &#39;name&#39;)
 Book.select(&#39;id&#39;, &#39;name&#39;).find(10) //select搭配其他方法使用
+Book.select(&#39;type&#39;).distinct //distinct會剔除重複的資料
 Book.find_by_sql(&#34;select * from books where id = 10&#34;)
 Book.order(&#39;price AESC&#39;) // AESC遞減，ASC遞增
 Book.order(price: :aesc)
@@ -394,6 +396,8 @@ Book.find_each do |book|
 end
 
 Book.where(&#39;price &lt; 500 and price &gt; 250&#39;)
+Book.where(price: 500, name: &#39;老人與海&#39;)
+Book.where.not(price: 1000).or where(name: [&#39;老人與海&#39;, &#39;Two walls&#39;])
 Book.where([&#34;name = :name and price &lt; :price&#34;,{name: &#34;老人與海&#34;, price: &#34;1000&#34;}])
 Book.where(&#34;name LIKE ?&#34;,&#34;%#{params[:bookname]}%&#34;) //部分匹配，抓取書籍名稱中與網頁參數部分相同者 </code></pre>
         </td>
