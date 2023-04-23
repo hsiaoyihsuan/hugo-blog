@@ -174,8 +174,8 @@ ex: "" + 3.14; // "3.14"
 要先將數字轉換成字串再轉換成矩陣
 
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
-Array.form(num.toString(), Number); // 順便轉回數字
-Array.form(num.toString());
+Array.from(num.toString(), Number); // 順便轉回數字
+Array.from(num.toString());
 ex: Array.from((3.14).toString(), Number); // [3, NaN, 1, 4]
 ex: Array.from((3.14).toString()); // ["3", ".", "1", "4"]
 ex: Array.from(3.14); // [] 轉換失敗

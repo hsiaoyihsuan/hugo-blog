@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Hsuan&#39;s Coding Blog</title>
+    <link>https://splendorous-muffin-6f4963.netlify.app/tags/ruby/</link>
+    <description>Recent content in Ruby on Hsuan&#39;s Coding Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby 實體方法 vs 類別方法</title>
+      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

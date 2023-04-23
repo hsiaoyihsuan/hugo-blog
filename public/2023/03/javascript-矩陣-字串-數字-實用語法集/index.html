@@ -656,8 +656,8 @@ ex: &#34;&#34; &#43; 3.14; // &#34;3.14&#34;</code></pre>
           <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-js js"><code class="js">Array.form(num.toString(), Number); // 順便轉回數字
-Array.form(num.toString());
+          <pre class="code-highlight language-js js"><code class="js">Array.from(num.toString(), Number); // 順便轉回數字
+Array.from(num.toString());
 ex: Array.from((3.14).toString(), Number); // [3, NaN, 1, 4]
 ex: Array.from((3.14).toString()); // [&#34;3&#34;, &#34;.&#34;, &#34;1&#34;, &#34;4&#34;]
 ex: Array.from(3.14); // [] 轉換失敗</code></pre>
