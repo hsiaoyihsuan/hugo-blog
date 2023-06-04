@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。\n較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。\n",
+  "description": "儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。 較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。\n",
   "keywords": []
 }
 
@@ -295,8 +295,8 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。</p>
-<p>較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。</p>
+              <p>儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。</p>
 <!-- raw HTML omitted -->
 <hr>
 <h2 id="create">Create</h2>
@@ -521,6 +521,82 @@ Book.pluck(&#34;name&#34;)</code></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-sql sql"><code class="sql">SELECT name FROM books</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>limit or offset:</strong>
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.limit(2)
+Book.limit(2).offset(1)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight sql language-sql">
+  <figcaption>
+    
+      <span>archives.sql</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.sql</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-sql sql"><code class="sql">SELECT * FROM books LIMIT 2
+SELECT * FROM books LIMIT 2 OFFSET 1</code></pre>
         </td>
       </tr>
     </tbody>
@@ -1242,7 +1318,7 @@ DELETE FROM books WHERE id = 100</code></pre>
 </li>
 </ul>
 <hr>
-<h2 id="進階sum-count-average-maximum-minimum">進階：sum, count, average, maximum, minimum</h2>
+<h2 id="進階sum-count-average-maximum-minimum-distinct">進階：sum, count, average, maximum, minimum, distinct</h2>
 
   
     
@@ -1268,14 +1344,15 @@ DELETE FROM books WHERE id = 100</code></pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.sum(:price)
 Book.count
 Book.average(:price)
 Book.maximum(:price)
-Book.minimum(:price)</code></pre>
+Book.minimum(:price)
+Book.select(:price).distinct</code></pre>
         </td>
       </tr>
     </tbody>
@@ -1307,14 +1384,15 @@ Book.minimum(:price)</code></pre>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-sql sql"><code class="sql">SELECT SUM(price) FROM books
 SELECT COUNT(*) FROM books
 SELECT AVG(price) FROM books
 SELECT MAX(price) FROM books
-SELECT MIN(price) FROM books</code></pre>
+SELECT MIN(price) FROM books
+SELECT DISTINCT(price) FROM books</code></pre>
         </td>
       </tr>
     </tbody>

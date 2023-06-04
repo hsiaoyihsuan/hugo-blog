@@ -13,8 +13,8 @@
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
-      <description>&lt;p&gt;儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。&lt;/p&gt;
-&lt;p&gt;較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。&lt;/p&gt;</description>
+      <description>&lt;p&gt;儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。&lt;/p&gt;</description>
     </item>
     
     <item>

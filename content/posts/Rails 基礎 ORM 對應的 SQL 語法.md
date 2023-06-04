@@ -13,7 +13,6 @@ thumbnailImagePosition: left
 thumbnailImage: images/RailsLogo.png
 ---
 儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。
-
 較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。
 <!--more-->
 
@@ -53,6 +52,17 @@ Book.pluck("name")
 {{< /codeblock >}}
 {{< codeblock "archives.sql" "sql" "http://underscorejs.org/#compact" "archives.sql" >}}
 SELECT name FROM books
+{{< /codeblock >}}
+
+---
+- **limit or offset:**
+{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+Book.limit(2)
+Book.limit(2).offset(1)
+{{< /codeblock >}}
+{{< codeblock "archives.sql" "sql" "http://underscorejs.org/#compact" "archives.sql" >}}
+SELECT * FROM books LIMIT 2
+SELECT * FROM books LIMIT 2 OFFSET 1
 {{< /codeblock >}}
 
 ---
@@ -185,13 +195,14 @@ DELETE FROM books WHERE id = 100
 
 ---
 
-## 進階：sum, count, average, maximum, minimum
+## 進階：sum, count, average, maximum, minimum, distinct
 {{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
 Book.sum(:price)
 Book.count
 Book.average(:price)
 Book.maximum(:price)
 Book.minimum(:price)
+Book.select(:price).distinct
 {{< /codeblock >}}
 
 {{< codeblock "archives.sql" "sql" "http://underscorejs.org/#compact" "archives.sql" >}}
@@ -200,6 +211,7 @@ SELECT COUNT(*) FROM books
 SELECT AVG(price) FROM books
 SELECT MAX(price) FROM books
 SELECT MIN(price) FROM books
+SELECT DISTINCT(price) FROM books
 {{< /codeblock >}}
 
 ---
