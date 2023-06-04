@@ -4,10 +4,15 @@
     
     <script type="application/ld+json">
 
-{  
-  "@context":"http://schema.org",
-  "@type":"Website",
-  "@id":"https:\/\/splendorous-muffin-6f4963.netlify.app",
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Rails 基礎 ORM SQL",
+  
+  "image": "https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png",
+  
+  "datePublished": "2023-06-04T00:00:00Z",
+  "dateModified": "2023-06-04T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Yi-Hsuan Hsiao",
@@ -15,10 +20,22 @@
     "image": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
     
   },
-  "name":"Hsuan\u0027s Coding Blog",
-  "description":"Hugo tranquilpeak theme demo",
-  "url":"https:\/\/splendorous-muffin-6f4963.netlify.app\/tags\/crud\/",
-  "keywords":"[]"
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/06\/rails-%E5%9F%BA%E7%A4%8E-orm-sql\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hsuan's Coding Blog",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    }
+    
+  },
+  "description": "儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。\n較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。\n",
+  "keywords": []
 }
 
 </script>
@@ -28,19 +45,49 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Yi-Hsuan Hsiao">
 <meta name="keywords" content="">
-<meta name="description" content="Hugo tranquilpeak theme demo">
+<meta name="description" content="儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。">
 
 
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CRUD">
-<meta name="twitter:title" content="CRUD">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">
+<meta property="og:description" content="儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails 基礎 ORM SQL">
+<meta name="twitter:title" content="Rails 基礎 ORM SQL">
+<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-sql/">
+<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-sql/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta name="twitter:description" content="Hugo tranquilpeak theme demo">
+<meta property="og:description" content="儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。">
+<meta name="twitter:description" content="儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。
+較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。">
 <meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-06-04T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2023-06-04T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Rails">
+    
+      <meta property="article:section" content="SQL">
+    
+  
+  
+    
+      <meta property="article:tag" content="Rails">
+    
+      <meta property="article:tag" content="Back-end">
+    
+      <meta property="article:tag" content="CRUD">
+    
+      <meta property="article:tag" content="SQL">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -58,17 +105,18 @@
 
 
 
+  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
+  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
 
-    <title>CRUD</title>
+
+    <title>Rails 基礎 ORM SQL</title>
 
     <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">
+    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-sql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -88,7 +136,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
@@ -108,7 +156,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -207,37 +255,21 @@
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
+    <h1 class="post-title">
+      Rails 基礎 ORM SQL
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title">
-      
-        <a class="link-unstyled" href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" aria-label="Open the post: Rails 基礎 ORM 的 SQL 語法">
-      
-          Rails 基礎 ORM 的 SQL 語法
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time datetime="2023-06-04T00:00:00Z">
@@ -259,96 +291,166 @@
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt">
-      
-        <p>儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。</p>
-<p>較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。</p>
-      
-      <p>
-        
-          <a href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" class="postShorten-excerpt_link link" aria-label="Open the post: Rails 基礎 ORM 的 SQL 語法">Continue reading</a>
-        
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" aria-label="Open the post: Rails 基礎 ORM 的 SQL 語法">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" src="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png"/>
-      </div>
-    </a>
-  
-</article>
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>儘管Rails開發者可以透過ActiveRecord簡單地操作資料庫資源，但仍然需要了解基本的SQL語法。以下是常見ORM指令的翻譯，可以幫助你真正理解背後的運作原理。</p>
+<p>較複雜的資料庫關係語法（例如：includes、join）將不在本文中討論，我們將在另一篇文章中探討這些內容。</p>
+<!-- raw HTML omitted -->
+<h2 id="create">Create</h2>
+<p>create:
+使用create創建資料，或在new之後save時會創建該筆資料</p>
 
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight ruby language-ruby">
+  <figcaption>
+    
+      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-ruby ruby"><code class="ruby">Book.create(name: &#34;學習Rails&#34;, author: &#34;Eddie&#34;, intro: &#34;學習Rails好幫手&#34;, price: 100)
+
+or
+
+Book.new(name: &#34;學習Rails&#34;, author: &#34;Eddie&#34;, intro: &#34;學習Rails好幫手&#34;, price: 100)
+Book.save</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight sql language-sql">
+  <figcaption>
+    
+      <span>archives.sql</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.sql</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-sql sql"><code class="sql">INSERT INTO books(name, author, intro, price, updated_at) VALUES (&#39;學習Rails&#39;, &#39;Eddie&#39;, &#39;學習Rails好幫手&#39;, 100, &#39;2023...&#39;)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
               
-  
-    
-  
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/rails/">Rails</a>
 
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/">Back-end</a>
 
-  
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">CRUD</a>
 
-<article class="postShorten postShorten--thumbnailimg-left">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title">
+  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/sql/">SQL</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
       
-        <a class="link-unstyled" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" aria-label="Open the post: Rails ORM 常見的CRUD指令">
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="PREVIOUS: Ruby 實體方法 vs 類別方法">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
       
-          Rails ORM 常見的CRUD指令
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time datetime="2023-04-04T00:00:00Z">
-        
-  April 4, 2023
-
-      </time>
-    
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
     
   
   
-    <span>in</span>
+  <li class="post-action">
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/rails">Rails</a>
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
     
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt">
-      
-        <p>CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。</p>
-      
-      <p>
-        
-          <a href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" class="postShorten-excerpt_link link" aria-label="Open the post: Rails ORM 常見的CRUD指令">Continue reading</a>
-        
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" aria-label="Open the post: Rails ORM 常見的CRUD指令">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" src="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png"/>
-      </div>
     </a>
+  </li>
+</ul>
+</div>
+
+
+            
   
-</article>
 
-            
-            
 
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2023 Yi-Hsuan Hsiao. All Rights Reserved
@@ -356,6 +458,55 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="PREVIOUS: Ruby 實體方法 vs 類別方法">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+
     </div>
     
     <div id="about">

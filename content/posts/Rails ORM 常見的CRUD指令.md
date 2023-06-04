@@ -64,7 +64,7 @@ end
 
 Book.where('price < 500 and price > 250')
 Book.where(price: 500, name: '老人與海')
-Book.where.not(price: 1000).or where(name: ['老人與海', 'Two walls'])
+Book.where.not(price: 1000).or Book.where(name: ['老人與海', 'Two walls'])
 Book.where(["name = :name and price < :price",{name: "老人與海", price: "1000"}])
 Book.where("name LIKE ?","%#{params[:bookname]}%") //部分匹配，抓取書籍名稱中與網頁參數部分相同者 
 {{< /codeblock >}}

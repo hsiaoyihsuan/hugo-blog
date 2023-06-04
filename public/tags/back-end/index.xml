@@ -6,7 +6,17 @@
     <description>Recent content in Back-end on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails 基礎 ORM 的 SQL 語法</title>
+      <link>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
+      <description>&lt;p&gt;儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。&lt;/p&gt;
+&lt;p&gt;較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Ruby 實體方法 vs 類別方法</title>
       <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
