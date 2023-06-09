@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Hsuan&#39;s Coding Blog</title>
-    <link>https://splendorous-muffin-6f4963.netlify.app/tags/javascript/</link>
+    <link>https://hsuanblog.live/tags/javascript/</link>
     <description>Recent content in JavaScript on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript 中的 Call by sharing </title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
+      <link>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
+      <guid>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
       <description>&lt;p&gt;Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript 矩陣, 字串, 數字 實用語法集</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</link>
+      <link>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</link>
       <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</guid>
+      <guid>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</guid>
       <description>&lt;p&gt;大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。&lt;/p&gt;</description>
     </item>
     

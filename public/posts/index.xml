@@ -2,72 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Hsuan&#39;s Coding Blog</title>
-    <link>https://splendorous-muffin-6f4963.netlify.app/posts/</link>
+    <link>https://hsuanblog.live/posts/</link>
     <description>Recent content in Posts on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rails N&#43;1問題 with joins, includes, preload and eager_load</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</link>
+      <link>https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</guid>
+      <guid>https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</guid>
       <description>&lt;p&gt;資料庫的操作是影響網站效能的重要因素，而在存取資料時幾乎一定會遇到 N+1 問題。本篇文章將簡要探討 includes 的使用時機，以及與其相似的 preload 和 eager_load 方法。此外，我們還會介紹在處理多表格操作時常用的 joins。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rails 基礎 ORM 的 SQL 語法</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</link>
+      <link>https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
+      <guid>https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
       <description>&lt;p&gt;儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。
 較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ruby 實體方法 vs 類別方法</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
+      <link>https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;p&gt;快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rails 使用 PostgreSQL</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
+      <link>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
+      <guid>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
       <description>&lt;p&gt;Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 &lt;strong&gt;PostgreSQL&lt;/strong&gt;，可參照此說明筆記進行操作。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rails ORM 常見的CRUD指令</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</link>
+      <link>https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</link>
       <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</guid>
+      <guid>https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</guid>
       <description>&lt;p&gt;CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript 中的 Call by sharing </title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
+      <link>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
+      <guid>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
       <description>&lt;p&gt;Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript 矩陣, 字串, 數字 實用語法集</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</link>
+      <link>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</link>
       <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</guid>
+      <guid>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</guid>
       <description>&lt;p&gt;大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。&lt;/p&gt;</description>
     </item>
     

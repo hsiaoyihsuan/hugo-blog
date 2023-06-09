@@ -9,7 +9,7 @@
   "@type": "BlogPosting",
   "headline": "Rails N+1問題 with joins, includes, preload and eager_load",
   
-  "image": "https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png",
+  "image": "https://hsuanblog.live/images/RailsLogo.png",
   
   "datePublished": "2023-06-08T00:00:00Z",
   "dateModified": "2023-06-08T00:00:00Z",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/06\/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load\/" 
+    "@id": "https:\/\/hsuanblog.live\/2023\/06\/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -52,8 +52,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rails N&#43;1問題 with joins, includes, preload and eager_load">
 <meta name="twitter:title" content="Rails N&#43;1問題 with joins, includes, preload and eager_load">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
+<meta property="og:url" content="https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
+<meta property="twitter:url" content="https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
 <meta property="og:description" content="資料庫的操作是影響網站效能的重要因素，而在存取資料時幾乎一定會遇到 N&#43;1 問題。本篇文章將簡要探討 includes 的使用時機，以及與其相似的 preload 和 eager_load 方法。此外，我們還會介紹在處理多表格操作時常用的 joins。">
 <meta name="twitter:description" content="資料庫的操作是影響網站效能的重要因素，而在存取資料時幾乎一定會遇到 N&#43;1 問題。本篇文章將簡要探討 includes 的使用時機，以及與其相似的 preload 和 eager_load 方法。此外，我們還會介紹在處理多表格操作時常用的 joins。">
@@ -101,18 +101,18 @@
 
 
 
-  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
-  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
+  <meta property="og:image" content="https://hsuanblog.live/images/RailsLogo.png">
+  <meta property="twitter:image" content="https://hsuanblog.live/images/RailsLogo.png">
 
 
     <title>Rails N&#43;1問題 with joins, includes, preload and eager_load</title>
 
-    <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
+    <link rel="icon" href="https://hsuanblog.live/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
+    <link rel="canonical" href="https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -120,7 +120,7 @@
     
     
     
-    <link rel="stylesheet" href="https://splendorous-muffin-6f4963.netlify.app/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    <link rel="stylesheet" href="https://hsuanblog.live/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
     
     
 
@@ -135,12 +135,12 @@
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+    <a class="header-title-link" href="https://hsuanblog.live/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Open the link: /#about">
+         href="https://hsuanblog.live/#about" aria-label="Open the link: /#about">
     
     
     
@@ -156,7 +156,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Read more about the author">
+        <a href="https://hsuanblog.live/#about" aria-label="Read more about the author">
           <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
@@ -169,7 +169,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/" title="Home">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/" title="Home">
     
       <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
       
@@ -179,7 +179,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/categories" title="Categories">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/categories" title="Categories">
     
       <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
       
@@ -189,7 +189,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/tags" title="Tags">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/tags" title="Tags">
     
       <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
       
@@ -199,7 +199,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/archives" title="Archives">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/archives" title="Archives">
     
       <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
       
@@ -209,7 +209,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/#about" title="About">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/#about" title="About">
     
       <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
       
@@ -279,9 +279,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/rails">Rails</a>, 
+      <a class="category-link" href="https://hsuanblog.live/categories/rails">Rails</a>, 
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/sql">SQL</a>
+      <a class="category-link" href="https://hsuanblog.live/categories/sql">SQL</a>
     
   
 
@@ -312,9 +312,9 @@
 
 <div class="figure fig-100" >
   
-    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/customerOrders.png" data-fancybox="">
+    <a class="fancybox" href="https://hsuanblog.live/images/customerOrders.png" data-fancybox="">
   
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/customerOrders.png" >
+    <img class="fig-img" src="https://hsuanblog.live/images/customerOrders.png" >
   
     </a>
   
@@ -375,9 +375,9 @@ end</code></pre>
 
 <div class="figure fig-100" >
   
-    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/fourCustomerOrders.png" data-fancybox="">
+    <a class="fancybox" href="https://hsuanblog.live/images/fourCustomerOrders.png" data-fancybox="">
   
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/fourCustomerOrders.png" >
+    <img class="fig-img" src="https://hsuanblog.live/images/fourCustomerOrders.png" >
   
     </a>
   
@@ -636,9 +636,9 @@ WHERE &#39;orders&#39;.&#39;status&#39; = &#39;paid&#39; AND &#39;customers&#39;
 
 <div class="figure fig-100" >
   
-    <a class="fancybox" href="https://splendorous-muffin-6f4963.netlify.app/images/customerLeftJoin.png" data-fancybox="">
+    <a class="fancybox" href="https://hsuanblog.live/images/customerLeftJoin.png" data-fancybox="">
   
-    <img class="fig-img" src="https://splendorous-muffin-6f4963.netlify.app/images/customerLeftJoin.png" >
+    <img class="fig-img" src="https://hsuanblog.live/images/customerLeftJoin.png" >
   
     </a>
   
@@ -798,13 +798,13 @@ FROM (
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/rails/">Rails</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/rails/">Rails</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/">Back-end</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/back-end/">Back-end</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/crud/">CRUD</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/crud/">CRUD</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/sql/">SQL</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/sql/">SQL</a>
 
                   </div>
                 
@@ -825,7 +825,7 @@ FROM (
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="PREVIOUS: Rails 基礎 ORM 的 SQL 語法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="PREVIOUS: Rails 基礎 ORM 的 SQL 語法">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -884,7 +884,7 @@ FROM (
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="PREVIOUS: Rails 基礎 ORM 的 SQL 語法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="PREVIOUS: Rails 基礎 ORM 的 SQL 語法">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -953,7 +953,7 @@ FROM (
     
   
     
-      <div id="cover" style="background-image:url('https://splendorous-muffin-6f4963.netlify.app/images/clem-onojeghuo.jpg');"></div>
+      <div id="cover" style="background-image:url('https://hsuanblog.live/images/clem-onojeghuo.jpg');"></div>
     
   
 
@@ -966,7 +966,7 @@ FROM (
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://splendorous-muffin-6f4963.netlify.app/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+<script src="https://hsuanblog.live/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
 
 
   

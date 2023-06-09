@@ -9,7 +9,7 @@
   "@type": "BlogPosting",
   "headline": "Rails 使用 PostgreSQL",
   
-  "image": "https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png",
+  "image": "https://hsuanblog.live/images/RailsLogo.png",
   
   "datePublished": "2023-04-15T00:00:00Z",
   "dateModified": "2023-04-15T00:00:00Z",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/04\/rails-%E4%BD%BF%E7%94%A8-postgresql\/" 
+    "@id": "https:\/\/hsuanblog.live\/2023\/04\/rails-%E4%BD%BF%E7%94%A8-postgresql\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -52,8 +52,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rails 使用 PostgreSQL">
 <meta name="twitter:title" content="Rails 使用 PostgreSQL">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
+<meta property="og:url" content="https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
+<meta property="twitter:url" content="https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
 <meta property="og:description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
 <meta name="twitter:description" content="Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。">
@@ -99,18 +99,18 @@
 
 
 
-  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
-  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/RailsLogo.png">
+  <meta property="og:image" content="https://hsuanblog.live/images/RailsLogo.png">
+  <meta property="twitter:image" content="https://hsuanblog.live/images/RailsLogo.png">
 
 
     <title>Rails 使用 PostgreSQL</title>
 
-    <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
+    <link rel="icon" href="https://hsuanblog.live/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
+    <link rel="canonical" href="https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -118,7 +118,7 @@
     
     
     
-    <link rel="stylesheet" href="https://splendorous-muffin-6f4963.netlify.app/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    <link rel="stylesheet" href="https://hsuanblog.live/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
     
     
 
@@ -133,12 +133,12 @@
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+    <a class="header-title-link" href="https://hsuanblog.live/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Open the link: /#about">
+         href="https://hsuanblog.live/#about" aria-label="Open the link: /#about">
     
     
     
@@ -154,7 +154,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Read more about the author">
+        <a href="https://hsuanblog.live/#about" aria-label="Read more about the author">
           <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
@@ -167,7 +167,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/" title="Home">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/" title="Home">
     
       <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
       
@@ -177,7 +177,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/categories" title="Categories">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/categories" title="Categories">
     
       <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
       
@@ -187,7 +187,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/tags" title="Tags">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/tags" title="Tags">
     
       <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
       
@@ -197,7 +197,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/archives" title="Archives">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/archives" title="Archives">
     
       <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
       
@@ -207,7 +207,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/#about" title="About">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/#about" title="About">
     
       <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
       
@@ -277,7 +277,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/rails">Rails</a>
+      <a class="category-link" href="https://hsuanblog.live/categories/rails">Rails</a>
     
   
 
@@ -391,13 +391,13 @@ Type &#34;help&#34; for help.
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/rails/">Rails</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/rails/">Rails</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/back-end/">Back-end</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/back-end/">Back-end</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/">PostgreSQL</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/postgresql/">PostgreSQL</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/sql/">SQL</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/sql/">SQL</a>
 
                   </div>
                 
@@ -410,7 +410,7 @@ Type &#34;help&#34; for help.
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="NEXT: Ruby 實體方法 vs 類別方法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="NEXT: Ruby 實體方法 vs 類別方法">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -418,7 +418,7 @@ Type &#34;help&#34; for help.
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -469,7 +469,7 @@ Type &#34;help&#34; for help.
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="NEXT: Ruby 實體方法 vs 類別方法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/" data-tooltip="Ruby 實體方法 vs 類別方法" aria-label="NEXT: Ruby 實體方法 vs 類別方法">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -477,7 +477,7 @@ Type &#34;help&#34; for help.
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/" data-tooltip="Rails ORM 常見的CRUD指令" aria-label="PREVIOUS: Rails ORM 常見的CRUD指令">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -546,7 +546,7 @@ Type &#34;help&#34; for help.
     
   
     
-      <div id="cover" style="background-image:url('https://splendorous-muffin-6f4963.netlify.app/images/clem-onojeghuo.jpg');"></div>
+      <div id="cover" style="background-image:url('https://hsuanblog.live/images/clem-onojeghuo.jpg');"></div>
     
   
 
@@ -559,7 +559,7 @@ Type &#34;help&#34; for help.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://splendorous-muffin-6f4963.netlify.app/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+<script src="https://hsuanblog.live/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
 
 
   

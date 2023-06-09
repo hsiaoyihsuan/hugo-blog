@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hsuan&#39;s Coding Blog</title>
-    <link>https://splendorous-muffin-6f4963.netlify.app/tags/</link>
+    <link>https://hsuanblog.live/tags/</link>
     <description>Recent content in Tags on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Back-end</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/back-end/</link>
+      <link>https://hsuanblog.live/tags/back-end/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/back-end/</guid>
+      <guid>https://hsuanblog.live/tags/back-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CRUD</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/crud/</link>
+      <link>https://hsuanblog.live/tags/crud/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/crud/</guid>
+      <guid>https://hsuanblog.live/tags/crud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rails</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/rails/</link>
+      <link>https://hsuanblog.live/tags/rails/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/rails/</guid>
+      <guid>https://hsuanblog.live/tags/rails/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQL</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/sql/</link>
+      <link>https://hsuanblog.live/tags/sql/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/sql/</guid>
+      <guid>https://hsuanblog.live/tags/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ruby</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/ruby/</link>
+      <link>https://hsuanblog.live/tags/ruby/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/ruby/</guid>
+      <guid>https://hsuanblog.live/tags/ruby/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PostgreSQL</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/</link>
+      <link>https://hsuanblog.live/tags/postgresql/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/</guid>
+      <guid>https://hsuanblog.live/tags/postgresql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Front-end</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/front-end/</link>
+      <link>https://hsuanblog.live/tags/front-end/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/front-end/</guid>
+      <guid>https://hsuanblog.live/tags/front-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JavaScript</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/tags/javascript/</link>
+      <link>https://hsuanblog.live/tags/javascript/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/tags/javascript/</guid>
+      <guid>https://hsuanblog.live/tags/javascript/</guid>
       <description></description>
     </item>
     

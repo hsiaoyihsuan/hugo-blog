@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PostgreSQL on Hsuan&#39;s Coding Blog</title>
-    <link>https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/</link>
+    <link>https://hsuanblog.live/tags/postgresql/</link>
     <description>Recent content in PostgreSQL on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://splendorous-muffin-6f4963.netlify.app/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rails 使用 PostgreSQL</title>
-      <link>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
+      <link>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://splendorous-muffin-6f4963.netlify.app/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
+      <guid>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
       <description>&lt;p&gt;Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 &lt;strong&gt;PostgreSQL&lt;/strong&gt;，可參照此說明筆記進行操作。&lt;/p&gt;</description>
     </item>
     

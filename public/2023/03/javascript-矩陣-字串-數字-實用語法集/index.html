@@ -9,7 +9,7 @@
   "@type": "BlogPosting",
   "headline": "JavaScript 矩陣, 字串, 數字 實用語法集",
   
-  "image": "https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg",
+  "image": "https://hsuanblog.live/images/js-garbriel.jpg",
   
   "datePublished": "2023-03-22T00:00:00Z",
   "dateModified": "2023-03-22T00:00:00Z",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/splendorous-muffin-6f4963.netlify.app\/2023\/03\/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86\/" 
+    "@id": "https:\/\/hsuanblog.live\/2023\/03\/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -52,8 +52,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 矩陣, 字串, 數字 實用語法集">
 <meta name="twitter:title" content="JavaScript 矩陣, 字串, 數字 實用語法集">
-<meta property="og:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
-<meta property="twitter:url" content="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+<meta property="og:url" content="https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+<meta property="twitter:url" content="https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
 <meta property="og:description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
 <meta name="twitter:description" content="大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。">
@@ -95,18 +95,18 @@
 
 
 
-  <meta property="og:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
-  <meta property="twitter:image" content="https://splendorous-muffin-6f4963.netlify.app/images/js-garbriel.jpg">
+  <meta property="og:image" content="https://hsuanblog.live/images/js-garbriel.jpg">
+  <meta property="twitter:image" content="https://hsuanblog.live/images/js-garbriel.jpg">
 
 
     <title>JavaScript 矩陣, 字串, 數字 實用語法集</title>
 
-    <link rel="icon" href="https://splendorous-muffin-6f4963.netlify.app/favicon.png">
+    <link rel="icon" href="https://hsuanblog.live/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://splendorous-muffin-6f4963.netlify.app/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
+    <link rel="canonical" href="https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -114,7 +114,7 @@
     
     
     
-    <link rel="stylesheet" href="https://splendorous-muffin-6f4963.netlify.app/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    <link rel="stylesheet" href="https://hsuanblog.live/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
     
     
 
@@ -129,12 +129,12 @@
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://splendorous-muffin-6f4963.netlify.app/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+    <a class="header-title-link" href="https://hsuanblog.live/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Open the link: /#about">
+         href="https://hsuanblog.live/#about" aria-label="Open the link: /#about">
     
     
     
@@ -150,7 +150,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://splendorous-muffin-6f4963.netlify.app/#about" aria-label="Read more about the author">
+        <a href="https://hsuanblog.live/#about" aria-label="Read more about the author">
           <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
@@ -163,7 +163,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/" title="Home">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/" title="Home">
     
       <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
       
@@ -173,7 +173,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/categories" title="Categories">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/categories" title="Categories">
     
       <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
       
@@ -183,7 +183,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/tags" title="Tags">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/tags" title="Tags">
     
       <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
       
@@ -193,7 +193,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/archives" title="Archives">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/archives" title="Archives">
     
       <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
       
@@ -203,7 +203,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://splendorous-muffin-6f4963.netlify.app/#about" title="About">
+      <a class="sidebar-button-link " href="https://hsuanblog.live/#about" title="About">
     
       <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
       
@@ -273,7 +273,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://splendorous-muffin-6f4963.netlify.app/categories/javascript">JavaScript</a>
+      <a class="category-link" href="https://hsuanblog.live/categories/javascript">JavaScript</a>
     
   
 
@@ -1264,9 +1264,9 @@ products.filter((element, index, array) =&gt; array.includes(element, index &#43
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/javascript/">JavaScript</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/javascript/">JavaScript</a>
 
-  <a class="tag tag--primary tag--small" href="https://splendorous-muffin-6f4963.netlify.app/tags/front-end/">Front-end</a>
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/front-end/">Front-end</a>
 
                   </div>
                 
@@ -1279,7 +1279,7 @@ products.filter((element, index, array) =&gt; array.includes(element, index &#43
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="NEXT: JavaScript 中的 Call by sharing ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="NEXT: JavaScript 中的 Call by sharing ">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -1338,7 +1338,7 @@ products.filter((element, index, array) =&gt; array.includes(element, index &#43
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://splendorous-muffin-6f4963.netlify.app/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="NEXT: JavaScript 中的 Call by sharing ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/" data-tooltip="JavaScript 中的 Call by sharing " aria-label="NEXT: JavaScript 中的 Call by sharing ">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -1415,7 +1415,7 @@ products.filter((element, index, array) =&gt; array.includes(element, index &#43
     
   
     
-      <div id="cover" style="background-image:url('https://splendorous-muffin-6f4963.netlify.app/images/clem-onojeghuo.jpg');"></div>
+      <div id="cover" style="background-image:url('https://hsuanblog.live/images/clem-onojeghuo.jpg');"></div>
     
   
 
@@ -1428,7 +1428,7 @@ products.filter((element, index, array) =&gt; array.includes(element, index &#43
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://splendorous-muffin-6f4963.netlify.app/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+<script src="https://hsuanblog.live/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
 
 
   
