@@ -10,19 +10,20 @@ tags:
 thumbnailImagePosition: left
 thumbnailImage: images/RailsLogo.png
 ---
-Polymorphic使用說明
+如何使用 Polymorphic Associations 多型關聯
 <!--more-->
 
 <!-- {{< toc >}} -->
 ---
 
 ## 1. 使用情境
-使用Polymophic
-
+想像你正在設計「評論」功能的資料庫架構，使用者可以在幾乎任何地方留下評論，例如產品、貼文、活動等，此時你會想到使用一對多關係，為這三個 Model 設計出`ProductComment`、`PostComment`、`EventComment`，但此時你發現這三個資料表的欄位幾乎一模一樣，如果分成三個 Model 顯得相當冗餘，此種情景就相當適合使用**Polymorphic 多型關聯**來簡化資料庫的設計，使用Polymophic可以使模型在同一個關聯上屬於多個模型。
 
 ## 2. 使用方法
 同樣以Comment這個model舉例，建立Polymorphic model的指令：
 `rails g model Comment content:text commentable:references{polymorphic}`
+
+觀察一下產生的 migration 檔：
 {{< codeblock "ruby" >}}
 # 產生的migration檔案，references版本
 class CreateComments < ActiveRecord::Migration[7.0]
@@ -51,7 +52,7 @@ end
 {{< /codeblock >}}
 
 
-執行`rails db:migrate`在資料庫產生資料表與更新`schema`。
+接著執行`rails db:migrate`在資料庫產生資料表與更新`schema`。
 {{< codeblock "ruby" >}}
 # schema
 ActiveRecord::Schema[7.0].define(version: 2023_10_12_155217) do
@@ -66,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_155217) do
   ...
 end
 {{< /codeblock >}}
-此時，查看`Comment`的模型內容：
+查看`Comment`的模型內容：
 {{< codeblock "ruby" >}}
 # app/models/comment.rb
 class Comment < ApplicationRecord
@@ -74,34 +75,41 @@ class Comment < ApplicationRecord
 end
 {{< /codeblock >}}
 
-Polymorphic會產生兩個欄位，`commentable_id`和`commentable_type`，`commentable_id`用以指向關聯模型的id，`commentable_type`用以記錄關聯模型的名字，例如`Post`、`Product`，
-這邊假定已經有兩個`Model`，`Post`和`Product`，要為這些模型添加`has_many`或`has_one`的關聯：
+此時會產生兩個欄位，`commentable_id`和`commentable_type`，`commentable_id`用以指向關聯模型的id，`commentable_type`用以記錄關聯模型的名字，例如`Post`、`Product`。
+
+接著建立與 Comment 的關聯。
 {{< codeblock "ruby" >}}
 # app/models/product.rb
 class Product < ApplicationRecord
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commnetable
 end
 
 # app/models/post.rb
 class Post < ApplicationRecord
-  has_one :comment, as: :commentable
+  has_many :comments, as: :commnetable
+end
+
+# app/models/event.rb
+class Event < ApplicationRecord
+  has_many :comments, as: :commnetable
 end
 
 {{< /codeblock >}}
 
-## 3. 使用指令
+## 3. 資料庫指令
+建立與 Commnet 的指令很多種，可以間單的透過`commentble`，或是直接寫入`commentable_id`、`commentable_type`。
+
 {{< codeblock "ruby" >}}
-product1 = Product.create(content: "product1")
-comment1 = Comment.create(content: "nice product1", commentable: product1)
-comment2 = Comment.create(content: "good product1", commentable: product1)
-product1.comments
-# => [#<Comment:0x000... id: 1, content: "nice product1", commentable_type: "Product", commentable_id: 1, created_at: xxx, updated_at: xxx>, #<Comment:0x000... id: 2, content: "good product1", commentable_type: "Product", commentable_id: 1, created_at: xxx, updated_at: xxx>]
+# 使用commentable
+product = Product.create(content: "product")
+# => Product Create (1.4ms)  INSERT INTO "products" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "product"], ["created_at", "2023-10-16 14:09:23.854703"], ["updated_at", "2023-10-16 14:09:23.854703"]]
 
-post1 = Post.create(content: "post1")
-comment2 = Comment.create(content: "nice post1", commentable: post2)
-post1.comment
-# => #<Comment:0x000... id: 3, content: "nice post1", commentable_type: "Post", commentable_id: 1, created_at: xxx, updated_at: xxx>
+Comment.create(content: "nice product", commentable: product)
+# => Comment Create (0.6ms)  INSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["content", "nice product"], ["commentable_type", "Product"], ["commentable_id", 1], ["created_at", "2023-10-16 14:11:57.300843"], ["updated_at", "2023-10-16 14:11:57.300843"]]
 
+# 直接寫入comment_id & comment_type
+Product.create(content: "product2")
+Comment.create(content: "nice product2", commentable_id: 2, commentable_type: "Product")
 {{< /codeblock >}}
 
 
