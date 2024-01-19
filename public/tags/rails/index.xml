@@ -6,7 +6,16 @@
     <description>Recent content in Rails on Hsuan&#39;s Coding Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rails Polymorphic</title>
+      <link>https://hsuanblog.live/2023/10/rails-polymorphic/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsuanblog.live/2023/10/rails-polymorphic/</guid>
+      <description>&lt;p&gt;如何使用 Polymorphic Associations 多型關聯&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Rails N&#43;1問題 with joins, includes, preload and eager_load</title>
       <link>https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</link>

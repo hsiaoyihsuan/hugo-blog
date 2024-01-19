@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Ruby 實體方法 vs 類別方法",
+  "headline": "Rails Polymorphic",
   
-  "image": "https://hsuanblog.live/images/RubyLogo.png",
+  "image": "https://hsuanblog.live/images/RailsLogo.png",
   
-  "datePublished": "2023-04-23T00:00:00Z",
-  "dateModified": "2023-04-23T00:00:00Z",
+  "datePublished": "2023-10-12T00:00:00Z",
+  "dateModified": "2023-10-12T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Yi-Hsuan Hsiao",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/hsuanblog.live\/2023\/04\/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95\/" 
+    "@id": "https:\/\/hsuanblog.live\/2023\/10\/rails-polymorphic\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。\n",
+  "description": "如何使用 Polymorphic Associations 多型關聯\n",
   "keywords": []
 }
 
@@ -45,39 +45,39 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Yi-Hsuan Hsiao">
 <meta name="keywords" content="">
-<meta name="description" content="快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。">
+<meta name="description" content="如何使用 Polymorphic Associations 多型關聯">
 
 
-<meta property="og:description" content="快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。">
+<meta property="og:description" content="如何使用 Polymorphic Associations 多型關聯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ruby 實體方法 vs 類別方法">
-<meta name="twitter:title" content="Ruby 實體方法 vs 類別方法">
-<meta property="og:url" content="https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/">
-<meta property="twitter:url" content="https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/">
+<meta property="og:title" content="Rails Polymorphic">
+<meta name="twitter:title" content="Rails Polymorphic">
+<meta property="og:url" content="https://hsuanblog.live/2023/10/rails-polymorphic/">
+<meta property="twitter:url" content="https://hsuanblog.live/2023/10/rails-polymorphic/">
 <meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
-<meta property="og:description" content="快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。">
-<meta name="twitter:description" content="快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。">
+<meta property="og:description" content="如何使用 Polymorphic Associations 多型關聯">
+<meta name="twitter:description" content="如何使用 Polymorphic Associations 多型關聯">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2023-04-23T00:00:00">
+    <meta property="article:published_time" content="2023-10-12T00:00:00">
   
   
-    <meta property="article:modified_time" content="2023-04-23T00:00:00">
+    <meta property="article:modified_time" content="2023-10-12T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="Ruby">
-    
   
   
     
-      <meta property="article:tag" content="Ruby">
+      <meta property="article:section" content="Rails">
+    
+  
+  
     
       <meta property="article:tag" content="Rails">
     
       <meta property="article:tag" content="Back-end">
+    
+      <meta property="article:tag" content="Polymorphic">
     
   
 
@@ -97,18 +97,18 @@
 
 
 
-  <meta property="og:image" content="https://hsuanblog.live/images/RubyLogo.png">
-  <meta property="twitter:image" content="https://hsuanblog.live/images/RubyLogo.png">
+  <meta property="og:image" content="https://hsuanblog.live/images/RailsLogo.png">
+  <meta property="twitter:image" content="https://hsuanblog.live/images/RailsLogo.png">
 
 
-    <title>Ruby 實體方法 vs 類別方法</title>
+    <title>Rails Polymorphic</title>
 
     <link rel="icon" href="https://hsuanblog.live/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/">
+    <link rel="canonical" href="https://hsuanblog.live/2023/10/rails-polymorphic/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -258,15 +258,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Ruby 實體方法 vs 類別方法
+      Rails Polymorphic
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2023-04-23T00:00:00Z">
+      <time datetime="2023-10-12T00:00:00Z">
         
-  April 23, 2023
+  October 12, 2023
 
       </time>
     
@@ -275,7 +275,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://hsuanblog.live/categories/ruby">Ruby</a>
+      <a class="category-link" href="https://hsuanblog.live/categories/rails">Rails</a>
     
   
 
@@ -285,29 +285,122 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。</p>
+              <p>如何使用 Polymorphic Associations 多型關聯</p>
 <!-- raw HTML omitted -->
-<h2 id="方法-method">方法 Method</h2>
-<p>Ruby 世界的方法(Mehod)可以對應到其他程式語言中的函式(function)，將一些行為定義在方法中，藉由帶入引數並執行方法的過程來簡化程式的撰寫，以及達到程式碼重複利用的效果。Ruby 中的方法由<code>def</code>開頭，並且以小寫、蛇式的方式命名，例如下方範例中，簡單定義了一個方法並於外部呼叫，方法執行結束前會回傳最後ㄧ行的執行結果。
+<hr>
+<h2 id="1-使用情境">1. 使用情境</h2>
+<p>想像你正在設計「評論」功能的資料庫架構，使用者可以在幾乎任何地方留下評論，例如產品、貼文、活動等，此時你會想到使用一對多關係，為這三個 Model 設計出<code>ProductComment</code>、<code>PostComment</code>、<code>EventComment</code>，但此時你發現這三個資料表的欄位幾乎一模一樣，如果分成三個 Model 顯得相當冗餘，此種情景就相當適合使用<strong>Polymorphic 多型關聯</strong>來簡化資料庫的設計，使用Polymophic可以使模型在同一個關聯上屬於多個模型。</p>
+<h2 id="2-使用方法">2. 使用方法</h2>
+<p>同樣以Comment這個model舉例，建立Polymorphic model的指令：
+<code>rails g model Comment content:text commentable:references{polymorphic}</code></p>
+<p>觀察一下產生的 migration 檔：
 
   
     
   
   
-    
   
-  
-    
-  
-  
-    
   
 
 
-<figure class="highlight ruby language-ruby">
+<figure class="highlight  language-">
   <figcaption>
     
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+      <span>ruby</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class=""># 產生的migration檔案，references版本
+class CreateComments &lt; ActiveRecord::Migration[7.0]
+  def change
+    create_table :comments do |t|
+      t.text :content
+      t.references :commentable, polymorphic: true, null: false
+
+      t.timestamps
+    end
+  end
+end
+# 產生的migration檔案，較複雜的版本
+class CreateComments &lt; ActiveRecord::Migration[7.0]
+  def change
+    create_table :comments do |t|
+      t.string  :name
+      t.bigint  :commentable_id
+      t.string  :commentable_type
+      t.timestamps
+    end
+
+    add_index :comments, [:commentable_type, :commentable_id]
+  end
+end</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>接著執行<code>rails db:migrate</code>在資料庫產生資料表與更新<code>schema</code>。
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>ruby</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class=""># schema
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_155217) do
+  create_table &#34;comments&#34;, force: :cascade do |t|
+    t.text &#34;content&#34;
+    t.string &#34;commentable_type&#34;, null: false
+    t.integer &#34;commentable_id&#34;, null: false
+    t.datetime &#34;created_at&#34;, null: false
+    t.datetime &#34;updated_at&#34;, null: false
+    t.index [&#34;commentable_type&#34;, &#34;commentable_id&#34;], name: &#34;index_comments_on_commentable&#34;
+  end
+  ...
+end</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+查看<code>Comment</code>的模型內容：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>ruby</span>
     
   </figcaption>
   <table>
@@ -317,143 +410,104 @@
           <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">def calculate_bmi(weight_kg, height_m)
-  weight_kg / height_m ** 2
-end
-p calculate_bmi(60, 1.75) # 19.591836734693878</code></pre>
+          <pre class="code-highlight language- "><code class=""># app/models/comment.rb
+class Comment &lt; ApplicationRecord
+  belongs_to :commentable, polymorphic: true
+end</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 </p>
-<h2 id="實體方法--類別方法">實體方法 ＆ 類別方法</h2>
-<p>實體(Instance)是由類別(Class)為模板所產生的獨立物件，他可以使用定義在類別中的實體方法，但是不能使用定義在類別中的類別方法。同樣的，類別本身可以使用類別方法，
-但是不能使用實體方法。</p>
-<p>簡單來說，實體方法與類別方法的使用對象不同，實體方法 for 實體，類別方法 for 類別，雖然方法都是定義在類別中，但是兩者是不能混用的。
+<p>此時會產生兩個欄位，<code>commentable_id</code>和<code>commentable_type</code>，<code>commentable_id</code>用以指向關聯模型的id，<code>commentable_type</code>用以記錄關聯模型的名字，例如<code>Post</code>、<code>Product</code>。</p>
+<p>接著建立與 Comment 的關聯。
 
   
     
   
   
-    
   
-  
-    
-  
-  
-    
   
 
 
-<figure class="highlight ruby language-ruby">
+<figure class="highlight  language-">
   <figcaption>
     
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
+      <span>ruby</span>
     
   </figcaption>
   <table>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">class Student
-  def initialize(name)
-    @name = name
-  end
-
-  def self.say_classroom_name
-    p &#34;All students are in Room 311&#34;
-  end
-
-  def say_my_name
-    p &#34;My name is #{@name}&#34;
-  end
+          <pre class="code-highlight language- "><code class=""># app/models/product.rb
+class Product &lt; ApplicationRecord
+  has_many :comments, as: :commnetable
 end
 
-student01 = Student.new(&#34;Lisa&#34;)
-student02 = Student.new(&#34;Kevin&#34;)
-
-student01.say_my_name
-student02.say_my_name
-
-Student.say_classroom_name
-
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;輸出：
-&#34;My name is Lisa&#34;
-&#34;My name is Kevin&#34;
-&#34;All students are in Room 311&#34;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-
-student01.say_classroom_name 
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;錯誤訊息：
-undefined method `say_classroom_name&#39; for #&lt;Student:0x00000001002ea440 @name=&#34;Lisa&#34;&gt; (NoMethodError)
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-
-Student.say_my_name 
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;錯誤訊息：
-undefined method `say_my_name&#39; for Student:Class (NoMethodError)
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-實體方法與類別方法在實作上的差異是：類別方法會在方法名稱前加上<code>self</code>，<code>self</code>在class中會指向class本身，可以想成加上<code>self</code>就是指名這個方法只能給類別所使用。</p>
-<p>上述的程式碼中，say_classroom_name是類別方法，只能由Student這個類別使用，say_my_name是實體方法，只能給各個實體所使用，另一方想使用不屬於自身的方法，系統會跑出<strong>找不到該方法</strong>的錯誤訊息。</p>
-<p>在Rails中其實很常使用到類別方法，例如在透過Model對資料庫的資料進行操作時：<code>User.all #撈出所有使用者資料</code></p>
-<h2 id="self-的位置">Self 的位置</h2>
-<p>要特別注意一點，類別方法的<code>self</code>是放在方法名稱前，如果<code>self</code>是放在方法中（如下方範例），此時的<code>self</code>就不是指向class物件而是實體本身了，因此下方的who_am_I?依然是一個實體方法。
-
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-
-
-<figure class="highlight ruby language-ruby">
-  <figcaption>
-    
-      <span>archives.rb</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">archives.rb</a>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-ruby ruby"><code class="ruby">class Student
-  ...
-
-  def who_am_I?
-    p self
-  end
+# app/models/post.rb
+class Post &lt; ApplicationRecord
+  has_many :comments, as: :commnetable
 end
 
-student01 = Student.new(&#34;Lisa&#34;)
-student01.who_am_I?
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;輸出：
- #&lt;Student:0x0000000102569f70 @name=&#34;Lisa&#34;&gt;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></pre>
+# app/models/event.rb
+class Event &lt; ApplicationRecord
+  has_many :comments, as: :commnetable
+end</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 </p>
+<h2 id="3-資料庫指令">3. 資料庫指令</h2>
+<p>建立與 Commnet 的指令很多種，可以間單的透過<code>commentble</code>，或是直接寫入<code>commentable_id</code>、<code>commentable_type</code>。</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>ruby</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class=""># 使用commentable
+product = Product.create(content: &#34;product&#34;)
+# =&gt; Product Create (1.4ms)  INSERT INTO &#34;products&#34; (&#34;content&#34;, &#34;created_at&#34;, &#34;updated_at&#34;) VALUES (?, ?, ?)  [[&#34;content&#34;, &#34;product&#34;], [&#34;created_at&#34;, &#34;2023-10-16 14:09:23.854703&#34;], [&#34;updated_at&#34;, &#34;2023-10-16 14:09:23.854703&#34;]]
+
+Comment.create(content: &#34;nice product&#34;, commentable: product)
+# =&gt; Comment Create (0.6ms)  INSERT INTO &#34;comments&#34; (&#34;content&#34;, &#34;commentable_type&#34;, &#34;commentable_id&#34;, &#34;created_at&#34;, &#34;updated_at&#34;) VALUES (?, ?, ?, ?, ?)  [[&#34;content&#34;, &#34;nice product&#34;], [&#34;commentable_type&#34;, &#34;Product&#34;], [&#34;commentable_id&#34;, 1], [&#34;created_at&#34;, &#34;2023-10-16 14:11:57.300843&#34;], [&#34;updated_at&#34;, &#34;2023-10-16 14:11:57.300843&#34;]]
+
+# 直接寫入comment_id &amp; comment_type
+Product.create(content: &#34;product2&#34;)
+Comment.create(content: &#34;nice product2&#34;, commentable_id: 2, commentable_type: &#34;Product&#34;)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>references:</p>
+<ul>
+<li><a href="https://guides.rubyonrails.org/association_basics.html#polymorphic-associations">https://guides.rubyonrails.org/association_basics.html#polymorphic-associations</a></li>
+</ul>
               
 
 
@@ -467,11 +521,11 @@ student01.who_am_I?
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/ruby/">Ruby</a>
-
   <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/rails/">Rails</a>
 
   <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/back-end/">Back-end</a>
+
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/polymorphic/">Polymorphic</a>
 
                   </div>
                 
@@ -484,7 +538,7 @@ student01.who_am_I?
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="NEXT: Rails 基礎 ORM 的 SQL 語法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/" data-tooltip="PHP 使用筆記" aria-label="NEXT: PHP 使用筆記">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -492,7 +546,7 @@ student01.who_am_I?
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/" data-tooltip="Rails 使用 PostgreSQL" aria-label="PREVIOUS: Rails 使用 PostgreSQL">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/" data-tooltip="Rails N&#43;1問題 with joins, includes, preload and eager_load" aria-label="PREVIOUS: Rails N&#43;1問題 with joins, includes, preload and eager_load">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -543,7 +597,7 @@ student01.who_am_I?
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/" data-tooltip="Rails 基礎 ORM 的 SQL 語法" aria-label="NEXT: Rails 基礎 ORM 的 SQL 語法">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/" data-tooltip="PHP 使用筆記" aria-label="NEXT: PHP 使用筆記">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -551,7 +605,7 @@ student01.who_am_I?
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/" data-tooltip="Rails 使用 PostgreSQL" aria-label="PREVIOUS: Rails 使用 PostgreSQL">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/" data-tooltip="Rails N&#43;1問題 with joins, includes, preload and eager_load" aria-label="PREVIOUS: Rails N&#43;1問題 with joins, includes, preload and eager_load">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>

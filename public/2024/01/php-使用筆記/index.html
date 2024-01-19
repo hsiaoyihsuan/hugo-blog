@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PHP 使用筆記",
+  
+  "image": "https://hsuanblog.live/images/phpLogo.png",
+  
+  "datePublished": "2024-01-19T00:00:00Z",
+  "dateModified": "2024-01-19T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Hsuan Hsiao",
+    
+    "image": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/hsuanblog.live\/2024\/01\/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hsuan's Coding Blog",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c"
+    }
+    
+  },
+  "description": "PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。\nTable of Contents 1. 環境安裝與設定 1.1 Homebrew 安裝 PHP 2. PHP基礎語法 2.1 註解 Comment 2.2 echo \u0026amp; print 2.3 變數命名 2.4 變數範圍 Scope 2.5 資料型別 DataType 2.6 字串 String 2.7 數字 Number 2.8 運算子 Operator 2.9 True or False 2.10 型別指定 ＆ 強制轉型 \u0026amp; 嚴格模式 2.11 常數 Constant \u0026amp;魔術常數 Magic Constant 2.12 超級全域變數 Superglobals 2.13 條件判斷 2.14 矩陣 Array 2.15 迴圈 2.16 巢狀迴圈 2.17 函數 Function 3.",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Yi-Hsuan Hsiao">
+<meta name="keywords" content="">
+<meta name="description" content="PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
+Table of Contents 1. 環境安裝與設定 1.1 Homebrew 安裝 PHP 2. PHP基礎語法 2.1 註解 Comment 2.2 echo &amp; print 2.3 變數命名 2.4 變數範圍 Scope 2.5 資料型別 DataType 2.6 字串 String 2.7 數字 Number 2.8 運算子 Operator 2.9 True or False 2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式 2.11 常數 Constant &amp;魔術常數 Magic Constant 2.12 超級全域變數 Superglobals 2.13 條件判斷 2.14 矩陣 Array 2.15 迴圈 2.16 巢狀迴圈 2.17 函數 Function 3.">
+
+
+<meta property="og:description" content="PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
+Table of Contents 1. 環境安裝與設定 1.1 Homebrew 安裝 PHP 2. PHP基礎語法 2.1 註解 Comment 2.2 echo &amp; print 2.3 變數命名 2.4 變數範圍 Scope 2.5 資料型別 DataType 2.6 字串 String 2.7 數字 Number 2.8 運算子 Operator 2.9 True or False 2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式 2.11 常數 Constant &amp;魔術常數 Magic Constant 2.12 超級全域變數 Superglobals 2.13 條件判斷 2.14 矩陣 Array 2.15 迴圈 2.16 巢狀迴圈 2.17 函數 Function 3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 使用筆記">
+<meta name="twitter:title" content="PHP 使用筆記">
+<meta property="og:url" content="https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/">
+<meta property="twitter:url" content="https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/">
+<meta property="og:site_name" content="Hsuan&#39;s Coding Blog">
+<meta property="og:description" content="PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
+Table of Contents 1. 環境安裝與設定 1.1 Homebrew 安裝 PHP 2. PHP基礎語法 2.1 註解 Comment 2.2 echo &amp; print 2.3 變數命名 2.4 變數範圍 Scope 2.5 資料型別 DataType 2.6 字串 String 2.7 數字 Number 2.8 運算子 Operator 2.9 True or False 2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式 2.11 常數 Constant &amp;魔術常數 Magic Constant 2.12 超級全域變數 Superglobals 2.13 條件判斷 2.14 矩陣 Array 2.15 迴圈 2.16 巢狀迴圈 2.17 函數 Function 3.">
+<meta name="twitter:description" content="PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
+Table of Contents 1. 環境安裝與設定 1.1 Homebrew 安裝 PHP 2. PHP基礎語法 2.1 註解 Comment 2.2 echo &amp; print 2.3 變數命名 2.4 變數範圍 Scope 2.5 資料型別 DataType 2.6 字串 String 2.7 數字 Number 2.8 運算子 Operator 2.9 True or False 2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式 2.11 常數 Constant &amp;魔術常數 Magic Constant 2.12 超級全域變數 Superglobals 2.13 條件判斷 2.14 矩陣 Array 2.15 迴圈 2.16 巢狀迴圈 2.17 函數 Function 3.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2024-01-19T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2024-01-19T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="PHP">
+    
+  
+  
+    
+      <meta property="article:tag" content="PHP">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://hsuanblog.live/images/phpLogo.png">
+  <meta property="twitter:image" content="https://hsuanblog.live/images/phpLogo.png">
+
+
+    <title>PHP 使用筆記</title>
+
+    <link rel="icon" href="https://hsuanblog.live/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://hsuanblog.live/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://hsuanblog.live/" aria-label="Go to homepage">Hsuan&#39;s Coding Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://hsuanblog.live/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://hsuanblog.live/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Yi-Hsuan Hsiao</h4>
+        
+          <h5 class="sidebar-profile-bio">Full stack developer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://hsuanblog.live/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://hsuanblog.live/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://hsuanblog.live/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://hsuanblog.live/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://hsuanblog.live/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Hsuan19971005" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/hsuan-595697233/" target="_blank" rel="noopener" title="LinkedIn">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      PHP 使用筆記
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2024-01-19T00:00:00Z">
+        
+  January 19, 2024
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://hsuanblog.live/categories/php">PHP</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-環境安裝與設定">1. 環境安裝與設定</a>
+          <ul>
+            <li><a href="#11-homebrew-安裝-php">1.1 Homebrew 安裝 PHP</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-php基礎語法">2. PHP基礎語法</a>
+          <ul>
+            <li><a href="#21-註解-comment">2.1 註解 Comment</a></li>
+            <li><a href="#22-echo--print">2.2 echo &amp; print</a></li>
+            <li><a href="#23-變數命名">2.3 變數命名</a></li>
+            <li><a href="#24-變數範圍-scope">2.4 變數範圍 Scope</a></li>
+            <li><a href="#25-資料型別-datatype">2.5 資料型別 DataType</a></li>
+            <li><a href="#26-字串-string">2.6 字串 String</a></li>
+            <li><a href="#27-數字-number">2.7 數字 Number</a></li>
+            <li><a href="#28-運算子-operator">2.8 運算子 Operator</a></li>
+            <li><a href="#29-true-or-false">2.9 True or False</a></li>
+            <li><a href="#210-型別指定--強制轉型--嚴格模式">2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式</a></li>
+            <li><a href="#211-常數-constant-魔術常數-magic-constant">2.11 常數 Constant &amp;魔術常數 Magic Constant</a></li>
+            <li><a href="#212-超級全域變數-superglobals">2.12 超級全域變數 Superglobals</a></li>
+            <li><a href="#213-條件判斷">2.13 條件判斷</a></li>
+            <li><a href="#214-矩陣-array">2.14 矩陣 Array</a></li>
+            <li><a href="#215-迴圈">2.15 迴圈</a></li>
+            <li><a href="#216-巢狀迴圈">2.16 巢狀迴圈</a></li>
+            <li><a href="#217-函數-function">2.17 函數 Function</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-php-物件導向-oop">3. PHP 物件導向 OOP</a>
+          <ul>
+            <li><a href="#31-class--object">3.1 Class &amp; Object</a></li>
+            <li><a href="#32-類別常數--靜態函數">3.2 類別常數 &amp; 靜態函數</a></li>
+            <li><a href="#33-繼承">3.3 繼承</a></li>
+            <li><a href="#34-命名空間namespace">3.4 命名空間Namespace</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-php-常見函數與使用情境">4. PHP 常見函數與使用情境</a>
+          <ul>
+            <li><a href="#41-number--math">4.1 Number &amp; Math</a></li>
+            <li><a href="#42-string">4.2 String</a></li>
+            <li><a href="#43-array">4.3 Array</a></li>
+            <li><a href="#44-others">4.4 Others</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">references</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<hr>
+<h2 id="1-環境安裝與設定">1. 環境安裝與設定</h2>
+<p>下載PHP的方式：</p>
+<ul>
+<li>MAMP(適合Wordpress)</li>
+<li>Homebrew(適合Laravel等框架)</li>
+</ul>
+<p>常見的web server:</p>
+<ul>
+<li>Apache</li>
+<li>Nginx(需要處理fpm)</li>
+<li>PHP自帶的web server(不是很好用)</li>
+</ul>
+<p>PHP設定檔為<code>php.ini</code>，位在<code>/opt/homebrew/etc/php/8.1/</code></p>
+<h3 id="11-homebrew-安裝-php">1.1 Homebrew 安裝 PHP</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>bash</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$ brew install php
+$ brew install php@8.1
+# reopen terminal
+$ which php # /opt/homebrew/bin/php
+$ ls -al &#34;php安裝的路徑&#34;
+$ brew link php
+$ brew unlink php
+$ echo $PATH # 前面的指令優先級較高
+$ php -S 127.0.0.1:8000 # 運行index.php</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<h2 id="2-php基礎語法">2. PHP基礎語法</h2>
+<p>PHP使用<code>&lt;?php</code>、<code>?&gt;</code>作為開頭與結尾：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">&lt;?php
+// php code
+?&gt;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="21-註解-comment">2.1 註解 Comment</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 單行註解，較常使用
+# linux風格的單行註解
+/* 這是
+   多行縮排 */</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="22-echo--print">2.2 echo &amp; print</h3>
+<p><code>echo</code>與<code>print</code>都能輸出字串到畫面，兩者差異：</p>
+<ul>
+<li><code>echo</code>：無回傳值，可省略括號()，效能稍微快一些</li>
+<li><code>print</code>：回傳值1</li>
+</ul>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">echo(&#39;print out the words&#39;);
+echo &#39;print out the words&#39;;
+echo &#34;Hello World! &lt;br/&gt;&#34;;
+echo &#39;Hello World! &lt;br/&gt;&#39;;
+
+// 接合變數與字串
+$var = &#39;love&#39;;
+echo &#39;I &#39;.$var.&#39; you.&#39;; // I love you.
+print &#39;I&#39;.$var.&#39;HAHA&#39;;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="23-變數命名">2.3 變數命名</h3>
+<p>變數命名規則：</p>
+<ul>
+<li>以<code>$</code>開頭加上變數名稱</li>
+<li>英文字母或底線<code>_</code>開頭，不可以數字開頭</li>
+<li>英文大小寫有差異 ex: $name, $Name</li>
+<li>變數名稱只可使用英文數字字符與底線(A-z, 0-9, and _ )
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$txt = &#39;love&#39;;
+echo &#34;I $txt you.&#34;; // I love you.</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</li>
+</ul>
+<p>:::info
+:information_source: 沒有初始值的變數，預設會是<code>NULL</code>
+:::</p>
+<h3 id="24-變數範圍-scope">2.4 變數範圍 Scope</h3>
+<p>PHP有三種變數範圍：local、global、static，宣告在funciton中的變數為local scope，宣告在funciton外部的變數則是global scope。</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$global_x = 3; // global scope
+
+function myFun() {
+  $x = 5; // local scope
+  echo &#34;&lt;p&gt;Variable x inside function is: $x&lt;/p&gt;&#34;;
+}
+myFun();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>在function內部取用外部的變數會產生錯誤，然而可以使用<code>global</code>關鍵字在function內部取得global scope的變數：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$x = 3;
+function myFun(){
+  global $x;
+  echo $x;
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>其實PHP有一個超級全域變數矩陣<code>$GLOBAL</code>用以記錄所有的global variable，因此也可以使用該變數於function內取得global variable：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$x = 5;
+$y = 10;
+
+function myFun() {
+  $GLOBALS[&#39;y&#39;] = $GLOBALS[&#39;x&#39;] &#43; $GLOBALS[&#39;y&#39;];
+}
+
+myFun();
+echo $y; // outputs 15</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>可以透過<code>static</code>宣告變數，該變數不會因為function執行結束而消失：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">function myFun() {
+  static $x = 0;
+  echo $x;
+  $x&#43;&#43;;
+}
+
+myFun(); // 0
+myFun(); // 1
+myFun(); // 2</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="25-資料型別-datatype">2.5 資料型別 DataType</h3>
+<ul>
+<li>String</li>
+<li>Integer</li>
+<li>Float (也可以稱作double)</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>NULL</li>
+<li>Resource</li>
+</ul>
+<p>可以使用<code>var_dump()</code>輸出變數的資料型別到畫面中。</p>
+<h3 id="26-字串-string">2.6 字串 String</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$txt = &#39;PHP&#39;;
+echo &#34;Learning &#34;.$txt.&#34; is &#34;. &#34;fun &lt;br/&gt;&#34;; // Learning PHP is fun
+
+// 注意&#39;&#39;與&#34;&#34;的不同
+$txt = &#39;love&#39;;
+echo &#39;I $txt you.&#39;; // I $txt you.
+echo &#34;I $txt you.&#34;; // I love you.</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>在<code>&quot;&quot;</code>中使用<code>\</code>來跳脫字元</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$txt = &#34;My name is \&#34;Hsuan\&#34;.\n&#34;; // My name is &#34;Hsuan&#34;.</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>-&gt; <a href="https://www.php.net/manual/en/regexp.reference.escape.php">跳脫字元列表</a>
+String 其他的常見操作請參考標題：<strong>PHP 常見函數與使用情境 / String</strong></p>
+<h3 id="27-數字-number">2.7 數字 Number</h3>
+<p>主要有三個類別：</p>
+<ul>
+<li>Integer：整數</li>
+<li>Float：浮點數，PHP中double與float是相同的</li>
+<li>Number Strings：字串類型的數字，如<code>'120'</code></li>
+</ul>
+<p>另外還有兩個資料類別：</p>
+<ul>
+<li><code>Infinity</code>：超過<code>PHP_FLOAT_MAX</code>的數字</li>
+<li><code>NaN</code>：代表計算錯誤或無法運算</li>
+</ul>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$a = 5;
+$b = 5.34;
+$c = &#34;25&#34;;
+
+is_int($a); // true
+is_int($b); // false
+is_int($c); // false
+
+is_float($a); // false
+is_float($b); // true
+is_float($c); // false
+
+is_numeric($a); // true
+is_numeric($b); // true
+is_numeric($c); // true</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>:::warning
+:warning: 小心自動型別轉換
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">var_dump(&#39;1&#39; &#43; 2); // int(3)
+var_dump(&#39;1&#39; &#43; &#39;3.0&#39;); // float(4)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+:::
+在進行String、Integer、Float三者間的型別轉換時，除了使用PHP提供的函式庫，如<code>intval</code>外，還可使用cast <code>(int)</code>來進行轉換：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// to integer
+$x = 123.456;
+echo intval($x);
+echo (int)$x;
+
+// to float
+$y = &#39;456.789&#39;;
+echo floatval($y);
+echo (float)$y;
+
+// to string
+$z = 654.321;
+echo strval($z);
+echo (string)$z;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Number 其他的常見操作請參考標題：<strong>PHP 常見使用函數與情境 / Number &amp; Math</strong></p>
+<h3 id="28-運算子-operator">2.8 運算子 Operator</h3>
+<p>這裡針對特殊運算子進行說明。<a href="https://www.w3schools.com/php/php_operators.asp">運算子列表</a></p>
+<ul>
+<li><code>==</code>、<code>!=</code>的比較<strong>不會</strong>判斷型別</li>
+<li><code>==</code>、<code>!=</code>的比較<strong>會</strong>判斷型別</li>
+<li><code>&lt;&gt;</code>等於<code>!=</code>，但不推薦使用<code>&lt;&gt;</code></li>
+</ul>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">var_dump(2 == &#39;2.0&#39;); // bool(true)
+var_dump(2 === &#39;2.0&#39;); // bool(false)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<ul>
+<li>建議不要使用<code>and</code>、<code>or</code>、<code>xor</code>，而是使用<code>&amp;&amp;</code>、<code>||</code>、<code>!</code></li>
+<li><code>&lt;=&gt;</code>會比較兩數大小，相同回傳0，左側數字大回傳1，右側數字大回傳-1</li>
+</ul>
+<h3 id="29-true-or-false">2.9 True or False</h3>
+<p>以下情況會判斷為false:</p>
+<ul>
+<li><code>false</code>本身</li>
+<li>字串類型 <code>''</code>, <code>'0'</code></li>
+<li>數字類型 <code>0</code>, <code>0.0</code>, <code>-0.0</code></li>
+<li>空矩陣 <code>[]</code></li>
+<li><code>NULL</code></li>
+</ul>
+<p>:::warning
+:warning: 使用邏輯判斷時要注意Boolean的自動轉型：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">var_dump(&#39;&#39; === false); // false
+var_dump(&#39;&#39; == false); // true
+echo (4-4) ? &#39;true&#39; : &#39;false&#39;; // true</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+:::</p>
+<h3 id="210-型別指定--強制轉型--嚴格模式">2.10 型別指定 ＆ 強制轉型 &amp; 嚴格模式</h3>
+<p>PHP預設會自動轉型，可以透過型別指定或強制轉型(cast)試著解決這一問題，但是還是有可能會出現錯誤(Number轉String)。最好的解法是設定嚴格模式，注意<code>strict_type</code>只能寫在第一行。</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 型別指定（數字可能自動轉成String）
+function myFunction(Person person){}
+// 使用cast強制轉型
+(int) $stringVar</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 嚴格模式，只能寫在第一行
+declare(strict_type=1);</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="211-常數-constant-魔術常數-magic-constant">2.11 常數 Constant &amp;魔術常數 Magic Constant</h3>
+<p>常數Constant在宣告後就無法再被修改，可以使用<code>define()</code>、<code>const</code>進行宣告，或者也可以使用Superglobals中的<code>$GLOBALS</code>宣告：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 常數以大寫表示，並且不使用$
+define(BR, &#34;&lt;br/&gt;&#34;);
+const BR = &#34;&lt;br/&gt;&#34;; // 注意：const不能在block scope內宣告
+
+$GLOBALS[&#34;BR&#34;] = &#34;&lt;br/&gt;&#34;;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>魔術常數(Magic Constants)：為系統常數，case-insensitive，會於編譯時賦予數值，因此會根據系統的差異而有所變化，以下為9個Magic Constants。</p>
+<ul>
+<li><code>__CLASS__</code></li>
+<li><code>__DIR__</code></li>
+<li><code>__FILE__</code></li>
+<li><code>__FUNCTION__</code></li>
+<li><code>__LINE__</code></li>
+<li><code>__METHOD__</code></li>
+<li><code>__NAMESPACE__</code></li>
+<li><code>__TRAIT__</code></li>
+<li><code>ClassName::class</code></li>
+</ul>
+<h3 id="212-超級全域變數-superglobals">2.12 超級全域變數 Superglobals</h3>
+<p>超級全域變數(Superglobals)沒有scope的限制，可以在任何位置取用：</p>
+<ul>
+<li><code>$GLOBALS</code></li>
+<li><code>$_SERVER</code></li>
+<li><code>$_REQUEST</code></li>
+<li><code>$_POST</code></li>
+<li><code>$_GET</code></li>
+<li><code>$_FILES</code></li>
+<li><code>$_ENV</code></li>
+<li><code>$_COOKIE</code></li>
+<li><code>$_SESSION</code></li>
+</ul>
+<p>常見使用範例：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$x = 1;
+$GLOBALS[&#39;x&#39;]; // 獲取全域變數
+
+$_GET[&#39;yourParam&#39;]; // 獲取query string的參數
+$_POST[&#39;yourParam&#39;]; // 獲取post的參數
+$_COOKIE[&#39;yourParam&#39;]; // 獲取瀏覽器傳出的Cookie參數
+
+// _REQUEST為_GET, _POST, _COOKIE的集合，不建議使用，有安全上的疑慮
+$_REQUEST[&#39;yourParam&#39;];</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<h3 id="213-條件判斷">2.13 條件判斷</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// if判斷
+if(){
+
+}else{
+
+}
+
+if(){
+
+}elseif(){
+
+}else{
+
+}
+
+if($val != null){
+
+}esle{
+
+}
+
+// Ternary 三元運算子
+( ) ? :
+
+// switch 要記得使用break
+$number = 3;
+switch($number){
+case 0:
+  echo &#34;0&#34;;
+  break;
+case 1:
+  echo &#34;1&#34;;
+  break;
+default:
+  echo &#39;default&#39;;
+  break;
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="214-矩陣-array">2.14 矩陣 Array</h3>
+<p>矩陣是一種數據結構，PHP中的矩陣類似傳統動態矩陣與雜湊表的結合，PHP稱呼其Indexed Array與Associative Array，一般宣告Indexed Array時，其key值如同傳統矩陣由0開始編號，再進行元素處理時，key的順序不一定會重新排列，這點需要特別注意。
+Indexed Array:
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 宣告
+$arr = array(&#39;hello&#39;, 2, &#39;world&#39;);
+$arr = [&#39;hello&#39;, 2, &#39;world&#39;];
+// 操作元素
+echo $arr[0];
+array_push($array1, &#39;new&#39;);
+array_pop($array1);
+array_shift($array1);
+array_unshift($array1, &#34;apple&#34;, &#34;raspberry&#34;);
+array_splice($array1, 2, 0, [&#39;insert&#39;]);
+
+// 去除元素
+// 使用unset去除元素會造成空缺
+unset($arr[1]); //去除key為1的組合，key=1會造成空缺
+$array1 = array_values($array1); // 利用array_values整理出新的矩陣
+// 使用array_splice去除元素不會造成空缺
+array_splice($arr, 2, 1);</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>Associative Array:
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 宣告
+$arr = array(&#39;name&#39; =&gt; &#39;Jack&#39;, 0 =&gt; &#39;number0&#39;);
+// 操作元素
+$arr[&#39;online&#39;];
+$arr[0];</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>Array 其他的常見操作請參考標題：<strong>PHP 常見函數與使用情境 / Array</strong></p>
+<h3 id="215-迴圈">2.15 迴圈</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">while(){
+
+}
+
+do{
+
+}while()
+
+$students = [&#39;Lailai&#39;,&#39;Jarvis&#39;,&#39;Elsa&#39;,&#39;Ian&#39;];
+for ($index = 0; $index &lt; count($students); $index&#43;&#43;){
+  echo &#39;姓名: &#39; . $students[$index] . &#39;&lt;br/&gt;&#39;;
+}
+
+foreach($students as $student){
+  echo &#39;姓名: &#39; . $student . &#39;&lt;br/&gt;&#39;;
+}
+
+foreach($age as $key =&gt; $val){
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>可於迴圈中搭配運算子使用：<code>continue</code>、<code>break</code></p>
+<h3 id="216-巢狀迴圈">2.16 巢狀迴圈</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">$students = [
+  [
+    &#39;姓名&#39; =&gt; &#39;小明&#39;,
+    &#39;數學成績&#39; =&gt; 30,
+    &#39;英文成績&#39; =&gt; 40
+  ],
+  [
+    &#39;姓名&#39; =&gt; &#39;老王&#39;,
+    &#39;數學成績&#39; =&gt; 83,
+    &#39;英文成績&#39; =&gt; 30
+  ]
+];
+
+foreach($students as $student){
+  foreach($student as $key =&gt; $value){
+
+  }
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="217-函數-function">2.17 函數 Function</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 無回傳值的函數
+function functionNoReturn(){
+    echo &#39;my funtion!&#39;;
+}
+functionNoReturn();
+
+// 有回傳值的函數
+function functionWithReturn(){
+    return &#39;my function!&#39;;
+}
+echo functionWithReturn();
+
+// 可回傳Object or Array
+function personInfo(){
+    return array(&#39;Jack&#39;, 18, &#39;Male&#39;);
+}
+list ($name, $age, $gender) = personInfo();
+
+// 有參數的函數
+function minusTwo($num1, $num2){
+    return $num1 - $num2;
+}
+
+// 可指定回傳參數與回傳類型
+function addTwo(int $num1, int $num2) : string {
+    return strval($num1 &#43; $num2);
+}
+
+// Default Argument
+function multiplyTwo($num1, $num2 = 0){
+    ...
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="3-php-物件導向-oop">3. PHP 物件導向 OOP</h2>
+<h3 id="31-class--object">3.1 Class &amp; Object</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">class Student{
+    public $name;
+    public $grades = array();
+    public function __construct($name, $mathScore, $englishScore){
+      $this-&gt;name = $name;
+      $this-&gt;grades[0] = $mathScore;
+      $this-&gt;grades[1] = $englishScore;
+    }
+
+    public function printAllGrades(){
+      foreach($this-&gt;grades as $grade){
+        echo $grade.&#39;&lt;br/&gt;&#39;;
+      }
+    }
+  }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>使用<code>require</code>或<code>include</code>引用別的.php檔：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">require &#34;./student.php&#34;;
+$s1 = new Student(&#39;Elsa&#39;, 10, 20);
+$s2 = new Student(&#39;Ian&#39;, 40, 80);
+
+$s1-&gt;printAllGrades();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<h3 id="32-類別常數--靜態函數">3.2 類別常數 &amp; 靜態函數</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">const BR = &#39;&lt;br/&gt;&#39;;
+...
+static public function printHigherMathGrades($student1, $student2){
+      $br = self::BR;
+      $higherStudent = ($student1-&gt;grades[0] &gt; $student2-&gt;grades[0]) ? $student1 : $student2;
+      echo $higherStudent-&gt;grades[0].$br;
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">echo Student::BR;
+Student::printHigherMathGrades($s1, $s2);</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="33-繼承">3.3 繼承</h3>
+<p>使用<code>extends</code>繼承其他 Class，你也可以使用<code>parent</code>呼叫父Class的函數：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">class A {
+    function example() {
+        echo &#34;I am A::example() and provide basic functionality.\n&#34;;
+    }
+}
+
+class B extends A {
+    function example() {
+        echo &#34;I am B::example() and provide additional functionality.\n&#34;;
+        parent::example();
+    }
+}
+
+$b = new B;
+$b-&gt;example();
+
+// Output:
+// I am B::example() and provide additional functionality.
+// I am A::example() and provide basic functionality.</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="34-命名空間namespace">3.4 命名空間Namespace</h3>
+<p>為了更好的組織Class，以及避免名稱衝突的問題，可以使用命名空間<code>namespace</code>為Class進行組織分類，注意<code>namespace</code>一定要位於所有程式碼的最前方：
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// Home.php
+namespace Home\Kitchen;
+class Table(){...}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>在其他腳本使用Class時需要連命名空間也寫出來，如果所有的Class都使用相同的命名空間，則可以將<code>namespace</code>寫在最前方，這樣之後的Class在使用時就可以省略命名空間的部分。
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">include &#39;Home.php&#39;
+
+$table = new Home\Kitchen\Table();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">namespace Home\Kitchen;
+include &#39;Home.php&#39;;
+
+$table = new Table();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>可使用<code>use</code>為命名空間或Class設定別名：</p>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">use Home\Kitchen as HK;
+$table = new HK\Table();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">use Home\Kitchen\Table as T;
+$table = new T();</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<hr>
+<h2 id="4-php-常見函數與使用情境">4. PHP 常見函數與使用情境</h2>
+<h3 id="41-number--math">4.1 Number &amp; Math</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">// 四捨五入、無條件進位、無條件捨去、操作到小數第N位
+round($num, $precision);
+ceil($num);
+floor($num);
+
+// 次方、根號、餘數、絕對值、PI
+pow($num, $exponent);
+$num ** $exponent;
+sqrt($num);
+$num ** (1/2);
+$num % $remainderNum;
+abs($num);
+pi();
+
+// 數字每位分割轉換成矩陣
+array_map(&#39;intval&#39;, str_split($num));</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="42-string">4.2 String</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">strval($var);
+strlen($str); // 字串長度
+str_word_count($str); // 單字數量
+$new_str = &#39;somestring&#39; . $val1 . $val2; // 字串相接
+
+// 字串轉換成矩陣
+str_split($str); // char全分割
+explode($seperator, $str); // 依照seperator分割
+
+// 找尋特定字串index
+strpos($string, $findme, $offset);
+
+
+// 大小寫轉換：全大寫、全小寫、首字大寫
+strtolower($string); // 全大寫
+strtoupper($string); // 全小寫
+ucfirst($string); // 首字大寫
+ucwords($string); // 全單字首字大寫
+
+// 獲取字串部分內容
+substr(&#39;abcd&#39;, 1, 2); // &#39;bc&#39;
+substr(&#39;abcd&#39;, 1); // &#39;bcd&#39;
+substr(&#39;abcd&#39;, -2); // &#39;cd&#39;
+substr(&#39;abcd&#39;, 0, -1); // &#39;abc&#39;
+
+// 字串開頭or結尾
+str_ends_with($str, $needle);
+str_starts_with($str, $needle);
+
+// 字串前後填充
+// type有：STR_PAD_RIGHT, STR_PAD_LEFT
+str_pad($str, $length, $pad_string, $type);
+
+// Unicode：字串轉Unicode、Unicode轉字串
+ord($str); // string to unicode
+chr($numbr); // unicode to string
+
+substr_count($str, $needle); // 計算字串中的某個字詞的數量
+
+// 替換特定字
+str_replace($search, $replace, $subject);
+str_replace(&#34;%body%&#34;, &#34;black&#34;, &#34;&lt;body text=&#39;%body%&#39;&gt;&#34;); // Provides: &lt;body text=&#39;black&#39;&gt;
+$vowels = array(&#34;a&#34;, &#34;e&#34;, &#34;i&#34;, &#34;o&#34;, &#34;u&#34;, &#34;A&#34;, &#34;E&#34;, &#34;I&#34;, &#34;O&#34;, &#34;U&#34;);
+str_replace($vowels, &#34;&#34;, &#34;Hello World of PHP&#34;); // Provides: Hll Wrld f PHP
+
+preg_replace($pattern, $replace, $subject); // 正則表達式替換</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="43-array">4.3 Array</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">count($arr); // 矩陣長度
+empty($arr); // bool 是否為空[], 0, &#39;0&#39;, &#39;&#39;, null
+implode(&#39;,&#39;, $array); // 串接成字串，中間夾著特定字串
+
+// 矩陣首位插入、矩陣首位去除、矩陣末位插入、矩陣末位去除
+array_unshift($arr, $val);
+array_shift($arr);
+array_push($arr, $val);
+$arr[] = $val;
+array_pop($arr);
+
+// 取得矩陣部分元素
+array_slice($arr, $offset, $length, $seperate_key);
+
+// 矩陣index：插入元素、去除元素、取代元素
+array_splice($arr, $index, $length, $val_arr);
+array_splice($arr, $index, 0, $newvals); // 插入多個新元素
+array_splice($arr, $index, 1); // 去除1個元素
+array_splice($arr, $index, 1, $newval); // 取代1個元素
+
+// 數字矩陣：總和、最大值、最小值、乘積
+array_sum($array); // 總和，array裡面可以是字串
+max($arr); // 最大
+min($arr); // 最小
+array_product($array); // 乘積，array裡面可以是字串
+
+// map, filter, reduce
+array_map(callback, $arr1, $arr2...);
+array_filter($arr, callback); // 回傳的key是會亂掉的
+array_reduce($arr, callback, $init); // function($carry, $item){}
+
+// 特定元素是否在矩陣內
+in_array($findme, $array);
+
+// 取得特定元素在矩陣內的index
+array_search($findme, $arr, $isStrict);
+
+// 元素排列：遞增排列、遞減排列、條件排列
+sort($arr); // [1,2,3]
+rsort($arr); // [3,2,1]
+usort($arr, callback); // user條件排列
+
+// 範圍矩陣
+range(1, 12);
+range(1,100,10);
+range(&#34;a&#34;,&#34;z&#34;);
+
+rand($from, $to); // 隨機int(含頭尾)
+
+// 取得所有 keys 或 values 的矩陣
+array_keys($arr);
+array_values($arr);
+
+...$arr // 展開矩陣
+echo json_encode($arr); // 輸出成JSON格式</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="44-others">4.4 Others</h3>
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>php</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language- "><code class="">gettype($var); // 取得變數類型
+is_null($var); // null判斷
+bindec(&#34;101100&#34;); // binary to decimal</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="references">references</h2>
+<ul>
+<li><a href="https://www.php.net/">https://www.php.net/</a></li>
+<li><a href="https://www.w3schools.com/php/">https://www.w3schools.com/php/</a></li>
+</ul>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://hsuanblog.live/tags/php/">PHP</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/10/rails-polymorphic/" data-tooltip="Rails Polymorphic" aria-label="PREVIOUS: Rails Polymorphic">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2024 Yi-Hsuan Hsiao. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://hsuanblog.live/2023/10/rails-polymorphic/" data-tooltip="Rails Polymorphic" aria-label="PREVIOUS: Rails Polymorphic">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/84c1cc2d79f59deb1628aae62647136c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Yi-Hsuan Hsiao</h4>
+    
+      <div id="about-card-bio">Full stack developer| <a href="mailto:hsuan9705@gmail.com">hsuan9705@gmail.com</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Full stack developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taoyaun Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://hsuanblog.live/images/clem-onojeghuo.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://hsuanblog.live/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
