@@ -716,6 +716,8 @@ array_values($arr);
 
 ...$arr // 展開矩陣
 echo json_encode($arr); // 輸出成JSON格式
+
+array_unique($arr); // 去除相同元素
 {{< /codeblock >}}
 
 ### 4.4 Others
