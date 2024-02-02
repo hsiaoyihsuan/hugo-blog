@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hsuanblog.live/tags/back-end/</loc>
+    <lastmod>2024-01-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hsuanblog.live/categories/</loc>
     <lastmod>2024-01-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsuanblog.live/</loc>
+    <lastmod>2024-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsuanblog.live/tags/laravel/</loc>
+    <lastmod>2024-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsuanblog.live/categories/laravel/</loc>
+    <lastmod>2024-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsuanblog.live/2024/01/laravel-%E9%97%9C%E8%81%AF-model/</loc>
+    <lastmod>2024-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsuanblog.live/tags/orm/</loc>
     <lastmod>2024-01-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsuanblog.live/tags/php/</loc>
@@ -22,9 +37,6 @@
   </url><url>
     <loc>https://hsuanblog.live/tags/</loc>
     <lastmod>2024-01-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsuanblog.live/tags/back-end/</loc>
-    <lastmod>2023-10-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsuanblog.live/tags/polymorphic/</loc>
     <lastmod>2023-10-12T00:00:00+00:00</lastmod>

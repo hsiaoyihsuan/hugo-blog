@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - Front-end
 thumbnailImagePosition: left
-thumbnailImage: images/js-garbriel.jpg
+thumbnailImage: images/javascript.svg
 ---
 Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。
 
@@ -54,7 +54,7 @@ console.log(a === b); //false
 明明變數 a, b 間的數值相同，但比較結果卻是false，
 其實這就是 call by value 和 call by reference 之間的差異了。
 
-## 4. Call by Value 
+## 4. Call by Value
 當變數內的數值是基本型別時，JavaScript 使用 call by value 的方式對變數內的值進行更新與傳遞。
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 let a = 10

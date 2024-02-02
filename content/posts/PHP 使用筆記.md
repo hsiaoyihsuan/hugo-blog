@@ -6,7 +6,7 @@ categories:
 tags:
   - PHP
 thumbnailImagePosition: left
-thumbnailImage: images/phpLogo.png
+thumbnailImage: images/php.svg
 ---
 PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
 

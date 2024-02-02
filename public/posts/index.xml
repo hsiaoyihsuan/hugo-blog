@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Laravel 關聯 Model</title>
+      <link>https://hsuanblog.live/2024/01/laravel-%E9%97%9C%E8%81%AF-model/</link>
+      <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsuanblog.live/2024/01/laravel-%E9%97%9C%E8%81%AF-model/</guid>
+      <description>&lt;p&gt;Laravel 關聯性Model基礎操作：belongs_to, has_one, has_many, many to many&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>PHP 使用筆記</title>
       <link>https://hsuanblog.live/2024/01/php-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98/</link>
       <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>

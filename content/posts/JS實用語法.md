@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - Front-end
 thumbnailImagePosition: left
-thumbnailImage: images/js-garbriel.jpg
+thumbnailImage: images/javascript.svg
 ---
 
 大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。
