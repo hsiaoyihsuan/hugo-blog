@@ -297,7 +297,7 @@ Store:
 - id
 - name
 - owner_id
-</code></pre><p>首先要為Store創建欄位<code>owner_id</code>，在migration中可以使用<code>$table-&gt;foreignId('owner_id')</code>建立欄位。</p>
+</code></pre><p>首先要為Store創建欄位<code>owner_id</code>，在migration中可以使用<code>$table-&gt;foreignId('owner_id')</code>建立欄位(foreignId等同於unsignedBigInt)。</p>
 <p><code>Owner.php</code>中寫入<code>hasOne</code>：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#75715e">// app/Models/Owner.php
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">store</span>() {
@@ -322,7 +322,7 @@ Store:
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 從Store角度建立Owner
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$o2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Owner</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">2</span>);
 </span></span><span style="display:flex;"><span>$s3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Store</span>([<span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;store3&#39;</span>]);
-</span></span><span style="display:flex;"><span>$s3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">associate</span>($o2);
+</span></span><span style="display:flex;"><span>$s3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">owner</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">associate</span>($o2);
 </span></span><span style="display:flex;"><span>$s3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">save</span>();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 撈取該Owner的Store
@@ -341,8 +341,7 @@ Store:
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">hasOne</span>(<span style="color:#a6e22e">Store</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>, <span style="color:#e6db74">&#39;foreign_key&#39;</span>, <span style="color:#e6db74">&#39;owner_key&#39;</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><hr>
-<h2 id="2-一對多關係-has_many">2. 一對多關係 has_many</h2>
+</span></span></code></pre></div><h2 id="2-一對多關係-has_many">2. 一對多關係 has_many</h2>
 <p>假設兩個Model：商店Store、書籍Book，商店擁有多本書籍(Store has many books)，書籍屬於一個商店(Book belongs to Store)。</p>
 <pre tabindex="0"><code>Store:
 - id
@@ -378,12 +377,12 @@ Book:
 </span></span><span style="display:flex;"><span>]);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$books <span style="color:#f92672">=</span> <span style="color:#a6e22e">Book</span><span style="color:#f92672">::</span><span style="color:#a6e22e">where</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;like&#39;</span>, <span style="color:#e6db74">&#39;book%&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>();
-</span></span><span style="display:flex;"><span>$s1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">book</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">saveMany</span>($books);
+</span></span><span style="display:flex;"><span>$s1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">books</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">saveMany</span>($books);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 從Book角度建立Store
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Book</span>([<span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;book3&#39;</span>]);
 </span></span><span style="display:flex;"><span>$s1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Store</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>$b3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">associate</span>($s1);
+</span></span><span style="display:flex;"><span>$b3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">store</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">associate</span>($s1);
 </span></span><span style="display:flex;"><span>$b3<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">save</span>();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 撈取該Store的Book
@@ -394,8 +393,7 @@ Book:
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">store</span>;
 </span></span></code></pre></div><p><code>hasMany</code>可以獨立設置foreign key和owner key：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">hasMany</span>(<span style="color:#a6e22e">Comment</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>, <span style="color:#e6db74">&#39;foreign_key&#39;</span>, <span style="color:#e6db74">&#39;local_key&#39;</span>);
-</span></span></code></pre></div><hr>
-<h2 id="3-多對多關係-many-to-many">3. 多對多關係 Many to Many</h2>
+</span></span></code></pre></div><h2 id="3-多對多關係-many-to-many">3. 多對多關係 Many to Many</h2>
 <p>假設兩個Model：書籍Book、作者Author，書籍有多位作者(book has many authors)，作者有撰寫多本書籍(author has many books)，此時會需要中間資料表author_book用來紀錄兩者的關係，要有欄位<code>book_id</code>、<code>author_id</code>，表格名稱內的Model名稱是依照字母排序。</p>
 <p>建立中間資料表author_book：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>php artisan make:migration create_author_book_table
@@ -409,6 +407,7 @@ Book:
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">authors</span>(){
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">belongsToMany</span>(<span style="color:#a6e22e">Author</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>);
 </span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Author.php
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">books</span>(){
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">belongsToMany</span>(<span style="color:#a6e22e">Book</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>);
@@ -417,6 +416,7 @@ Book:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">belongsToMany</span>(<span style="color:#a6e22e">Role</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>, <span style="color:#e6db74">&#39;role_user&#39;</span>, <span style="color:#e6db74">&#39;user_id&#39;</span>, <span style="color:#e6db74">&#39;role_id&#39;</span>);
 </span></span></code></pre></div><p>使用方法：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#75715e">// 兩筆資料建立關係
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 方法ㄧ：使用save, saveMany
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Book</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>$a1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Author</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>$b1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">authors</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">save</span>($a1);
@@ -424,6 +424,12 @@ Book:
 </span></span><span style="display:flex;"><span>$authors <span style="color:#f92672">=</span> <span style="color:#a6e22e">Author</span><span style="color:#f92672">::</span><span style="color:#a6e22e">whereIn</span>(<span style="color:#e6db74">&#39;id&#39;</span>, [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>])<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>();
 </span></span><span style="display:flex;"><span>$b1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">authors</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">saveMany</span>($authors);
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 方法ㄧ：使用attach, detach
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Book</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>$a1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Author</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>$b2<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">authors</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">attach</span>($a2<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">id</span>); <span style="color:#75715e">// add relation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b2<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">authors</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">detach</span>($a2<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">id</span>); <span style="color:#75715e">// remove relation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 撈取資料
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$b1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">authors</span>;
 </span></span><span style="display:flex;"><span>$a1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">books</span>;
