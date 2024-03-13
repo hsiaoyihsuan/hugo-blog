@@ -86,13 +86,13 @@ ex: "Hi" + ", " + "my love!" // "Hi, my love!"
 str.replace(pattern, replacement)
 ex:
 let str = "cat dog cat duck"
-str.replace("cat","KITTY") // "KITTY dog cat duck"
-str.replace(/cat/,"KITTY") // "KITTY dog cat duck"
+str.replace("cat", "KITTY") // "KITTY dog cat duck"
+str.replace(/cat/, "KITTY") // "KITTY dog cat duck"
 
 // replaceAll，替換全部符合的字串，回傳新字串，原字串不變
 str.replaceAll(pattern, replacement)
-str.replaceAll("cat","KITTY") // "KITTY dog KITTY duck"
-str.replaceAll(/cat/g,"KITTY") // "KITTY dog KITTY duck"
+str.replaceAll("cat", "KITTY") // "KITTY dog KITTY duck"
+str.replaceAll(/cat/g, "KITTY") // "KITTY dog KITTY duck"
 
 // trim，修剪字串前後的空白
 str.trim()
@@ -204,8 +204,8 @@ Math.ceil(num);
 // Math 要針對特定位數的進位操作有局限性，常見操作如下：
 // 小數點後 2 位
 let num = 3.14159;
-console.log(Math.round(num _ 100) / 100); // 3.14
-console.log(Math.ceil(num _ 100) / 100); // 3.15
+console.log(Math.round(num * 100) / 100); // 3.14
+console.log(Math.ceil(num * 100) / 100); // 3.15
 console.log(Math.floor(num \* 100) / 100); // 3.14
 
 // \* % operator，基礎實用的運算子
@@ -258,21 +258,21 @@ arr.reduce((accumulator,currentValue,currentIndex,array)=>{},initialValue) // re
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
 // find()，從頭找尋第一個符合條件元素，回傳元素
-arr.find((element, index, array)=>{})
-ex: [0,50,2,70,1].find((element)=>element>10) // 50
+arr.find((element, index, array) => {})
+ex: [0,50,2,70,1].find((element) => element > 10) // 50
 
 // findIndex()，從頭找尋第一個符合條件元素，回傳元素的指標
-arr.find((element, index, array)=>{})
-ex: [0,50,2,70,1].find((element)=>element>10) // 1
+arr.findIndex((element, index, array) => {})
+ex: [0,50,2,70,1].findIndex((element) => element > 10) // 1
 
 // findLast()，從尾找尋第一個符合條件元素，回傳元素
-arr.find((element, index, array)=>{})
-ex: [0,50,2,70,1].find((element)=>element>10) // 70
+arr.findLast((element, index, array) => {})
+ex: [0,50,2,70,1].findLast((element) => element > 10) // 70
 
 // indexOf()，從頭找尋第一個符合條件的元素，回傳指標
 arr.indexOf(element, fromIndex)
 ex:
-let arr = ["cat","dog","duck","dog"]
+let arr = ["cat", "dog", "duck", "dog"]
 arr.indexOf("dog") // 1
 arr.indexOf("dog", 2) // 3
 arr.indexOf("lion") // -1 (沒找到)
@@ -391,14 +391,14 @@ Q: 找出價格大於$200 的商品，並依據價格排列
 {{< codeblock "javasript" "js" "http://underscorejs.org/#compact" "js" >}}
 
 let food = [
-{name: "cake", price: 100},
-{name: "fruit", price: 300},
-{name: "water", price: 5},
+  {name: "cake", price: 100},
+  {name: "fruit", price: 300},
+  {name: "water", price: 5},
 ];
 let products = [
-{name: "car", price: 30000},
-{name: "book", price: 500},
-{name: "pencil", price: 10},
+  {name: "car", price: 30000},
+  {name: "book", price: 500},
+  {name: "pencil", price: 10},
 ];
 let highPrice = [...food, ...products].filter((e) => e.price > 200);
 highPrice.sort((e1, e2) => e1.price - e2.price);
@@ -406,9 +406,9 @@ highPrice.sort((e1, e2) => e1.price - e2.price);
 console.log(highPrice);
 Output:
 [
-{ name: 'fruit', price: 300 },
-{ name: 'book', price: 500 },
-{ name: 'car', price: 30000 }
+  { name: 'fruit', price: 300 },
+  { name: 'book', price: 500 },
+  { name: 'car', price: 30000 }
 ]
 {{< /codeblock >}}
 
