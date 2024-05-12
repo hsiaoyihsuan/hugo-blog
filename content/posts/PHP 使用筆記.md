@@ -10,10 +10,6 @@ thumbnailImage: images/php.svg
 ---
 PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言，可嵌入在HTML中使用。這裡記錄了PHP基礎語法與常見的函數。
 
-<!--more-->
-
-{{< toc >}}
-
 ---
 
 ## 1. 環境安裝與設定
@@ -29,7 +25,7 @@ PHP (Hypertext Prepocessor) 超文字預處理器，為直譯式的程式語言�
 PHP設定檔為`php.ini`，位在`/opt/homebrew/etc/php/8.1/`
 
 ### 1.1 Homebrew 安裝 PHP
-{{< codeblock "bash" >}}
+```bash
 
 $ brew install php
 $ brew install php@8.1
@@ -40,34 +36,34 @@ $ brew link php
 $ brew unlink php
 $ echo $PATH # 前面的指令優先級較高
 $ php -S 127.0.0.1:8000 # 運行index.php
-{{< /codeblock >}}
+```
 
 ---
 
 ## 2. PHP基礎語法
 PHP使用`<?php`、`?>`作為開頭與結尾：
 
-{{< codeblock "php" >}}
+```php
 <?php
 // php code
 ?>
-{{< /codeblock >}}
+```
 
 ### 2.1 註解 Comment
 
-{{< codeblock "php" >}}
+```php
 // 單行註解，較常使用
 # linux風格的單行註解
 /* 這是
    多行縮排 */
-{{< /codeblock >}}
+```
 
 ### 2.2 echo & print
 `echo`與`print`都能輸出字串到畫面，兩者差異：
 - `echo`：無回傳值，可省略括號()，效能稍微快一些
 - `print`：回傳值1
 
-{{< codeblock "php" >}}
+```php
 echo('print out the words');
 echo 'print out the words';
 echo "Hello World! <br/>";
@@ -77,7 +73,7 @@ echo 'Hello World! <br/>';
 $var = 'love';
 echo 'I '.$var.' you.'; // I love you.
 print 'I'.$var.'HAHA';
-{{< /codeblock >}}
+```
 
 ### 2.3 變數命名
 變數命名規則：
@@ -85,10 +81,10 @@ print 'I'.$var.'HAHA';
 - 英文字母或底線`_`開頭，不可以數字開頭
 - 英文大小寫有差異 ex: $name, $Name
 - 變數名稱只可使用英文數字字符與底線(A-z, 0-9, and _ )
-{{< codeblock "php" >}}
+```php
 $txt = 'love';
 echo "I $txt you."; // I love you.
-{{< /codeblock >}}
+```
 
 :::info
 :information_source: 沒有初始值的變數，預設會是`NULL`
@@ -96,7 +92,7 @@ echo "I $txt you."; // I love you.
 ### 2.4 變數範圍 Scope
 PHP有三種變數範圍：local、global、static，宣告在funciton中的變數為local scope，宣告在funciton外部的變數則是global scope。
 
-{{< codeblock "php" >}}
+```php
 $global_x = 3; // global scope
 
 function myFun() {
@@ -104,20 +100,20 @@ function myFun() {
   echo "<p>Variable x inside function is: $x</p>";
 }
 myFun();
-{{< /codeblock >}}
+```
 
 在function內部取用外部的變數會產生錯誤，然而可以使用`global`關鍵字在function內部取得global scope的變數：
-{{< codeblock "php" >}}
+```php
 $x = 3;
 function myFun(){
   global $x;
   echo $x;
 }
-{{< /codeblock >}}
+```
 
 其實PHP有一個超級全域變數矩陣`$GLOBAL`用以記錄所有的global variable，因此也可以使用該變數於function內取得global variable：
 
-{{< codeblock "php" >}}
+```php
 $x = 5;
 $y = 10;
 
@@ -127,11 +123,11 @@ function myFun() {
 
 myFun();
 echo $y; // outputs 15
-{{< /codeblock >}}
+```
 
 可以透過`static`宣告變數，該變數不會因為function執行結束而消失：
 
-{{< codeblock "php" >}}
+```php
 function myFun() {
   static $x = 0;
   echo $x;
@@ -141,7 +137,7 @@ function myFun() {
 myFun(); // 0
 myFun(); // 1
 myFun(); // 2
-{{< /codeblock >}}
+```
 
 ### 2.5 資料型別 DataType
 * String
@@ -157,7 +153,7 @@ myFun(); // 2
 
 ### 2.6 字串 String
 
-{{< codeblock "php" >}}
+```php
 $txt = 'PHP';
 echo "Learning ".$txt." is ". "fun <br/>"; // Learning PHP is fun
 
@@ -165,13 +161,13 @@ echo "Learning ".$txt." is ". "fun <br/>"; // Learning PHP is fun
 $txt = 'love';
 echo 'I $txt you.'; // I $txt you.
 echo "I $txt you."; // I love you.
-{{< /codeblock >}}
+```
 
 在`""`中使用`\`來跳脫字元
 
-{{< codeblock "php" >}}
+```php
 $txt = "My name is \"Hsuan\".\n"; // My name is "Hsuan".
-{{< /codeblock >}}
+```
 
 -> [跳脫字元列表](https://www.php.net/manual/en/regexp.reference.escape.php)
 String 其他的常見操作請參考標題：**PHP 常見函數與使用情境 / String**
@@ -186,7 +182,7 @@ String 其他的常見操作請參考標題：**PHP 常見函數與使用情境 
 - `Infinity`：超過`PHP_FLOAT_MAX`的數字
 - `NaN`：代表計算錯誤或無法運算
 
-{{< codeblock "php" >}}
+```php
 $a = 5;
 $b = 5.34;
 $c = "25";
@@ -202,18 +198,18 @@ is_float($c); // false
 is_numeric($a); // true
 is_numeric($b); // true
 is_numeric($c); // true
-{{< /codeblock >}}
+```
 
 :::warning
 :warning: 小心自動型別轉換
-{{< codeblock "php" >}}
+```php
 var_dump('1' + 2); // int(3)
 var_dump('1' + '3.0'); // float(4)
-{{< /codeblock >}}
+```
 :::
 在進行String、Integer、Float三者間的型別轉換時，除了使用PHP提供的函式庫，如`intval`外，還可使用cast `(int)`來進行轉換：
 
-{{< codeblock "php" >}}
+```php
 // to integer
 $x = 123.456;
 echo intval($x);
@@ -228,7 +224,7 @@ echo (float)$y;
 $z = 654.321;
 echo strval($z);
 echo (string)$z;
-{{< /codeblock >}}
+```
 
 Number 其他的常見操作請參考標題：**PHP 常見使用函數與情境 / Number & Math**
 
@@ -238,10 +234,10 @@ Number 其他的常見操作請參考標題：**PHP 常見使用函數與情境 
 - `==`、`!=`的比較**會**判斷型別
 - `<>`等於`!=`，但不推薦使用`<>`
 
-{{< codeblock "php" >}}
+```php
 var_dump(2 == '2.0'); // bool(true)
 var_dump(2 === '2.0'); // bool(false)
-{{< /codeblock >}}
+```
 - 建議不要使用`and`、`or`、`xor`，而是使用`&&`、`||`、`!`
 - `<=>`會比較兩數大小，相同回傳0，左側數字大回傳1，右側數字大回傳-1
 
@@ -255,37 +251,37 @@ var_dump(2 === '2.0'); // bool(false)
 
 :::warning
 :warning: 使用邏輯判斷時要注意Boolean的自動轉型：
-{{< codeblock "php" >}}
+```php
 var_dump('' === false); // false
 var_dump('' == false); // true
 echo (4-4) ? 'true' : 'false'; // true
-{{< /codeblock >}}
+```
 :::
 
 ### 2.10 型別指定 ＆ 強制轉型 & 嚴格模式
 PHP預設會自動轉型，可以透過型別指定或強制轉型(cast)試著解決這一問題，但是還是有可能會出現錯誤(Number轉String)。最好的解法是設定嚴格模式，注意`strict_type`只能寫在第一行。
 
-{{< codeblock "php" >}}
+```php
 // 型別指定（數字可能自動轉成String）
 function myFunction(Person person){}
 // 使用cast強制轉型
 (int) $stringVar
-{{< /codeblock >}}
+```
 
-{{< codeblock "php" >}}
+```php
 // 嚴格模式，只能寫在第一行
 declare(strict_type=1);
-{{< /codeblock >}}
+```
 
 ### 2.11 常數 Constant &魔術常數 Magic Constant
 常數Constant在宣告後就無法再被修改，可以使用`define()`、`const`進行宣告，或者也可以使用Superglobals中的`$GLOBALS`宣告：
-{{< codeblock "php" >}}
+```php
 // 常數以大寫表示，並且不使用$
 define(BR, "<br/>");
 const BR = "<br/>"; // 注意：const不能在block scope內宣告
 
 $GLOBALS["BR"] = "<br/>";
-{{< /codeblock >}}
+```
 
 魔術常數(Magic Constants)：為系統常數，case-insensitive，會於編譯時賦予數值，因此會根據系統的差異而有所變化，以下為9個Magic Constants。
 - `__CLASS__`
@@ -311,7 +307,7 @@ $GLOBALS["BR"] = "<br/>";
 - `$_SESSION`
 
 常見使用範例：
-{{< codeblock "php" >}}
+```php
 $x = 1;
 $GLOBALS['x']; // 獲取全域變數
 
@@ -321,10 +317,10 @@ $_COOKIE['yourParam']; // 獲取瀏覽器傳出的Cookie參數
 
 // _REQUEST為_GET, _POST, _COOKIE的集合，不建議使用，有安全上的疑慮
 $_REQUEST['yourParam'];
-{{< /codeblock >}}
+```
 
 ### 2.13 條件判斷
-{{< codeblock "php" >}}
+```php
 // if判斷
 if(){
 
@@ -362,12 +358,12 @@ default:
   echo 'default';
   break;
 }
-{{< /codeblock >}}
+```
 
 ### 2.14 矩陣 Array
 矩陣是一種數據結構，PHP中的矩陣類似傳統動態矩陣與雜湊表的結合，PHP稱呼其Indexed Array與Associative Array，一般宣告Indexed Array時，其key值如同傳統矩陣由0開始編號，再進行元素處理時，key的順序不一定會重新排列，這點需要特別注意。
 Indexed Array:
-{{< codeblock "php" >}}
+```php
 // 宣告
 $arr = array('hello', 2, 'world');
 $arr = ['hello', 2, 'world'];
@@ -385,21 +381,21 @@ unset($arr[1]); //去除key為1的組合，key=1會造成空缺
 $array1 = array_values($array1); // 利用array_values整理出新的矩陣
 // 使用array_splice去除元素不會造成空缺
 array_splice($arr, 2, 1);
-{{< /codeblock >}}
+```
 
 Associative Array:
-{{< codeblock "php" >}}
+```php
 // 宣告
 $arr = array('name' => 'Jack', 0 => 'number0');
 // 操作元素
 $arr['online'];
 $arr[0];
-{{< /codeblock >}}
+```
 
 Array 其他的常見操作請參考標題：**PHP 常見函數與使用情境 / Array**
 
 ### 2.15 迴圈
-{{< codeblock "php" >}}
+```php
 while(){
 
 }
@@ -419,12 +415,12 @@ foreach($students as $student){
 
 foreach($age as $key => $val){
 }
-{{< /codeblock >}}
+```
 
 可於迴圈中搭配運算子使用：`continue`、`break`
 
 ### 2.16 巢狀迴圈
-{{< codeblock "php" >}}
+```php
 $students = [
   [
     '姓名' => '小明',
@@ -443,11 +439,11 @@ foreach($students as $student){
 
   }
 }
-{{< /codeblock >}}
+```
 
 ### 2.17 函數 Function
 
-{{< codeblock "php" >}}
+```php
 // 無回傳值的函數
 function functionNoReturn(){
     echo 'my funtion!';
@@ -480,11 +476,11 @@ function addTwo(int $num1, int $num2) : string {
 function multiplyTwo($num1, $num2 = 0){
     ...
 }
-{{< /codeblock >}}
+```
 
 ## 3. PHP 物件導向 OOP
 ### 3.1 Class & Object
-{{< codeblock "php" >}}
+```php
 class Student{
     public $name;
     public $grades = array();
@@ -500,19 +496,19 @@ class Student{
       }
     }
   }
-{{< /codeblock >}}
+```
 
 使用`require`或`include`引用別的.php檔：
-{{< codeblock "php" >}}
+```php
 require "./student.php";
 $s1 = new Student('Elsa', 10, 20);
 $s2 = new Student('Ian', 40, 80);
 
 $s1->printAllGrades();
-{{< /codeblock >}}
+```
 
 ### 3.2 類別常數 & 靜態函數
-{{< codeblock "php" >}}
+```php
 const BR = '<br/>';
 ...
 static public function printHigherMathGrades($student1, $student2){
@@ -520,17 +516,17 @@ static public function printHigherMathGrades($student1, $student2){
       $higherStudent = ($student1->grades[0] > $student2->grades[0]) ? $student1 : $student2;
       echo $higherStudent->grades[0].$br;
     }
-{{< /codeblock >}}
+```
 
-{{< codeblock "php" >}}
+```php
 echo Student::BR;
 Student::printHigherMathGrades($s1, $s2);
-{{< /codeblock >}}
+```
 
 ### 3.3 繼承
 使用`extends`繼承其他 Class，你也可以使用`parent`呼叫父Class的函數：
 
-{{< codeblock "php" >}}
+```php
 class A {
     function example() {
         echo "I am A::example() and provide basic functionality.\n";
@@ -550,47 +546,47 @@ $b->example();
 // Output:
 // I am B::example() and provide additional functionality.
 // I am A::example() and provide basic functionality.
-{{< /codeblock >}}
+```
 
 ### 3.4 命名空間Namespace
 為了更好的組織Class，以及避免名稱衝突的問題，可以使用命名空間`namespace`為Class進行組織分類，注意`namespace`一定要位於所有程式碼的最前方：
-{{< codeblock "php" >}}
+```php
 // Home.php
 namespace Home\Kitchen;
 class Table(){...}
-{{< /codeblock >}}
+```
 
 在其他腳本使用Class時需要連命名空間也寫出來，如果所有的Class都使用相同的命名空間，則可以將`namespace`寫在最前方，這樣之後的Class在使用時就可以省略命名空間的部分。
-{{< codeblock "php" >}}
+```php
 include 'Home.php'
 
 $table = new Home\Kitchen\Table();
-{{< /codeblock >}}
+```
 
-{{< codeblock "php" >}}
+```php
 namespace Home\Kitchen;
 include 'Home.php';
 
 $table = new Table();
-{{< /codeblock >}}
+```
 
 可使用`use`為命名空間或Class設定別名：
 
-{{< codeblock "php" >}}
+```php
 use Home\Kitchen as HK;
 $table = new HK\Table();
-{{< /codeblock >}}
+```
 
-{{< codeblock "php" >}}
+```php
 use Home\Kitchen\Table as T;
 $table = new T();
-{{< /codeblock >}}
+```
 
 ---
 
 ## 4. PHP 常見函數與使用情境
 ### 4.1 Number & Math
-{{< codeblock "php" >}}
+```php
 // 四捨五入、無條件進位、無條件捨去、操作到小數第N位
 round($num, $precision);
 ceil($num);
@@ -607,10 +603,10 @@ pi();
 
 // 數字每位分割轉換成矩陣
 array_map('intval', str_split($num));
-{{< /codeblock >}}
+```
 
 ### 4.2 String
-{{< codeblock "php" >}}
+```php
 strval($var);
 strlen($str); // 字串長度
 str_word_count($str); // 單字數量
@@ -657,10 +653,10 @@ $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
 str_replace($vowels, "", "Hello World of PHP"); // Provides: Hll Wrld f PHP
 
 preg_replace($pattern, $replace, $subject); // 正則表達式替換
-{{< /codeblock >}}
+```
 
 ### 4.3 Array
-{{< codeblock "php" >}}
+```php
 count($arr); // 矩陣長度
 empty($arr); // bool 是否為空[], 0, '0', '', null
 implode(',', $array); // 串接成字串，中間夾著特定字串
@@ -718,14 +714,14 @@ array_values($arr);
 echo json_encode($arr); // 輸出成JSON格式
 
 array_unique($arr); // 去除相同元素
-{{< /codeblock >}}
+```
 
 ### 4.4 Others
-{{< codeblock "php" >}}
+```php
 gettype($var); // 取得變數類型
 is_null($var); // null判斷
 bindec("101100"); // binary to decimal
-{{< /codeblock >}}
+```
 
 
 ## references

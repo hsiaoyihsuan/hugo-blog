@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ruby on Hsuan&#39;s Coding Blog</title>
     <link>https://hsuanblog.live/categories/ruby/</link>
     <description>Recent content in Ruby on Hsuan&#39;s Coding Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Hsuan&#39;s Coding Blog</title>
+      <url>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hsuanblog.live/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ruby 實體方法 vs 類別方法</title>
-      <link>https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
+      <link>https://hsuanblog.live/posts/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/04/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</guid>
-      <description>&lt;p&gt;快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/ruby-%E5%AF%A6%E9%AB%94%E6%96%B9%E6%B3%95-vs-%E9%A1%9E%E5%88%A5%E6%96%B9%E6%B3%95/</guid>
+      <description>快速了解 Ruby 中 實體方法(Instance method) 與 類別方法(Class method)的差異。
+方法 Method Ruby 世界的方法(Mehod)可以對應到其他程式語言中的函式(function)，將一些行為定義在方法中，藉由帶入引數並執行方法的過程來簡化程式的撰寫，以及達到程式碼重複利用的效果。Ruby 中的方法由def開頭，並且以小寫、蛇式的方式命名，例如下方範例中，簡單定義了一個方法並於外部呼叫，方法執行結束前會回傳最後ㄧ行的執行結果。
+def calculate_bmi(weight_kg, height_m) weight_kg / height_m ** 2 end p calculate_bmi(60, 1.75) # 19.591836734693878 實體方法 ＆ 類別方法 實體(Instance)是由類別(Class)為模板所產生的獨立物件，他可以使用定義在類別中的實體方法，但是不能使用定義在類別中的類別方法。同樣的，類別本身可以使用類別方法， 但是不能使用實體方法。
+簡單來說，實體方法與類別方法的使用對象不同，實體方法 for 實體，類別方法 for 類別，雖然方法都是定義在類別中，但是兩者是不能混用的。
+class Student def initialize(name) @name = name end def self.say_classroom_name p &amp;#34;All students are in Room 311&amp;#34; end def say_my_name p &amp;#34;My name is #{@name}&amp;#34; end end student01 = Student.new(&amp;#34;Lisa&amp;#34;) student02 = Student.new(&amp;#34;Kevin&amp;#34;) student01.</description>
     </item>
-    
   </channel>
 </rss>

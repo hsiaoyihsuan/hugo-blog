@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>JavaScript on Hsuan&#39;s Coding Blog</title>
     <link>https://hsuanblog.live/tags/javascript/</link>
     <description>Recent content in JavaScript on Hsuan&#39;s Coding Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Hsuan&#39;s Coding Blog</title>
+      <url>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hsuanblog.live/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript 中的 Call by sharing </title>
-      <link>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
+      <link>https://hsuanblog.live/posts/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/04/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
-      <description>&lt;p&gt;Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/javascript-%E4%B8%AD%E7%9A%84-call-by-sharing/</guid>
+      <description>Call by value、Call by reference在一般的程式語言中是常見的基本觀念，但在JavaScript中多了一項Call by sharing，這裡做個簡單的說明。
+1. Data Type JavaScript 的資料類別可以分為：
+基本型別（Primitive）：string、number、boolean、null、undefined 物件型別（Object）：object、symbol 基本型別會以純值的形式存在，而物件型別則是由零或不同型別的值所組成。
+這邊之所以提及 Data Type 是因為資料類別會決定 call by value、call by reference、call by sharing 的運作時機。
+2. 變數的真實樣貌 在提到 call by value 之前，我們先簡單講解平常看到的「變數」在程式中的真實樣貌。
+當我們宣告一個變數時，如：let num = 1234，程式會自動分配一份記憶體空間，空間內部可以存放我們想要的資料，並且給予該空間一個名字。 以這段程式碼為例，num便是記憶體空間的名字（variable name），123是變數初始化後內部所存放的資料（variable value），另外還有我們平常看不到，用來標注空間所在位置的記憶體地址（memory address）。
+3. 基本型別 ＆ 物件型別 變數作為一個資料容器，當內部儲存的數值是基本型態時進行比較：
+let a = &amp;#34;Dog&amp;#34;; let b = &amp;#34;Dog&amp;#34;; let c = &amp;#34;Cat&amp;#34;; // 變數之間進行數值比較 console.log(a === b); //true console.log(b === c); //false 基本型態下兩者的比較結果可想而知，比較式會取出兩變數內的「值」進行比較，但是當變數內部儲存的值是物件型態時，比較結果會有所不同：</description>
     </item>
-    
     <item>
       <title>JavaScript 矩陣, 字串, 數字 實用語法集</title>
-      <link>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</link>
+      <link>https://hsuanblog.live/posts/js%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95/</link>
       <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/03/javascript-%E7%9F%A9%E9%99%A3-%E5%AD%97%E4%B8%B2-%E6%95%B8%E5%AD%97-%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95%E9%9B%86/</guid>
-      <description>&lt;p&gt;大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了 😛。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/js%E5%AF%A6%E7%94%A8%E8%AA%9E%E6%B3%95/</guid>
+      <description>大家在新學習一門程式語言時，想必都會經歷一段不斷刷題練習的時期，在練題及翻閱官方文件的過程中除了更加熟悉該語言，同時也累積了不少好用的語法及函式，藉由這個筆記，希望可以幫助大家統整 JS 中實用的語法與操作，筆記主要著重在矩陣、數字、字串間的使用方法與關係，那些過於複雜或冷門的就不收錄了。
+1. String 使用方法 字串轉矩陣 Convert string to array:
+在確認是否轉換成功時要使用isArray，不能使用typeof(typeof 回傳結果是number)
+// ES6 spread syntax ... [...str] ex: let arr = [...&amp;#34;123&amp;#34;] // [&amp;#34;1&amp;#34;,&amp;#34;2&amp;#34;,&amp;#34;3&amp;#34;] // split() str.split() ex: &amp;#34;123&amp;#34;.split(&amp;#34;&amp;#34;) // [&amp;#34;1&amp;#34;,&amp;#34;2&amp;#34;,&amp;#34;3&amp;#34;] ex: &amp;#34;123&amp;#34;.split() // [&amp;#34;123&amp;#34;] // Array.from() Array.from(str) ex: Array.from(&amp;#34;123&amp;#34;) // [&amp;#34;1&amp;#34;,&amp;#34;2&amp;#34;,&amp;#34;3&amp;#34;] 字串中取出字串 Extract string from string:
+//slice， startIndex ~ endIndex，endIndex 不包括在內，回傳新 string，原 string 不變 //str.slice(startIndex, endIndex); ex: &amp;#34;01234&amp;#34;.slice(1, 3); // &amp;#34;12&amp;#34; ex: &amp;#34;01234&amp;#34;.slice(3, 1000); // &amp;#34;34&amp;#34; ex: &amp;#34;01234&amp;#34;.</description>
     </item>
-    
   </channel>
 </rss>

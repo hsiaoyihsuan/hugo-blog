@@ -12,7 +12,6 @@ thumbnailImage: images/laravel.svg
 ---
 Laravel 關聯性Model基礎操作：belongs_to, has_one, has_many, many to many
 
-<!--more-->
 ---
 
 ## 1. 一對一關係 has_one

@@ -2,9 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archives on Hsuan&#39;s Coding Blog</title>
-    <link>https://hsuanblog.live/archives/</link>
+    <link>http://localhost:1313/archives/</link>
     <description>Recent content in Archives on Hsuan&#39;s Coding Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://hsuanblog.live/archives/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

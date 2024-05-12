@@ -14,10 +14,6 @@ thumbnailImage: images/RailsLogo.png
 
 Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 **PostgreSQL**，可參照此說明筆記進行操作。
 
-<!--more-->
-
-<!-- {{< toc >}} -->
-
 ## 安裝 PostgreSQL on Mac
 
 1. 使用 Homebrew 套件管理工具安裝： `$ brew install postgresql`（預設安裝 postgreSQL v14）

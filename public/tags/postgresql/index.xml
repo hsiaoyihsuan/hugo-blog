@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>PostgreSQL on Hsuan&#39;s Coding Blog</title>
     <link>https://hsuanblog.live/tags/postgresql/</link>
     <description>Recent content in PostgreSQL on Hsuan&#39;s Coding Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Hsuan&#39;s Coding Blog</title>
+      <url>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hsuanblog.live/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rails 使用 PostgreSQL</title>
-      <link>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
+      <link>https://hsuanblog.live/posts/rails%E4%B8%AD%E4%BD%BF%E7%94%A8postgresql/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
-      <description>&lt;p&gt;Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 &lt;strong&gt;PostgreSQL&lt;/strong&gt;，可參照此說明筆記進行操作。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails%E4%B8%AD%E4%BD%BF%E7%94%A8postgresql/</guid>
+      <description>Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。
+安裝 PostgreSQL on Mac 使用 Homebrew 套件管理工具安裝： $ brew install postgresql（預設安裝 postgreSQL v14） 安裝後重新啟動$ brew services restart postgresql 重新啟動 Terminal 查看版本$ postgres --version或$ psql --version 在 Rails 專案建立 PostgreSQL 資料庫 Pre-requisites： 確認已經在本機中安裝 PostgreSQL 本機中必須保持運行 PostgreSQL，可透過$ brew service list查看運行狀況。 postgresql@14 started hsuan ~/Library/LaunchAgents/homebrew.mxcl.postgresql@14.plist 如果 PostgreSQL 沒有於背景運行，可見以下相關啟動 PostgreSQL 的操作指令：
+方法一使用 psql 手動啟動和停止 PostgreSQL，每次需要輸入相應的指令(較不推薦)。 psql -D /usr/local/var/postgres start psql -D /usr/local/var/postgres stop 方法二使用 Homebrew 服務管理工具啟動和停止 PostgreSQL。此方法將 PostgreSQL 服務作為系統常駐運行的服務，可在在系統啟動後自動啟動(推薦)。 $ brew services start postgresql $ brew services stop postgresql $ brew services restart postgresql Step1：安裝 pg gem 方法 1：建立新專案時就選擇使用 PostgreSQL：$ rails new myapp --database=postgresql 方法 2：單純 new 新專案，接著安裝 pg gem： $ bundle add pg+$ bundle install 方法 1 較為推薦，可以讓 rails 自動幫妳生成相關設定，如果是使用方法 2，則要將原先在 Gemfile 中的gem sqlite3手動移除，只保留gem pg（通常一個專案僅需要一個資料庫） Step2：設定資料庫 adapter 接著設定 Rails 專案的 config/database.</description>
     </item>
-    
   </channel>
 </rss>

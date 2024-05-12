@@ -11,20 +11,18 @@ thumbnailImagePosition: left
 thumbnailImage: images/RailsLogo.png
 ---
 CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。
-<!--more-->
 
-<!-- {{< toc >}} -->
 
 ## Create
 - `new`：產生新資料，但不會存檔
 - `create`：產生新資料，會直接存檔
 - `create!`：與create相同，但過程中發生錯誤時會報錯
-{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+```ruby
 new_book = Book.new(name: "老人與海", price: 300)
 new_book.save
 
 Book.create(name: "Les Misérables", author: "Victor Hugo")
-{{< /codeblock >}}
+```
 
 ## Read
 - `all`：一次抓取所有資料
@@ -39,7 +37,7 @@ Book.create(name: "Les Misérables", author: "Victor Hugo")
 - `order('price AESC')`：依照遞增或遞減順序抓取所有資料
 - `order(price: :aesc)`：order的不同寫法
 - `find_each`：batch find寫法，預設先抓出1000筆資料，當資料量太多時使用
-{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+```ruby
 Book.all
 Book.limit(5) // 抓取前五筆資料
 Book.offset(5).limit(5) // 抓取下五筆資料
@@ -66,21 +64,21 @@ Book.where('price < 500 and price > 250')
 Book.where(price: 500, name: '老人與海')
 Book.where.not(price: 1000).or Book.where(name: ['老人與海', 'Two walls'])
 Book.where(["name = :name and price < :price",{name: "老人與海", price: "1000"}])
-Book.where("name LIKE ?","%#{params[:bookname]}%") //部分匹配，抓取書籍名稱中與網頁參數部分相同者 
-{{< /codeblock >}}
+Book.where("name LIKE ?","%#{params[:bookname]}%") //部分匹配，抓取書籍名稱中與網頁參數部分相同者
+```
 以下指令可以解決Ruby迴圈執行效率太低的問題：
 - `count`：回傳資料總數
 - `average()`：回傳該欄位資料的平均
 - `sum()`：回傳該欄位資料的總和
 - `maximum()`：回傳全部資料中該欄位的最大值
 - `minimum()`：回傳全部資料中該欄位的最小值
-{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+```ruby
 Book.count
 Book.sum(:price)
 Book.average(:price)
 Book.maximum(:price)
 Book.minimum(:price)
-{{< /codeblock >}}
+```
 
 ## Update
 - `save`：儲存資料到資料庫中
@@ -89,7 +87,7 @@ Book.minimum(:price)
 - `update_all()`：更新全部資料（謹慎使用!）
 - `increment & decrement`：新增或減少1
 - `toggle`：切換boolean值
-{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+```ruby
 b2 = Book.find(2)
 b2.name = "Finance"
 b2.save
@@ -100,18 +98,18 @@ Book.update_all(price: 1)
 b2.increment(:price).save // 單價+1
 b2.decrement(:price).save // 單價-1
 
-b2.toggle(:is_online).save 
-{{< /codeblock >}}
+b2.toggle(:is_online).save
+```
 
 ## Delete
 - `delete`：刪除資料
 - `destroy`：刪除資料，會經歷Callback
 - `destroy_all()`：刪除符合條件的資料
-{{< codeblock "archives.rb" "ruby" "http://underscorejs.org/#compact" "archives.rb" >}}
+```ruby
 b1 = Book.first
 b1.destroy
 b1.delete
 
 Book.delete(1)
 Book.destroy_all("price < 400")
-{{< /codeblock >}}
+```

@@ -1,57 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rails on Hsuan&#39;s Coding Blog</title>
     <link>https://hsuanblog.live/categories/rails/</link>
     <description>Recent content in Rails on Hsuan&#39;s Coding Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hsuanblog.live/categories/rails/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Hsuan&#39;s Coding Blog</title>
+      <url>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hsuanblog.live/categories/rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rails Polymorphic</title>
-      <link>https://hsuanblog.live/2023/10/rails-polymorphic/</link>
+      <link>https://hsuanblog.live/posts/rails-polymorphic/</link>
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/10/rails-polymorphic/</guid>
-      <description>&lt;p&gt;如何使用 Polymorphic Associations 多型關聯&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails-polymorphic/</guid>
+      <description>如何使用 Polymorphic Associations 多型關聯。
+1. 使用情境 想像你正在設計「評論」功能的資料庫架構，使用者可以在幾乎任何地方留下評論，例如產品、貼文、活動等，此時你會想到使用一對多關係，為這三個 Model 設計出ProductComment、PostComment、EventComment，但此時你發現這三個資料表的欄位幾乎一模一樣，如果分成三個 Model 顯得相當冗餘，此種情景就相當適合使用Polymorphic 多型關聯來簡化資料庫的設計，使用Polymophic可以使模型在同一個關聯上屬於多個模型。
+2. 使用方法 同樣以Comment這個model舉例，建立Polymorphic model的指令： rails g model Comment content:text commentable:references{polymorphic}
+觀察一下產生的 migration 檔：
+# 產生的migration檔案，references版本 class CreateComments &amp;lt; ActiveRecord::Migration[7.0] def change create_table :comments do |t| t.text :content t.references :commentable, polymorphic: true, null: false t.timestamps end end end # 產生的migration檔案，較複雜的版本 class CreateComments &amp;lt; ActiveRecord::Migration[7.0] def change create_table :comments do |t| t.string :name t.bigint :commentable_id t.string :commentable_type t.timestamps end add_index :comments, [:commentable_type, :commentable_id] end end 接著執行rails db:migrate在資料庫產生資料表與更新schema。</description>
     </item>
-    
     <item>
       <title>Rails N&#43;1問題 with joins, includes, preload and eager_load</title>
-      <link>https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</link>
+      <link>https://hsuanblog.live/posts/rails-includes-joins-preload-eager_load/</link>
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/06/rails-n-1%E5%95%8F%E9%A1%8C-with-joins-includes-preload-and-eager_load/</guid>
-      <description>&lt;p&gt;資料庫的操作是影響網站效能的重要因素，而在存取資料時幾乎一定會遇到 N+1 問題。本篇文章將簡要探討 includes 的使用時機，以及與其相似的 preload 和 eager_load 方法。此外，我們還會介紹在處理多表格操作時常用的 joins。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails-includes-joins-preload-eager_load/</guid>
+      <description>資料庫的操作是影響網站效能的重要因素，而在存取資料時幾乎一定會遇到 N+1 問題。本篇文章將簡要探討 includes 的使用時機，以及與其相似的 preload 和 eager_load 方法。此外，我們還會介紹在處理多表格操作時常用的 joins。
+1. 造成 N+1 問題的原因 我們先想像一個情境，你正在開發商家的訂單系統，其中有兩個 Model，分別是Customer與Order，Customer記載顧客資料，並且每個顧客擁有多筆訂單Order # customer.rb class Customer &amp;lt; ApplicationRecord has_many :orders end # order.rb class Order &amp;lt; ApplicationRecord belongs_to :customer end 現在我們想要呈現4位顧客的個人資訊以及他們各自的所有訂單，你可能會這樣寫： Customer.limit(4).each{|customer| puts customer.orders} Rails ORM 產生的 SQL 指令如下：
+SELECT &amp;#39;customers&amp;#39;.* FROM &amp;#39;customers&amp;#39; LIMIT 4 SELECT &amp;#39;orders&amp;#39;.* FROM &amp;#39;orders&amp;#39; WHERE &amp;#39;orders&amp;#39;.&amp;#39;customer_id&amp;#39;=1 SELECT &amp;#39;orders&amp;#39;.* FROM &amp;#39;orders&amp;#39; WHERE &amp;#39;orders&amp;#39;.&amp;#39;customer_id&amp;#39;=2 SELECT &amp;#39;orders&amp;#39;.* FROM &amp;#39;orders&amp;#39; WHERE &amp;#39;orders&amp;#39;.&amp;#39;customer_id&amp;#39;=3 SELECT &amp;#39;orders&amp;#39;.* FROM &amp;#39;orders&amp;#39; WHERE &amp;#39;orders&amp;#39;.</description>
     </item>
-    
     <item>
       <title>Rails 基礎 ORM 的 SQL 語法</title>
-      <link>https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</link>
+      <link>https://hsuanblog.live/posts/rails-%E5%9F%BA%E7%A4%8E-orm-%E5%B0%8D%E6%87%89%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/06/rails-%E5%9F%BA%E7%A4%8E-orm-%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
-      <description>&lt;p&gt;儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。
-較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails-%E5%9F%BA%E7%A4%8E-orm-%E5%B0%8D%E6%87%89%E7%9A%84-sql-%E8%AA%9E%E6%B3%95/</guid>
+      <description>儘管Rails開發者可以透過 ActiveRecord 簡單地操作資料庫資源，但仍然需要了解基本的 SQL 語法。以下是常見 ORM 指令的翻譯，可以幫助你真正理解背後的運作原理。 較複雜的資料庫關係語法（例如：includes、join）將不在條列於本文中，我們將在另一篇文章中探討這些內容。
+Create create: 使用 create 創建資料，或透過 new 產生物件之後再使用 save，以上狀況所產生的SQL語法如下。 Book.create(name: &amp;#34;學習Rails&amp;#34;, author: &amp;#34;Eddie&amp;#34;, intro: &amp;#34;學習Rails好幫手&amp;#34;, price: 100) or Book.new(name: &amp;#34;學習Rails&amp;#34;, author: &amp;#34;Eddie&amp;#34;, intro: &amp;#34;學習Rails好幫手&amp;#34;, price: 100) Book.save INSERT INTO books(name, author, intro, price, updated_at) VALUES (&amp;#39;學習Rails&amp;#39;, &amp;#39;Eddie&amp;#39;, &amp;#39;學習Rails好幫手&amp;#39;, 100, &amp;#39;2023...&amp;#39;) Read all: Book.all SELECT * FROM books select or pluck: select 和 pluck 最終得到的資料形式不同，這裡不多做討論，只要知道Rails進一步的處理是在從資料庫抓取資料後，兩者前期的SQL語法沒有不同 Book.select(&amp;#34;name&amp;#34;) Book.pluck(&amp;#34;name&amp;#34;) SELECT name FROM books limit or offset: Book.</description>
     </item>
-    
     <item>
       <title>Rails 使用 PostgreSQL</title>
-      <link>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</link>
+      <link>https://hsuanblog.live/posts/rails%E4%B8%AD%E4%BD%BF%E7%94%A8postgresql/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/04/rails-%E4%BD%BF%E7%94%A8-postgresql/</guid>
-      <description>&lt;p&gt;Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 &lt;strong&gt;PostgreSQL&lt;/strong&gt;，可參照此說明筆記進行操作。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails%E4%B8%AD%E4%BD%BF%E7%94%A8postgresql/</guid>
+      <description>Rails 預設的資料庫是 Sqlite，如欲使用較為專業的開源資料庫 PostgreSQL，可參照此說明筆記進行操作。
+安裝 PostgreSQL on Mac 使用 Homebrew 套件管理工具安裝： $ brew install postgresql（預設安裝 postgreSQL v14） 安裝後重新啟動$ brew services restart postgresql 重新啟動 Terminal 查看版本$ postgres --version或$ psql --version 在 Rails 專案建立 PostgreSQL 資料庫 Pre-requisites： 確認已經在本機中安裝 PostgreSQL 本機中必須保持運行 PostgreSQL，可透過$ brew service list查看運行狀況。 postgresql@14 started hsuan ~/Library/LaunchAgents/homebrew.mxcl.postgresql@14.plist 如果 PostgreSQL 沒有於背景運行，可見以下相關啟動 PostgreSQL 的操作指令：
+方法一使用 psql 手動啟動和停止 PostgreSQL，每次需要輸入相應的指令(較不推薦)。 psql -D /usr/local/var/postgres start psql -D /usr/local/var/postgres stop 方法二使用 Homebrew 服務管理工具啟動和停止 PostgreSQL。此方法將 PostgreSQL 服務作為系統常駐運行的服務，可在在系統啟動後自動啟動(推薦)。 $ brew services start postgresql $ brew services stop postgresql $ brew services restart postgresql Step1：安裝 pg gem 方法 1：建立新專案時就選擇使用 PostgreSQL：$ rails new myapp --database=postgresql 方法 2：單純 new 新專案，接著安裝 pg gem： $ bundle add pg+$ bundle install 方法 1 較為推薦，可以讓 rails 自動幫妳生成相關設定，如果是使用方法 2，則要將原先在 Gemfile 中的gem sqlite3手動移除，只保留gem pg（通常一個專案僅需要一個資料庫） Step2：設定資料庫 adapter 接著設定 Rails 專案的 config/database.</description>
     </item>
-    
     <item>
       <title>Rails ORM 常見的CRUD指令</title>
-      <link>https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</link>
+      <link>https://hsuanblog.live/posts/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</link>
       <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hsuanblog.live/2023/04/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</guid>
-      <description>&lt;p&gt;CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。&lt;/p&gt;</description>
+      <guid>https://hsuanblog.live/posts/rails-orm-%E5%B8%B8%E8%A6%8B%E7%9A%84crud%E6%8C%87%E4%BB%A4/</guid>
+      <description>CRUD = Create Read Update Delete是網站開發中的基本，在此筆記常用到的Rails CRUD指令。
+Create new：產生新資料，但不會存檔 create：產生新資料，會直接存檔 create!：與create相同，但過程中發生錯誤時會報錯 new_book = Book.new(name: &amp;#34;老人與海&amp;#34;, price: 300) new_book.save Book.create(name: &amp;#34;Les Misérables&amp;#34;, author: &amp;#34;Victor Hugo&amp;#34;) Read all：一次抓取所有資料 limit()：抓去特定數量資料 first &amp;amp; last：找到該資料類型中的第一筆 &amp;amp; 最後一筆資料 find_by(id: 1)：找到第一筆符合條件的資料，找不到會回傳nil find_by!(id: 1)：與find_by相同，但是找不到資料會報錯 find(1)：依據id找尋資料，找不到資料會報錯 select(&#39;name&#39;)：只抓出資料表中的特定欄位（資料表欄位太多時可以節省記憶體空間） where()：以陣列的形式回傳找到的多筆符合條件的資料，找不到回傳空矩陣 find_by_sql()：使用sql語法查詢（較少使用） order(&#39;price AESC&#39;)：依照遞增或遞減順序抓取所有資料 order(price: :aesc)：order的不同寫法 find_each：batch find寫法，預設先抓出1000筆資料，當資料量太多時使用 Book.all Book.limit(5) // 抓取前五筆資料 Book.offset(5).limit(5) // 抓取下五筆資料 Book.first Book.last Book.find(id: 10) Book.find_by(id: 10, author: &amp;#34;Victor Hugo&amp;#34;) // 依據多個條件尋找 and Book.find_by!(id: 9999) //報錯： in `find_by!&amp;#39;: Couldn&amp;#39;t find Book (ActiveRecord::RecordNotFound) Book.</description>
     </item>
-    
   </channel>
 </rss>
