@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 19 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://hsuanblog.live/tags/back-end/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Dockerize NestJS</title>
+      <link>https://hsuanblog.live/posts/nestdocker/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://hsuanblog.live/posts/nestdocker/</guid>
+      <description>This article provide a straightforward guide to dockerizing NestJS application for both develpoment and production environments.
+Dockerfile for Development First, let&amp;rsquo;s create a Dockerfile.dev for the development environment within our NestJS repository:
+# Dockerfile.dev FROM node:20-alpine WORKDIR /usr/src/app EXPOSE 3000 CMD [&amp;#34;npm&amp;#34;, &amp;#34;run&amp;#34;, &amp;#34;start:dev&amp;#34;] COPY package*.json ./ RUN npm install COPY . . In this Dockerfile, we specify the Node.js version along with the Alpine Linux distribution to minimize the image size.</description>
+    </item>
     <item>
       <title>Laravel 關聯 Model</title>
       <link>https://hsuanblog.live/posts/laravel-%E9%97%9C%E8%81%AF-model/</link>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on Hsuan&#39;s Coding Blog</title>
+    <link>https://hsuanblog.live/categories/docker/</link>
+    <description>Recent content in Docker on Hsuan&#39;s Coding Blog</description>
+    <image>
+      <title>Hsuan&#39;s Coding Blog</title>
+      <url>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://hsuanblog.live/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hsuanblog.live/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Dockerize NestJS</title>
+      <link>https://hsuanblog.live/posts/nestdocker/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://hsuanblog.live/posts/nestdocker/</guid>
+      <description>This article provide a straightforward guide to dockerizing NestJS application for both develpoment and production environments.
+Dockerfile for Development First, let&amp;rsquo;s create a Dockerfile.dev for the development environment within our NestJS repository:
+# Dockerfile.dev FROM node:20-alpine WORKDIR /usr/src/app EXPOSE 3000 CMD [&amp;#34;npm&amp;#34;, &amp;#34;run&amp;#34;, &amp;#34;start:dev&amp;#34;] COPY package*.json ./ RUN npm install COPY . . In this Dockerfile, we specify the Node.js version along with the Alpine Linux distribution to minimize the image size.</description>
+    </item>
+  </channel>
+</rss>
