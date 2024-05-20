@@ -43,7 +43,7 @@ $ docker images
 REPOSITORY                  TAG       IMAGE ID       CREATED              SIZE
 nest-dev                    latest    7105d40d77e3   About a minute ago   327MB
 ```
-Building this Docker image with the base image `node:w0-alpine` yields a size of 327MB, which is quite efficient. However, if we were to use `node:20` instead of `node:20-alpine` as the base image, the image size would increase significantly, up to 1.29GB.
+Building this Docker image with the base image `node:20-alpine` yields a size of 327MB, which is quite efficient. However, if we were to use `node:20` instead of `node:20-alpine` as the base image, the image size would increase significantly, up to 1.29GB.
 
 ## Dockerfile for Production
 Even though 327MB is relatively small, we can further optimize the image size for the production environment by removing unnecessary files and packages during the build process. Here's the `Dockerfile.prod` for production:
@@ -52,9 +52,7 @@ FROM node:20-alpine AS builder
 
 COPY . .
 
-RUN npm install && npm run build
-
-RUN npm install --prod
+RUN npm install && npm run build && npm install --prod
 
 FROM node:20-alpine
 
@@ -63,6 +61,8 @@ WORKDIR /usr/src/app
 COPY --from=builder /node_modules ./node_modules
 
 COPY --from=builder /dist ./dist
+
+COPY /.env ./.env
 
 EXPOSE 3000
 
