@@ -77,6 +77,6 @@ $ docker build -t nest-prod -f Dockerfile.prod .
 $ docker images
 REPOSITORY                  TAG       IMAGE ID       CREATED              SIZE
 nest-dev                    latest    7105d40d77e3   About a minute ago   327MB
-nest-prod                   latest    04f3894b4cf6   5 minutes ago        141MB
+nest-prod                   latest    04f3894b4cf6   About a minute ago   141MB
 ```
 As you can see, the production image size is half of the development version, resulting in reduced tranportation time and storage requirements.
