@@ -109,5 +109,5 @@ Comment.create(content: "nice product2", commentable_id: 2, commentable_type: "P
 ```
 
 
-references:
+References:
 - https://guides.rubyonrails.org/association_basics.html#polymorphic-associations

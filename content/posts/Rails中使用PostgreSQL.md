@@ -129,7 +129,7 @@ Type "help" for help.
 
 圖形界面軟體推薦：**Postico2**
 
-references:
+References:
 
 - https://medium.com/geekculture/ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25
 - https://www.stevenchang.tw/blog/2019/06/27/Install-PostgreSQL-in-Rails-Project

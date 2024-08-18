@@ -724,6 +724,6 @@ bindec("101100"); // binary to decimal
 ```
 
 
-## references
+## References
 - https://www.php.net/
 - https://www.w3schools.com/php/

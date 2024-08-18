@@ -118,7 +118,9 @@ FROM (
 )
 ```
 
-references:
+---
+
+References:
 - https://medium.com/@jinghua.shih/rails-activerecord-%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96-%E4%B8%8A-%E9%97%9C%E8%81%AF%E6%9F%A5%E8%A9%A2-75ca79f510b3ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25
 - https://medium.com/gusto-engineering/a-visual-guide-to-using-includes-in-rails-700a91cd3095
 - https://guides.rubyonrails.org/active_record_querying.html#group

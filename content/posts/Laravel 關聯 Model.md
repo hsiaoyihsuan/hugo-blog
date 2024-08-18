@@ -230,5 +230,5 @@ $a1->books;
 ```
 ---
 
-## references
+## References
 - https://laravel.com/docs/8.x/eloquent-relationships
