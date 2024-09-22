@@ -6,7 +6,6 @@ categories:
 tags:
   - Rails
   - Back-end
-  - PostgreSQL
   - SQL
 thumbnailImagePosition: left
 thumbnailImage: images/RailsLogo.png
