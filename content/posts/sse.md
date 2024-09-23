@@ -9,7 +9,7 @@ tags:
 thumbnailImagePosition: left
 thumbnailImage: images/javascript.svg
 ---
-Recently I have been using Server-Sent Events (SSE) to develop a feature where the server can notify the client at specific points in time. This articfle will   provide an easy explaintion of what SSE is, when to use it, and how to implement it on both the client and server sides.
+Recently I have been using Server-Sent Events (SSE) to develop a feature where the server can notify the client at specific points in time. This article will   provide an easy explaintion of what SSE is, when to use it, and how to implement it on both the client and server sides.
 
 ## 1. Introduction
 Imagine you need real-time updates on your website, such as displaying live stats from the server. While WebSocket might come to mind for creating bidirectional connection, that could be overkill if you only need one-way communication from server to client. This is where Server-Sent Events (SSE) become especially useful.
@@ -20,7 +20,7 @@ SSE allows the server to push updates to the client over HTTP, without the need 
 - Time-sensitive Data (e.g., stock price updates)
 - Monitoring Dashboards
 
-![SSE](/images/sse.png)
+![SSE](/images/sse2.png)
 
 ## 3. SSE Message Format
 SSE operates over HTTP and uses the **Content-Type: text/event-stream** header. Key message components include:
@@ -48,7 +48,7 @@ source.onerror = (error) => {
 	eventSource.close(); // Close the connection to stop retrying
 };
 ```
-Modern browsers s.pport SSE through the EventSource API. If your browser doesn't or you need to send custom headers (e.g., JWT authentication), consider using the eventsource-polyfill package:
+Modern browsers support SSE through the EventSource API. If your browser doesn't or you need to send custom headers (e.g., JWT authentication), consider using the eventsource-polyfill package:
 
 ```javascript
 import EventSource from "eventsource";
@@ -126,7 +126,7 @@ tcp46      0      0  *.3000                 *.*                    LISTEN
 ```
 
 ## Conclusion
-Server-Sent Events provide a simple, unidirectional method for streaming real-time updates from the server to the client over HTTP. It’s easier to implement compared to WebSockets, especially for scenarios where the server only needs to push updates.
+Server-Sent Events provide a simple, unidirectional method for streaming real-time updates from the server to the client over HTTP. It’s easier to implement compared to WebSocket, especially for scenarios where the server only needs to push updates.
 
 ---
 
