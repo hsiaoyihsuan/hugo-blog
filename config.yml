@@ -58,9 +58,14 @@ params:
     enabled: true
     title: YI-HSUAN HSIAO
     subtitle: |
-      Web software engineer in Taiwan🇹🇼
+      Web software engineer in Taiwan 🇹🇼
 
-      Hello! I'm Hsuan, a back-end software developer with expertise in Rails, Laravel, and Node.js. Currently, I contribute my skills as a back-end engineer at Trusted Solution.
+      Employed at Trusted Solution 💼
+
+      Hello! I'm Hsuan, a back-end software developer killed in Node.js, TypeScript, and AWS.
+
+      Welcome to my Coding Blog!
+
     imageUrl: "/images/hsuan-self.jpg"
     imageWidth: 120
     imageHeight: 120
