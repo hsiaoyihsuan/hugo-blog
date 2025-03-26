@@ -1,6 +1,6 @@
 baseURL: "https://hsuanblog.com/"
 title: "Hsuan's Coding Blog"
-paginate: 8
+paginate: 10
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -89,9 +89,9 @@ params:
     - name: github
       url: "https://github.com/Hsuan19971005"
     - name: linkedIn
-      url: "https://www.linkedin.com/in/hsuan-595697233"
+      url: "https://www.linkedin.com/in/yi-hsuan-hsiao-tw"
     - name: email
-      url: "mailto:g19971005@gmail.com"
+      url: "mailto:hsuan9705@gmail.com"
 
   # analytics:
   #   google:
