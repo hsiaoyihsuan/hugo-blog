@@ -15,7 +15,7 @@ Imagine you need to generate a large report file and store it in AWS S3. As a so
 
 ---
 
-## 2. Content
+## 2. 5 Benefits
 
 1. Minimize Memory Usage
 
@@ -41,7 +41,7 @@ Once a multipart upload is initiated, you can upload parts over time without wor
 
 ---
 
-## Conclusion
+## 3. Conclusion
 
 These are the 5 key benefits every software engineer should know about AWS S3 Multipart Upload. If you found this helpful, feel free to share your thoughts in the comments below!
 
