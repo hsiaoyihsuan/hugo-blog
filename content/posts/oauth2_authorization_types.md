@@ -2,9 +2,9 @@
 title: "4 OAuth2 Grant Types: Which One Should Developers Choose?"
 date: 2025-03-01
 categories:
-  - AWS
+  - OAuth2
 tags:
-  - AWS
+  - OAuth2
 thumbnailImagePosition: left
 thumbnailImage: images/oauth2_authorization_types.svg
 ---
@@ -13,9 +13,11 @@ thumbnailImage: images/oauth2_authorization_types.svg
 
 Are you confused about the type of OAuth2 you should be using? Or do you not even know that there are several grant types in the OAuth2 protocol? Here’s a quick guide to help you understand the differences between them and determine which one you should use.
 
+![4 OAuth2 Grant Types](/images/oauth2_authorization_types.svg)
+
 ---
 
-## 2. Content
+## 2. 4 Authorization Grant Types
 
 1. Authorization Code Grant
 
@@ -41,11 +43,9 @@ The **client credentials grant** is used for **server-to-server authentication**
 
 This grant type is **only suitable** for machine-to-machine communication.
 
-![4 OAuth2 Grant Types](/images/oauth2_authorization_types.svg)
-
 ---
 
-## Conclusion
+## 3. Conclusion
 
 OAuth2 offers four grant types. The authorization code grant remains the most secure and recommended option. The implicit grant is now considered obsolete due to security risks. The password credentials grant should only be used in legacy systems, while the client credentials grant is best suited for machine-to-machine communication.
 
