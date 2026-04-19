@@ -56,15 +56,11 @@ params:
   # profile-mode
   profileMode:
     enabled: true
-    title: YI-HSUAN HSIAO
+    title: Yi-Hsuan Hsiao
     subtitle: |
-      Web software engineer in Taiwan 🇹🇼
+      Backend Software Engineer | Node.js | AWS
 
-      Employed at Trusted Solution 💼
-
-      Hello! I'm Hsuan, a back-end software developer killed in Node.js, TypeScript, and AWS.
-
-      Welcome to my Coding Blog!
+      Employed at Trusted Solution Inc., Taiwan 🇹🇼
 
     imageUrl: "/images/hsuan-self.jpg"
     imageWidth: 120
