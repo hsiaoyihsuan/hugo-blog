@@ -5,8 +5,6 @@ categories:
   - Rails
 tags:
   - Rails
-  - Back-end
-  - Polymorphic
 thumbnailImagePosition: left
 thumbnailImage: images/RailsLogo.png
 ---

@@ -29,7 +29,7 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -60,7 +60,7 @@ params:
     subtitle: |
       Backend Software Engineer | Node.js | AWS
 
-      Employed at Trusted Solution Inc., Taiwan 🇹🇼
+      Employed at Trusted Solution Inc. Taiwan 🇹🇼
 
     imageUrl: "/images/hsuan-self.jpg"
     imageWidth: 120
@@ -129,7 +129,7 @@ menu:
       url: /posts/
       weight: 10
     - identifier: categories
-      name: categories
+      name: Categories
       url: /categories/
       weight: 20
     - identifier: tags

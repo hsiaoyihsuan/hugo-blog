@@ -3,9 +3,9 @@ title: "How to Dockerize NestJS"
 date: 2024-05-14
 categories:
   - Docker
-  - NodeJS
+  - Node.js
 tags:
-  - NodeJS
+  - Node.js
   - NestJS
   - Back-end
   - Docker
